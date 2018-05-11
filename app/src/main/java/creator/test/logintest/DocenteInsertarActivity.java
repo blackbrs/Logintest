@@ -1,12 +1,14 @@
 package creator.test.logintest;
 
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class DocenteInsertarActivity extends Activity {
+public class DocenteInsertarActivity extends AppCompatActivity {
 
     ControlBDHelper helper;
     EditText editNombre;
@@ -18,6 +20,7 @@ public class DocenteInsertarActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_docente_insertar);
         helper = new ControlBDHelper(this);
         editNombre = (EditText) findViewById(R.id.editNombre);
