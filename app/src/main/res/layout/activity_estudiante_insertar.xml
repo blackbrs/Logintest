@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
     android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
-    tools:context="creator.test.logintest.CrearUsuario">
+    tools:context="creator.test.logintest.EstudianteInsertarActivity">
 
     <TextView
         android:id="@+id/textView"

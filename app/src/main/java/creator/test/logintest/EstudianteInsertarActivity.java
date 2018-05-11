@@ -24,7 +24,7 @@ public class EstudianteInsertarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_docente_insertar);
+        setContentView(R.layout.activity_estudiante_insertar);
         helper = new ControlBDHelper(this);
         editNombreestu = (EditText) findViewById(R.id.nombre);
         editApellido = (EditText) findViewById(R.id.apellido);
