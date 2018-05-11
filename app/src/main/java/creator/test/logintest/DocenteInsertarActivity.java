@@ -16,9 +16,9 @@ public class DocenteInsertarActivity extends AppCompatActivity {
     EditText editDireccion;
     EditText editUser;
     EditText editClave;
-    String isDocente;
-    String isAdmin;
-    String isEstudiante;
+    boolean isDocente;
+    boolean isAdmin;
+    boolean isEstudiante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,10 @@ public class DocenteInsertarActivity extends AppCompatActivity {
         String dir = editDireccion.getText().toString();
         String clave = editClave.getText().toString();
         String regInsertados;
-        if (findViewById(R.id.isDocente).isSelected()){
-            isDocente = "1";
-            isEstudiante = "0";
-            isAdmin = "0";
+            isDocente = true;
+            isEstudiante = false;
+            isAdmin = false;
+
             Docente profesor=new Docente();
             profesor.setNomusuario(user);
             profesor.setNombdocente(nombre);
@@ -56,15 +56,14 @@ public class DocenteInsertarActivity extends AppCompatActivity {
             Usuario usuario1 = new Usuario();
             usuario1.setNomusuario(user);
             usuario1.setClave(clave);
-            usuario1.setAdmin(Boolean.valueOf(isAdmin));
-            usuario1.setDocente(Boolean.valueOf(isDocente));
-            usuario1.setEstudiante(Boolean.valueOf(isEstudiante));
+            usuario1.setAdmin(isAdmin);
+            usuario1.setDocente(isDocente);
+            usuario1.setEstudiante((isEstudiante));
             helper.abrir();
             regInsertados=helper.insertar(profesor);
             regInsertados=helper.insertar(usuario1);
             helper.cerrar();
             Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
-        }
     }
 
 

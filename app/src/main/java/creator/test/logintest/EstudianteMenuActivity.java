@@ -23,7 +23,6 @@ public class EstudianteMenuActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-
         String nombreValue = activities[position];
         try {
             Class<?> clase = Class.forName("creator.test.logintest." + nombreValue);

@@ -131,7 +131,7 @@
         android:textColor="@android:color/background_dark" />
 
     <EditText
-        android:id="@+id/Direccion"
+        android:id="@+id/direccion"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:layout_alignStart="@+id/textView7"
@@ -147,7 +147,7 @@
         android:id="@+id/CrearUsuaio"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Direccion"
+        android:layout_below="@+id/direccion"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
         android:background="@drawable/borde_redondo"

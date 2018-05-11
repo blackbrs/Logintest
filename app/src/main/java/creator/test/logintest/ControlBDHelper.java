@@ -275,11 +275,40 @@ public class ControlBDHelper {
         return regInsertados;
     }
 
+    public String insertar(Estudiante estudiante){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        // verificar que no exista docente
+        if(verificarIntegridad(estudiante,2))
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else
+        {
+            ContentValues est = new ContentValues();
+            est.put("nombdocente", estudiante.getNombreestu());
+            est.put("apelldocente", estudiante.getApellidoestu());
+            est.put("nomusuario",  estudiante.getNomusuario() );
+            est.put("correo", estudiante.getCorreoestu());
+            est.put("direccion", estudiante.getDireccionestu());
+            contador=db.insert("estudiante", null, est);
+            regInsertados=regInsertados+contador;
+        }
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
     public String insertar(Usuario us){
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
         // verificar que no exista usuario
-        if(verificarIntegridad(us,5))
+        if(verificarIntegridad(us,4))
         {
             regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
         }
@@ -288,7 +317,7 @@ public class ControlBDHelper {
             ContentValues us1 = new ContentValues();
             us1.put("nomusuario", us.getNomusuario());
             us1.put("clave",us.getClave());
-            us1.put("isadmin",us.getAdmin() );
+            us1.put("isadmin",us.getAdmin());
             us1.put("isdocente", us.getDocente());
             us1.put("isestudiante", us.getEstudiante());
             contador=db.insert("usuario", null, us1);
@@ -342,25 +371,16 @@ public class ControlBDHelper {
                 return true;
             }
             case 3: {
-               /* Docente docente = (Docente) dato;
-                Cursor c=db.query(true, "nota", new String[] {"carnet" }, "carnet='"+alumno.getCarnet()+"'",null, null, null, null, null);
-                if(c.moveToFirst())
+                Estudiante estudiante = (Estudiante) dato;
+                String[] id = {estudiante.getCarnet()};
+                abrir();
+                Cursor c2 = db.query("estudiante", null, "carnet = ?", id, null, null, null);
+                if(c2.moveToFirst()){
                     return true;
-                else
-                    return false;
-            }*/
-                return true;
+                }
+                return false;
             }
             case 4: {
-               /* Materia materia = (Materia)dato;
-                Cursor cmat=db.query(true, "nota", new String[] {"codmateria" }, "codmateria='"+materia.getCodmateria()+"'",null, null, null, null, null);
-                if(cmat.moveToFirst())
-                    return true;
-                else
-                    return false;
-            }*/
-                    //verificar que exista alumno
-
                 Usuario user = (Usuario) dato;
                 String[] id = {user.getNomusuario()};
                 abrir();
