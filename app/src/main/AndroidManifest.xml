@@ -16,7 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CrearUsuario"></activity>
+        <activity android:name=".CrearUsuario" />
+        <activity android:name=".MenuAdminActivity" />
+        <activity android:name=".EstudianteInsertarActivity" />
+        <activity android:name=".EstudianteEliminarActivity" />
+        <activity android:name=".EstudianteActualizarActivity" />
+        <activity android:name=".EstudianteConsultarActivity" />
+        <activity android:name=".EstudianteMenuActivity" />
+        <activity android:name=".DocenteMenuActivity" />
+        <activity android:name=".DocenteInsertarActivity" />
+        <activity android:name=".DocenteEliminarActivity" />
+        <activity android:name=".DocenteActualizarActivity" />
+        <activity android:name=".DocenteConsultarActivity"></activity>
     </application>
 
 </manifest>

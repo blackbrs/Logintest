@@ -63,6 +63,7 @@
         android:layout_below="@+id/contra"
         android:layout_marginTop="48dp"
         android:background="@drawable/borde_redondo"
+        android:onClick="ingresar"
         android:text="Iniciar Sesion" />
 
     <Button
