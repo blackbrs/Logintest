@@ -49,6 +49,7 @@ public class EstudianteInsertarActivity extends AppCompatActivity {
 
         Estudiante est1 = new Estudiante();
         est1.setNomusuario(user);
+        est1.setCarnet(user);
         est1.setNombreestu(nombre);
         est1.setApellidoestu(apellido);
         est1.setDireccionestu(dir);

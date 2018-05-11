@@ -54,7 +54,7 @@ public class ControlBDHelper {
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        private static final String BASE_DATOS = "appTest.s3db";
+        private static final String BASE_DATOS = "appTest1.s3db";
         private static final int VERSION = 1;
 
         public DatabaseHelper(Context context) {
@@ -279,19 +279,20 @@ public class ControlBDHelper {
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
         // verificar que no exista docente
-        if(verificarIntegridad(estudiante,2))
+        if(verificarIntegridad(estudiante,3))
         {
             regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
         }
         else
         {
-            ContentValues est = new ContentValues();
-            est.put("nombdocente", estudiante.getNombreestu());
-            est.put("apelldocente", estudiante.getApellidoestu());
-            est.put("nomusuario",  estudiante.getNomusuario() );
-            est.put("correo", estudiante.getCorreoestu());
-            est.put("direccion", estudiante.getDireccionestu());
-            contador=db.insert("estudiante", null, est);
+            ContentValues estudiantes = new ContentValues();
+            estudiantes.put("carnet", estudiante.getCarnet());
+            estudiantes.put("nombreestu", estudiante.getNombreestu());
+            estudiantes.put("apellidoestu", estudiante.getApellidoestu());
+            estudiantes.put("correoestu", estudiante.getCorreoestu());
+            estudiantes.put("direccionestu", estudiante.getDireccionestu());
+            estudiantes.put("nomusuario",  estudiante.getNomusuario() );
+            contador=db.insert("estudiante", null, estudiantes);
             regInsertados=regInsertados+contador;
         }
         if(contador==-1 || contador==0)
@@ -372,9 +373,9 @@ public class ControlBDHelper {
             }
             case 3: {
                 Estudiante estudiante = (Estudiante) dato;
-                String[] id = {estudiante.getCarnet()};
+                String[] id = {estudiante.getNomusuario()};
                 abrir();
-                Cursor c2 = db.query("estudiante", null, "carnet = ?", id, null, null, null);
+                Cursor c2 = db.query("estudiante", null, "nomusuario = ?", id, null, null, null);
                 if(c2.moveToFirst()){
                     return true;
                 }
