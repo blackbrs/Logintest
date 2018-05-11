@@ -22,6 +22,9 @@ public class Estudiante {
         this.direccionestu = direccionestu;
         this.nomusuario = nomusuario;
     }
+    public Estudiante(){
+
+    }
 
     public String getCarnet() {
         return carnet;

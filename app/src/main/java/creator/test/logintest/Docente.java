@@ -22,6 +22,10 @@ public class Docente {
         this.nomusuario = nomusuario;
     }
 
+    public Docente(){
+
+    }
+
     public String getNombdocente() {
         return nombdocente;
     }
