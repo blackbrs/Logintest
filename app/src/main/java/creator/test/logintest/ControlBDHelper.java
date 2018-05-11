@@ -3,6 +3,7 @@ package creator.test.logintest;
  * Created by Mego on 5/10/2018.
  */
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -243,4 +244,159 @@ public class ControlBDHelper {
 
 
 
+
+
+    public String insertar(Docente docente){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        // verificar que no exista docente
+        if(verificarIntegridad(docente,5))
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else
+        {
+            ContentValues docen = new ContentValues();
+            docen.put("nombdocente", docente.getNombdocente());
+            docen.put("apelldocente", docente.getApelldocente());
+            docen.put("nomusuario",docente.getNomusuario() );
+            docen.put("correo", docente.getCorreo());
+            docen.put("direccion", docente.getDireccion());
+            contador=db.insert("docente", null, docen);
+            regInsertados=regInsertados+contador;
+        }
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public String insertar(Usuario us){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        // verificar que no exista usuario
+        if(verificarIntegridad(us,5))
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else
+        {
+            ContentValues us1 = new ContentValues();
+            us1.put("nomusuario", us.getNomusuario());
+            us1.put("clave",us.getClave());
+            us1.put("isadmin",us.getAdmin() );
+            us1.put("isdocente", us.getDocente());
+            us1.put("isestudiante", us.getEstudiante());
+            contador=db.insert("usuario", null, us1);
+            regInsertados=regInsertados+contador;
+        }
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+
+
+
+    private boolean verificarIntegridad(Object dato, int relacion) throws
+            SQLException{
+        switch(relacion){
+            case 1:
+            {
+               /* //verificar que al insertar nota exista carnet del alumno y el codigo de materia
+                Nota nota = (Nota)dato;
+                String[] id1 = {nota.getCarnet()};
+                String[] id2 = {nota.getCodmateria()};
+                abrir();
+                Cursor cursor1 = db.query("alumno", null, "carnet = ?", id1, null,null, null);
+                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,null, null, null);
+                if(cursor2.moveToFirst() && cursor1.moveToFirst()){
+                    //Se encontraron datos ||
+                    return true;
+                }
+                return false;
+            }*/
+               return true;
+            }
+            case 2: {
+                /*//verificar que al modificar nota exista carnet del alumno, el codigo de materia y el ciclo
+                //Nota nota1 = (Nota)dato;
+                String[] ids = {nota1.getCarnet(), nota1.getCodmateria(), nota1.getCiclo()};
+                abrir();
+                Cursor c = db.query("nota", null, "carnet = ? AND codmateria = ? AND ciclo = ?", ids, null, null, null);
+                if(c.moveToFirst()){
+                    //Se encontraron datos
+                    return true;
+                }
+                return false;
+            }*/
+                return true;
+            }
+            case 3: {
+               /* Docente docente = (Docente) dato;
+                Cursor c=db.query(true, "nota", new String[] {"carnet" }, "carnet='"+alumno.getCarnet()+"'",null, null, null, null, null);
+                if(c.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }*/
+                return true;
+            }
+            case 4: {
+               /* Materia materia = (Materia)dato;
+                Cursor cmat=db.query(true, "nota", new String[] {"codmateria" }, "codmateria='"+materia.getCodmateria()+"'",null, null, null, null, null);
+                if(cmat.moveToFirst())
+                    return true;
+                else
+                    return false;
+            }*/
+                    //verificar que exista alumno
+
+                Usuario user = (Usuario) dato;
+                String[] id = {user.getNomusuario()};
+                abrir();
+                Cursor c2 = db.query("usuario", null, "nomusuario = ?", id, null, null, null);
+                if(c2.moveToFirst()){
+                    return true;
+                }
+                return false;
+            }
+            case 5:
+            {
+                //verificar que exista alumno
+                Docente docente = (Docente) dato;
+                String[] id = {docente.getNomusuario()};
+                abrir();
+                Cursor c2 = db.query("docente", null, "nomusuario = ?", id, null, null, null);
+                if(c2.moveToFirst()){
+                    return true;
+                }
+                return false;
+            }
+            case 6:
+            {
+                /*//verificar que exista Materia
+                Materia materia2 = (Materia)dato;
+                String[] idm = {materia2.getCodmateria()};
+                abrir();
+                Cursor cm = db.query("materia", null, "codmateria = ?", idm, null, null, null);
+                if(cm.moveToFirst()){
+                    //Se encontro Materia
+                    return true;
+                }*/
+                return false;
+            }
+            default:
+                return false;
+        }
+    }
 }
