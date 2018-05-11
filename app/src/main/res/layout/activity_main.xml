@@ -74,7 +74,8 @@
         android:layout_below="@+id/iniciarsesion"
         android:layout_marginTop="52dp"
         android:background="@drawable/borde_redondo"
-        android:text="Registrar Usuario" />
+        android:text="Registrar Usuario"
+        android:onClick="onClick"/>
 
 
 </RelativeLayout>
