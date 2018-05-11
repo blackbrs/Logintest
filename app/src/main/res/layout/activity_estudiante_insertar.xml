@@ -134,17 +134,6 @@
         android:textSize="12sp"
         android:textStyle="italic" />
 
-    <Button
-        android:id="@+id/CrearUsuaio"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="51dp"
-        android:layout_toEndOf="@+id/textView6"
-        android:background="@drawable/borde_redondo"
-        android:text="Crear Usuario"
-        android:textSize="10sp" />
-
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -152,7 +141,8 @@
         android:layout_below="@+id/editClave"
         android:layout_marginTop="31dp"
         android:text="Estudiante"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@android:color/background_dark"
+        android:id="@+id/radioButton" />
 
     <TextView
         android:id="@+id/textView14"
@@ -176,4 +166,16 @@
         android:textAlignment="center"
         android:textSize="12sp"
         android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/CrearUsuaio"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="51dp"
+        android:layout_toEndOf="@+id/textView6"
+        android:background="@drawable/borde_redondo"
+        android:text="Crear Usuario"
+        android:textSize="10sp"
+        android:onClick="insertarEstudiante"/>
 </RelativeLayout>
