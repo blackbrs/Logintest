@@ -140,6 +140,7 @@
         android:layout_below="@+id/editDireccion"
         android:text="Contraseña"
         android:textColor="@android:color/background_dark" />
+<<<<<<< HEAD
 
     <EditText
         android:id="@+id/editClave"
@@ -151,4 +152,6 @@
         android:inputType="textPassword"
         android:textSize="12sp" />
 
+=======
+>>>>>>> afbbb9db47f8d243c674c110af28d0b29e8fda87
 </RelativeLayout>
