@@ -8,25 +8,27 @@ import android.widget.Toast;
 
 public class DocenteEliminarActivity extends AppCompatActivity {
 
-    EditText editUser;
+    EditText editDocente;
     ControlBDHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_docente_eliminar);
-        editUser=(EditText) findViewById(R.id.editUsuario);
+        helper = new ControlBDHelper(this);
+        editDocente=(EditText) findViewById(R.id.editUsuario);
     }
 
 
     public void eliminarDocente(View v){
-        String regEliminados;
-        String nomusuario=editUser.getText().toString();
-        Docente docente = new Docente();
-        docente.setNomusuario(nomusuario);
+        String regAfectados;
+        String user=editDocente.getText().toString();
+        Docente profesor=new Docente();
+        profesor.setNomusuario(user);
+
         helper.abrir();
-        regEliminados=helper.eliminar(docente);
+        regAfectados=helper.eliminar(profesor);
         helper.cerrar();
-        Toast.makeText(this,regEliminados,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, regAfectados, Toast.LENGTH_SHORT).show();
     }
 }

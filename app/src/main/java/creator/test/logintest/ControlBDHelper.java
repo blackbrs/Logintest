@@ -298,7 +298,7 @@ public class ControlBDHelper {
         int auxid=0;
         if(verificarIntegridad(docente, 5)) {
             System.out.println("ENTRO A LA VERIFICACION DE INTEGRIDAD");
-            Cursor cursorId= db.rawQuery("SELECT idusuario FROM docente WHERE nomusuario='"+docente.getNomusuario()+"'",null);
+            Cursor cursorId= db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='"+docente.getNomusuario()+"'",null);
             if(cursorId.moveToFirst()){
                 System.out.println(auxid);
                 auxid=cursorId.getInt(0);
