@@ -27,7 +27,10 @@
         <activity android:name=".DocenteInsertarActivity" />
         <activity android:name=".DocenteEliminarActivity" />
         <activity android:name=".DocenteActualizarActivity" />
-        <activity android:name=".DocenteConsultarActivity"></activity>
+        <activity android:name=".DocenteConsultarActivity" />
+        <activity android:name=".OfertaAcademicaMenuActivity" />
+        <activity android:name=".MateriaMenuActivity" />
+        <activity android:name=".CicloMenuActivity"></activity>
     </application>
 
 </manifest>
