@@ -473,9 +473,9 @@ public class ControlBDHelper {
             }
             case 3: {
                 Estudiante estudiante = (Estudiante) dato;
-                String[] id = {estudiante.getNomusuario()};
+                String[] id = {estudiante.getCarnet()};
                 abrir();
-                Cursor c2 = db.query("estudiante", null, "nomusuario = ?", id, null, null, null);
+                Cursor c2 = db.query("estudiante", null, "carnet = ?", id, null, null, null);
                 if(c2.moveToFirst()){
                     return true;
                 }
