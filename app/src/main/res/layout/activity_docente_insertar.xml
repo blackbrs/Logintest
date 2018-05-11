@@ -41,13 +41,13 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editNombre"
+        android:layout_alignStart="@+id/editName"
         android:layout_below="@+id/editUser"
         android:text="nombre"
         android:textColor="@android:color/background_dark" />
 
     <EditText
-        android:id="@+id/editNombre"
+        android:id="@+id/editName"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:layout_alignStart="@+id/textView11"
@@ -60,13 +60,13 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editApellido"
-        android:layout_below="@+id/editNombre"
+        android:layout_alignStart="@+id/editLast"
+        android:layout_below="@+id/editName"
         android:text="Apellido"
         android:textColor="@android:color/background_dark" />
 
     <EditText
-        android:id="@+id/editApellido"
+        android:id="@+id/editLast"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:layout_alignStart="@+id/textView12"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editCorreo"
-        android:layout_below="@+id/editApellido"
+        android:layout_below="@+id/editLast"
         android:text="Correo"
         android:textColor="@android:color/background_dark" />
 

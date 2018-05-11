@@ -313,6 +313,20 @@ public class ControlBDHelper {
         }
         return regAfectados;
     }
+    public Docente consultarDocente(String usuario){
+        String[] id = {usuario};
+        Cursor cursor = db.query("docente", camposDocente, "nomusuario = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Docente profe = new Docente();
+            profe.setNombdocente(cursor.getString(0));
+            profe.setApelldocente(cursor.getString(1));
+            profe.setCorreo(cursor.getString(2));
+            profe.setDireccion(cursor.getString(3));
+            return profe;
+        }else{
+            return null;
+        }
+    }
 
 
 
@@ -416,6 +430,8 @@ public class ControlBDHelper {
         if(contador==-1 || contador==0)
         {
             regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+
+
         }
         else {
             regInsertados=regInsertados+contador;
