@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context="creator.test.logintest.DocenteEliminarActivity">
 
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuario"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <EditText
+        android:id="@+id/editUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="32dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="eliminarDocente"
+        android:text="Eliminar Docente"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="104dp" />
 </android.support.constraint.ConstraintLayout>

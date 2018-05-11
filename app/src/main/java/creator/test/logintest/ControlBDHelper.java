@@ -54,7 +54,7 @@ public class ControlBDHelper {
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
-        private static final String BASE_DATOS = "appTest1.s3db";
+        private static final String BASE_DATOS = "appTest.s3db";
         private static final int VERSION = 1;
 
         public DatabaseHelper(Context context) {
@@ -186,6 +186,7 @@ public class ControlBDHelper {
                         "CONSTRAINT fk_carnet FOREIGN KEY (carnet) REFERENCES estudiante(carnet) ON DELETE RESTRICT,\n" +
                         "CONSTRAINT fk_iddetallepreg FOREIGN KEY (iddetallepreg) REFERENCES detallePregunta(iddetallepreg) ON DELETE RESTRICT)");
 
+
                 db.execSQL("INSERT INTO usuario VALUES('admin','administrador',1,0,0)");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -246,6 +247,20 @@ public class ControlBDHelper {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public String insertar(Docente docente){
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
@@ -274,6 +289,49 @@ public class ControlBDHelper {
         }
         return regInsertados;
     }
+
+
+    public String eliminar(Docente docente){
+        System.out.println("ENTRO AL METODO ELIMINAR EN LA CONEXION");
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        int auxid=0;
+        if(verificarIntegridad(docente, 5)) {
+            System.out.println("ENTRO A LA VERIFICACION DE INTEGRIDAD");
+            Cursor cursorId= db.rawQuery("SELECT idusuario FROM docente WHERE nomusuario='"+docente.getNomusuario()+"'",null);
+            if(cursorId.moveToFirst()){
+                System.out.println(auxid);
+                auxid=cursorId.getInt(0);
+                System.out.println(auxid);
+            }
+            db.delete("ofertaAcademica","iddocente="+auxid,null);
+            db.delete("usuario", "nomusuario='"+docente.getNomusuario()+"'",null);
+            db.delete("docente", "nomusuario='" +docente.getNomusuario()+"'",null);
+            regAfectados+=contador;
+        } else {
+            return "Registro con Usuario " + docente.getNomusuario() + " no existe";
+        }
+        return regAfectados;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public String insertar(Estudiante estudiante){
         String regInsertados="Registro Insertado Nº= ";
@@ -304,6 +362,37 @@ public class ControlBDHelper {
         }
         return regInsertados;
     }
+
+    public String eliminar(Estudiante estudiante){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        if(verificarIntegridad(estudiante, 3)) {
+            db.delete("detalleEstudiante","carnet='"+estudiante.getCarnet()+"'",null);
+            db.delete("respuesta", "carnet='" +estudiante.getCarnet()+"'",null);
+            db.delete("usuario", "nomusuario='"+estudiante.getCarnet()+"'",null);
+            contador+=db.delete("estudiante", "carnet='"+estudiante.getCarnet()+"'", null);
+            regAfectados+=contador;
+        } else {
+            return "Registro con carnet " + estudiante.getCarnet() + " no existe";
+        }
+        return regAfectados;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public String insertar(Usuario us){
         String regInsertados="Registro Insertado Nº= ";
@@ -337,6 +426,9 @@ public class ControlBDHelper {
 
 
 
+
+
+
     private boolean verificarIntegridad(Object dato, int relacion) throws
             SQLException{
         switch(relacion){
@@ -355,7 +447,15 @@ public class ControlBDHelper {
                 }
                 return false;
             }*/
-               return true;
+               Estudiante estud = (Estudiante) dato;
+               String[] id1= {estud.getCarnet()};
+               abrir();
+               Cursor cursor1 = db.query("estudiante",null,"carnet = ?",id1,null,null,null,null);
+               if (cursor1.moveToFirst()){
+                   return true;
+               }
+               return false;
+
             }
             case 2: {
                 /*//verificar que al modificar nota exista carnet del alumno, el codigo de materia y el ciclo
