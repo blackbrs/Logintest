@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +10,11 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/editUsuario"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:text="Usuario"
+        android:textColor="@android:color/background_dark"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="5dp" />
 
@@ -18,6 +22,9 @@
         android:id="@+id/editUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp"
         android:ems="10"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="7dp"
@@ -25,10 +32,14 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="275dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="159dp"
+        android:background="@drawable/borde_redondo"
         android:onClick="eliminarDocente"
         android:text="Eliminar Docente"
         tools:layout_editor_absoluteX="115dp"
         tools:layout_editor_absoluteY="104dp" />
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
