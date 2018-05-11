@@ -18,6 +18,7 @@ public class DocenteMenuActivity extends ListActivity {
         ListView listView = getListView();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, menu);
         setListAdapter(adapter);
+
     }
 
     @Override
