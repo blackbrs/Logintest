@@ -328,6 +328,23 @@ public class ControlBDHelper {
         }
     }
 
+    public String actualizar(Docente docente){
+        //Si existe
+        if(verificarIntegridad(docente, 5)){
+            String[] id = {docente.getNomusuario()};
+            ContentValues cv = new ContentValues();
+            cv.put("nombdocente", docente.getNombdocente());
+            cv.put("apelldocente", docente.getApelldocente());
+            cv.put("correo", docente.getCorreo());
+            cv.put("direccion",docente.getDireccion());
+            System.out.println(docente.getNomusuario());
+            db.update("docente", cv, "nomusuario = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con Usuario " + docente.getNomusuario() + " no existe";
+        }
+    }
+
 
 
 
@@ -408,6 +425,23 @@ public class ControlBDHelper {
         }
     }
 
+    public String actualizar(Estudiante estudiante){
+        //Si existe
+        if(verificarIntegridad(estudiante, 3)){
+            String[] id = {estudiante.getCarnet()};
+            ContentValues cv = new ContentValues();
+            cv.put("carnet",estudiante.getCarnet());
+            cv.put("nombreestu", estudiante.getNombreestu());
+            cv.put("apellidoestu", estudiante.getApellidoestu());
+            cv.put("correoestu", estudiante.getCorreoestu());
+            cv.put("direccionestu",estudiante.getDireccionestu());
+            cv.put("nomusuario", estudiante.getNomusuario());
+            db.update("estudiante", cv, "carnet = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con Usuario " + estudiante.getNombreestu() + " no existe";
+        }
+    }
 
 
 

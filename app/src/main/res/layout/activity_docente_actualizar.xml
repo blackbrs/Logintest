@@ -1,9 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="creator.test.logintest.DocenteActualizarActivity">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dip"
+    android:stretchColumns="1" >
+    <TableRow>
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:text="Usuario"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editarUsuario"
+            android:inputType="text"
+            android:maxLength="50" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:text="Nombre"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editarNombre"
+            android:inputType="text"
+            android:maxLength="30" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:text="Apellido"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editarApellido"
+            android:inputType="text"
+            android:maxLength="30" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:text="Correo"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editarCorreo"
+            android:inputType="text"
+            android:maxLength="100" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:text="Direccion"
+            android:textColor="@android:color/background_dark" />
+        <EditText
+            android:id="@+id/editarDireccion"
+            android:inputType="text"
+            android:maxLength="100" />
+    </TableRow>
+    <TableRow>
+
+        <Button
+            android:onClick="actualizarDocente"
+            android:background="@drawable/borde_redondo"
+            android:text="Actualizar" />
+    </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/borde_redondo"
+            android:onClick="limpiarTexto"
+            android:text="Limpiar" />
+    </TableRow>
+</TableLayout>
