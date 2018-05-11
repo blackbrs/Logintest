@@ -26,8 +26,8 @@ public class DocenteInsertarActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_docente_insertar);
         helper = new ControlBDHelper(this);
-        editNombre = (EditText) findViewById(R.id.editName);
-        editApellido = (EditText) findViewById(R.id.editLast);
+        editNombre = (EditText) findViewById(R.id.editNombreEstu);
+        editApellido = (EditText) findViewById(R.id.editApellidoEstu);
         editCorreo = (EditText) findViewById(R.id.editCorreo);
         editDireccion = (EditText) findViewById(R.id.editDireccion);
         editUser = (EditText) findViewById(R.id.editUser);

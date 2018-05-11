@@ -392,6 +392,21 @@ public class ControlBDHelper {
         return regAfectados;
     }
 
+    public Estudiante consultarEstudiante(String carnet){
+        String[] id = {carnet};
+        Cursor cursor = db.query("estudiante", camposEstudiante, "carnet = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Estudiante est1 = new Estudiante();
+            est1.setCarnet(cursor.getString(0));
+            est1.setNombreestu(cursor.getString(1));
+            est1.setApellidoestu(cursor.getString(2));
+            est1.setCorreoestu(cursor.getString(3));
+            est1.setDireccionestu(cursor.getString(4));
+            return est1;
+        }else{
+            return null;
+        }
+    }
 
 
 
