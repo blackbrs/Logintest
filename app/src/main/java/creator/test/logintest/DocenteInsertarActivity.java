@@ -1,7 +1,6 @@
 package creator.test.logintest;
 
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,7 +42,6 @@ public class DocenteInsertarActivity extends AppCompatActivity {
         String dir = editDireccion.getText().toString();
         String clave = editClave.getText().toString();
         String regInsertados;
-
         if (findViewById(R.id.isDocente).isSelected()){
             isDocente = "1";
             isEstudiante = "0";
@@ -61,7 +59,6 @@ public class DocenteInsertarActivity extends AppCompatActivity {
             usuario1.setAdmin(Boolean.valueOf(isAdmin));
             usuario1.setDocente(Boolean.valueOf(isDocente));
             usuario1.setEstudiante(Boolean.valueOf(isEstudiante));
-
             helper.abrir();
             regInsertados=helper.insertar(profesor);
             regInsertados=helper.insertar(usuario1);

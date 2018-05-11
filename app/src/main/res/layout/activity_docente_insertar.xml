@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,80 +7,13 @@
     android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
     tools:context="creator.test.logintest.DocenteInsertarActivity">
 
-<<<<<<< HEAD
-    <EditText
-        android:id="@+id/editNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <EditText
-        android:id="@+id/editApellido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="78dp" />
-
-    <EditText
-        android:id="@+id/editCorreo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="139dp" />
-
-    <EditText
-        android:id="@+id/editDireccion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="205dp" />
-
-    <EditText
-        android:id="@+id/editUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="268dp" />
-
-    <EditText
-        android:id="@+id/editClave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="334dp" />
-
-    <RadioButton
-        android:id="@+id/isDocente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Docente"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="405dp" />
-
-</android.support.constraint.ConstraintLayout>
-=======
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="123dp"
-        android:layout_marginTop="26dp"
+        android:layout_alignStart="@+id/isDocente"
         android:text="Crear Docente"
         android:textColor="@android:color/background_dark" />
 
@@ -90,18 +21,18 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editUser"
         android:layout_below="@+id/textView8"
-        android:layout_toStartOf="@+id/buttonCrear"
-        android:text="Carnet"
+        android:layout_marginTop="13dp"
+        android:text="Usuario"
         android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/editUser"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/textView9"
+        android:layout_alignStart="@+id/textView10"
         android:layout_below="@+id/textView9"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="12sp" />
@@ -110,9 +41,8 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editUser"
+        android:layout_alignStart="@+id/editNombre"
         android:layout_below="@+id/editUser"
-        android:layout_marginTop="20dp"
         android:text="nombre"
         android:textColor="@android:color/background_dark" />
 
@@ -120,9 +50,8 @@
         android:id="@+id/editNombre"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/textView10"
+        android:layout_alignStart="@+id/textView11"
         android:layout_below="@+id/textView10"
-        android:layout_marginTop="17dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="12sp" />
@@ -131,9 +60,8 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editNombre"
+        android:layout_alignStart="@+id/editApellido"
         android:layout_below="@+id/editNombre"
-        android:layout_marginTop="13dp"
         android:text="Apellido"
         android:textColor="@android:color/background_dark" />
 
@@ -141,9 +69,8 @@
         android:id="@+id/editApellido"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/textView11"
+        android:layout_alignStart="@+id/textView12"
         android:layout_below="@+id/textView11"
-        android:layout_marginTop="14dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="12sp" />
@@ -152,9 +79,8 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editApellido"
+        android:layout_alignStart="@+id/editCorreo"
         android:layout_below="@+id/editApellido"
-        android:layout_marginTop="18dp"
         android:text="Correo"
         android:textColor="@android:color/background_dark" />
 
@@ -162,9 +88,8 @@
         android:id="@+id/editCorreo"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/textView12"
+        android:layout_alignStart="@+id/textView13"
         android:layout_below="@+id/textView12"
-        android:layout_marginTop="15dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="12sp" />
@@ -173,9 +98,8 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editCorreo"
+        android:layout_alignStart="@+id/editDireccion"
         android:layout_below="@+id/editCorreo"
-        android:layout_marginTop="17dp"
         android:text="Direccion"
         android:textColor="@android:color/background_dark" />
 
@@ -183,9 +107,8 @@
         android:id="@+id/editDireccion"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_alignStart="@+id/textView13"
         android:layout_below="@+id/textView13"
-        android:layout_marginTop="18dp"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="12sp" />
@@ -196,18 +119,36 @@
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="42dp"
         android:background="@drawable/borde_redondo"
         android:text="Crear" />
 
     <RadioButton
-        android:id="@+id/radioButton"
+        android:id="@+id/isDocente"
         android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonCrear"
+        android:layout_centerHorizontal="true"
+        android:text="Docente"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editDireccion"
         android:layout_below="@+id/editDireccion"
-        android:layout_marginTop="23dp"
-        android:text="Docente"
+        android:text="Contraseña"
         android:textColor="@android:color/background_dark" />
+
+    <EditText
+        android:id="@+id/editClave"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/textView15"
+        android:layout_below="@+id/textView15"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:textSize="12sp" />
+
 </RelativeLayout>
->>>>>>> 059a633b937cf79c3dd3643555e65296d869a99c
