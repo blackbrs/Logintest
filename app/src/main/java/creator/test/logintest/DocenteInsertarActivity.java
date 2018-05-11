@@ -18,7 +18,6 @@ public class DocenteInsertarActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_docente_insertar);
         helper = new ControlBDHelper(this);
         editNombre = (EditText) findViewById(R.id.editNombre);
