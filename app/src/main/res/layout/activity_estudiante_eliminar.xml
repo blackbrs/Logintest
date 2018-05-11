@@ -38,7 +38,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="92dp"
-        android:text="TextView"
+        android:text="Carnet"
         android:textColor="@android:color/background_dark"
         tools:layout_editor_absoluteX="171dp"
         tools:layout_editor_absoluteY="16dp"
