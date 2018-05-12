@@ -3,46 +3,88 @@ package creator.test.logintest;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
     ControlBDHelper helper;
-    Spinner comboMaterias;
-    Spinner comboCiclo;
-    Spinner comboDocente;
+    EditText materia;
+    EditText numciclo;
+    EditText aniociclo;
+    EditText docente;
+    EditText descrip;
     ArrayList<String> listaMateria;
     ArrayList<Materia> MateriasList;
     ArrayList<String> listaCiclo;
     ArrayList<Ciclo> CiclosList;
     ArrayList<String> listaDocente;
     ArrayList<Docente> DocentesList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oferta_academica_insertar);
         helper = new ControlBDHelper(this);
-        comboMaterias = (Spinner) findViewById(R.id.comboMaterias);
-        comboCiclo= (Spinner) findViewById(R.id.comboCiclo);
-        comboDocente= (Spinner) findViewById(R.id.comboDocente);
-        consultarListaMateria();
-        ArrayAdapter<CharSequence> adaptador = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,listaMateria);
-        comboMaterias.setAdapter(adaptador);
 
-        consultarListaCiclo();
-        ArrayAdapter<CharSequence> adaptador1 = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,listaCiclo);
-        comboCiclo.setAdapter(adaptador1);
-
-        consultarListaDocentes();
-        ArrayAdapter<CharSequence> adaptador2 = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,listaDocente);
-        comboDocente.setAdapter(adaptador2);
+        materia = (EditText) findViewById(R.id.codmaterias);
+        numciclo= (EditText) findViewById(R.id.numerocic);
+        aniociclo=(EditText) findViewById(R.id.aniociclo);
+        docente= (EditText) findViewById(R.id.usuariodoc);
+        descrip = (EditText) findViewById(R.id.descripcion);
     }
+
+    public void insertarOfertaAcademica(View v) {
+
+        String codmateria = materia.getText().toString();
+        int numerociclo =Integer.parseInt(numciclo.getText().toString());
+        int aniocic = Integer.parseInt(aniociclo.getText().toString());
+        String  nombreDocente = docente.getText().toString();
+        String des = descrip.getText().toString();
+        String regInsertados;
+        Materia mat1 = new Materia();
+        Ciclo ciclo1 = new Ciclo();
+        Docente doc1 = new Docente();
+
+        mat1.setCodmateria(codmateria);
+        ciclo1.setNumCiclo(numerociclo);
+        ciclo1.setAnioCiclo(aniocic);
+        doc1.setNomusuario(nombreDocente);
+
+        OfertaAcademica oferta = new OfertaAcademica();
+        oferta.setMater(mat1);
+        oferta.setCic(ciclo1);
+        oferta.setDoc(doc1);
+        oferta.setDescripcion(des);
+        helper.abrir();
+        regInsertados = helper.insertar(oferta);
+        helper.cerrar();
+        Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+    }
+
+    public void limpiarTexto(View v) {
+        materia.setText("");
+        numciclo.setText("");
+        aniociclo.setText("");
+        docente.setText("");
+
+    }
+
+
+
+
+
+
+
+
 
     public void consultarListaMateria() {
         Materia materia =null;
-        int idciclo=0;
         MateriasList = new ArrayList<Materia>();
         helper.abrir();
         helper.cerrar();
@@ -50,7 +92,6 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         Cursor cursorMateria = helper.consultarListaMaterias();
         while(cursorMateria.moveToNext()){
             materia = new Materia();
-            idciclo=cursorMateria.getInt(0);
             materia.setCodmateria(cursorMateria.getString(1));
             materia.setUnidadval(cursorMateria.getInt(2));
             materia.setNombremat(cursorMateria.getString(3));
@@ -58,14 +99,14 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
             System.out.println(materia.getNombremat());
             MateriasList.add(materia);
         }
-        obtenerListaMateria(idciclo);
+        obtenerListaMateria();
     }
 
-    public void obtenerListaMateria(int id){
+    public void obtenerListaMateria(){
         listaMateria = new ArrayList<>();
         listaMateria.add("Seleccione");
         for (int i=0; i<MateriasList.size();i++){
-            listaMateria.add(String.valueOf(id)+" "+MateriasList.get(i).getCodmateria());
+            listaMateria.add(MateriasList.get(i).getCodmateria());
         }
         System.out.println(listaMateria);
     }

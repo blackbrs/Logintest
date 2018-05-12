@@ -18,16 +18,16 @@ import android.os.Bundle;
 public class ControlBDHelper {
 
     private static final String[] camposDocente = new String[]{"nombdocente", "apelldocente", "correo", "direccion"};
-    private static final String[] camposAreaEvaluacion = new String[]{"idoferta","tipoarea"};
-    private static final String[] camposMateria = new String[]{"codmateria","unidadval", "nombremat"};
+    private static final String[] camposAreaEvaluacion = new String[]{"idoferta", "tipoarea"};
+    private static final String[] camposMateria = new String[]{"codmateria", "unidadval", "nombremat"};
     private static final String[] camposCiclo = new String[]{"numciclo", "aniociclo", "fechaini", "fechafin"};
     private static final String[] camposCuestionario = new String[]{"descricuestionario", "fechaexamen", "duracion", "ponderacion"};
-    private static final String[] camposDetalleEstudiante = new String[]{"carnet","idoferta"};
+    private static final String[] camposDetalleEstudiante = new String[]{"carnet", "idoferta"};
     private static final String[] camposDetallePregunta = new String[]{"idcuestionario", "idpregunta"};
-    private static final String[] camposEstudiante = new String[]{"carnet","nombreestu","apellidoestu","correoestu","direccionestu"};
-    private static final String[] camposOfertaAcademica = new String[]{"idmateria","iddocente","idciclo","descripcion"};
-    private static final String[] camposOpcion = new String[]{"idpregunta", "descripopc","esCorrecta"};
-    private static final String[] camposPregunta = new String[]{"idarea","poderapregunt","descrippreg","tipopreg"};
+    private static final String[] camposEstudiante = new String[]{"carnet", "nombreestu", "apellidoestu", "correoestu", "direccionestu"};
+    private static final String[] camposOfertaAcademica = new String[]{"idmateria", "iddocente", "idciclo", "descripcion"};
+    private static final String[] camposOpcion = new String[]{"idpregunta", "descripopc", "esCorrecta"};
+    private static final String[] camposPregunta = new String[]{"idarea", "poderapregunt", "descrippreg", "tipopreg"};
     private static final String[] camposRespuesta = new String[]{"iddetallepreg", "carnet"};
     private final Context context;
     public DatabaseHelper DBHelper;
@@ -52,7 +52,6 @@ public class ControlBDHelper {
         this.context = ctx;
         DBHelper = new DatabaseHelper(context);
     }
-
 
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
@@ -218,218 +217,177 @@ public class ControlBDHelper {
             }
         }
     }
-    public void abrir() throws SQLException{
+
+    public void abrir() throws SQLException {
         db = DBHelper.getWritableDatabase();
         return;
     }
 
-    public void cerrar(){
+    public void cerrar() {
         DBHelper.close();
     }
 
-    public Cursor ConsultarUsuPasAdmin(String user, String pass) throws SQLException{
+    public Cursor ConsultarUsuPasAdmin(String user, String pass) throws SQLException {
         Cursor cursor = null;
-        cursor=DBHelper.getReadableDatabase().query("usuario",new String[]{"nomusuario","clave","isadmin","isdocente","isestudiante"},"nomusuario='"+user+"'"+"AND clave='"+pass+"'"+"AND isadmin= 1",null,null,null,null);
+        cursor = DBHelper.getReadableDatabase().query("usuario", new String[]{"nomusuario", "clave", "isadmin", "isdocente", "isestudiante"}, "nomusuario='" + user + "'" + "AND clave='" + pass + "'" + "AND isadmin= 1", null, null, null, null);
         return cursor;
     }
 
-    public Cursor ConsultarUsuPasDocente(String user, String pass) throws SQLException{
+    public Cursor ConsultarUsuPasDocente(String user, String pass) throws SQLException {
         Cursor cursor = null;
-        cursor=DBHelper.getReadableDatabase().query("usuario",new String[]{"nomusuario","clave","isadmin","isdocente","isestudiante"},"nomusuario='"+user+"'"+"AND clave='"+pass+"'"+"AND isdocente= 1",null,null,null,null);
+        cursor = DBHelper.getReadableDatabase().query("usuario", new String[]{"nomusuario", "clave", "isadmin", "isdocente", "isestudiante"}, "nomusuario='" + user + "'" + "AND clave='" + pass + "'" + "AND isdocente= 1", null, null, null, null);
         return cursor;
     }
 
-    public Cursor ConsultarUsuPasEstudiante(String user, String pass) throws SQLException{
+    public Cursor ConsultarUsuPasEstudiante(String user, String pass) throws SQLException {
         Cursor cursor = null;
-        cursor=DBHelper.getReadableDatabase().query("usuario",new String[]{"nomusuario","clave","isadmin","isdocente","isestudiante"},"nomusuario='"+user+"'"+"AND clave='"+pass+"'"+"AND isestudiante= 1",null,null,null,null);
+        cursor = DBHelper.getReadableDatabase().query("usuario", new String[]{"nomusuario", "clave", "isadmin", "isdocente", "isestudiante"}, "nomusuario='" + user + "'" + "AND clave='" + pass + "'" + "AND isestudiante= 1", null, null, null, null);
         return cursor;
     }
 
-    public Cursor consultarListaMaterias(){
+    public Cursor consultarListaMaterias() {
         DBHelper.getReadableDatabase();
-        Cursor cursor1=null;
-        cursor1=db.rawQuery("SELECT * FROM materia",null);
-        return cursor1;
-    }
-    public Cursor consultarListaDocentes(){
-        DBHelper.getReadableDatabase();
-        Cursor cursor1=db.rawQuery("SELECT * FROM docente",null);
-        return cursor1;
-    }
-    public Cursor consultarListaCiclos(){
-        DBHelper.getReadableDatabase();
-        Cursor cursor1=db.rawQuery("SELECT * FROM ciclo",null);
+        Cursor cursor1 = null;
+        cursor1 = db.rawQuery("SELECT * FROM materia", null);
         return cursor1;
     }
 
+    public Cursor consultarListaDocentes() {
+        DBHelper.getReadableDatabase();
+        Cursor cursor1 = db.rawQuery("SELECT * FROM docente", null);
+        return cursor1;
+    }
+
+    public Cursor consultarListaCiclos() {
+        DBHelper.getReadableDatabase();
+        Cursor cursor1 = db.rawQuery("SELECT * FROM ciclo", null);
+        return cursor1;
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public String insertar(Docente docente){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
+    public String insertar(Docente docente) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
         // verificar que no exista docente
-        if(verificarIntegridad(docente,5))
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else
-        {
+        if (verificarIntegridad(docente, 5)) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
             ContentValues docen = new ContentValues();
             docen.put("nombdocente", docente.getNombdocente());
             docen.put("apelldocente", docente.getApelldocente());
-            docen.put("nomusuario",docente.getNomusuario() );
+            docen.put("nomusuario", docente.getNomusuario());
             docen.put("correo", docente.getCorreo());
             docen.put("direccion", docente.getDireccion());
-            contador=db.insert("docente", null, docen);
-            regInsertados=regInsertados+contador;
+            contador = db.insert("docente", null, docen);
+            regInsertados = regInsertados + contador;
         }
-        if(contador==-1 || contador==0)
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else {
-            regInsertados=regInsertados+contador;
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
         }
         return regInsertados;
     }
 
 
-    public String eliminar(Docente docente){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        int auxid=0;
-        if(verificarIntegridad(docente, 5)) {
-            Cursor cursorId= db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='"+docente.getNomusuario()+"'",null);
-            if(cursorId.moveToFirst()){
+    public String eliminar(Docente docente) {
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        int auxid = 0;
+        if (verificarIntegridad(docente, 5)) {
+            Cursor cursorId = db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='" + docente.getNomusuario() + "'", null);
+            if (cursorId.moveToFirst()) {
                 System.out.println(auxid);
-                auxid=cursorId.getInt(0);
+                auxid = cursorId.getInt(0);
                 System.out.println(auxid);
             }
-            db.delete("ofertaAcademica","iddocente="+auxid,null);
-            db.delete("usuario", "nomusuario='"+docente.getNomusuario()+"'",null);
-            db.delete("docente", "nomusuario='" +docente.getNomusuario()+"'",null);
-            regAfectados+=contador;
+            db.delete("ofertaAcademica", "iddocente=" + auxid, null);
+            db.delete("usuario", "nomusuario='" + docente.getNomusuario() + "'", null);
+            db.delete("docente", "nomusuario='" + docente.getNomusuario() + "'", null);
+            regAfectados += contador;
         } else {
             return "Registro con Usuario " + docente.getNomusuario() + " no existe";
         }
         return regAfectados;
     }
-    public Docente consultarDocente(String usuario){
+
+    public Docente consultarDocente(String usuario) {
         String[] id = {usuario};
         Cursor cursor = db.query("docente", camposDocente, "nomusuario = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             Docente profe = new Docente();
             profe.setNombdocente(cursor.getString(0));
             profe.setApelldocente(cursor.getString(1));
             profe.setCorreo(cursor.getString(2));
             profe.setDireccion(cursor.getString(3));
             return profe;
-        }else{
+        } else {
             return null;
         }
     }
 
-    public String actualizar(Docente docente){
+    public String actualizar(Docente docente) {
         //Si existe
-        if(verificarIntegridad(docente, 5)){
+        if (verificarIntegridad(docente, 5)) {
             String[] id = {docente.getNomusuario()};
             ContentValues cv = new ContentValues();
             cv.put("nombdocente", docente.getNombdocente());
             cv.put("apelldocente", docente.getApelldocente());
             cv.put("correo", docente.getCorreo());
-            cv.put("direccion",docente.getDireccion());
+            cv.put("direccion", docente.getDireccion());
             System.out.println(docente.getNomusuario());
             db.update("docente", cv, "nomusuario = ?", id);
             return "Registro Actualizado Correctamente";
-        }else{
+        } else {
             return "Registro con Usuario " + docente.getNomusuario() + " no existe";
         }
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public String insertar(Estudiante estudiante){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
+    public String insertar(Estudiante estudiante) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
         // verificar que no exista docente
-        if(verificarIntegridad(estudiante,3))
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else
-        {
+        if (verificarIntegridad(estudiante, 3)) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
             ContentValues estudiantes = new ContentValues();
             estudiantes.put("carnet", estudiante.getCarnet());
             estudiantes.put("nombreestu", estudiante.getNombreestu());
             estudiantes.put("apellidoestu", estudiante.getApellidoestu());
             estudiantes.put("correoestu", estudiante.getCorreoestu());
             estudiantes.put("direccionestu", estudiante.getDireccionestu());
-            estudiantes.put("nomusuario",  estudiante.getNomusuario() );
-            contador=db.insert("estudiante", null, estudiantes);
-            regInsertados=regInsertados+contador;
+            estudiantes.put("nomusuario", estudiante.getNomusuario());
+            contador = db.insert("estudiante", null, estudiantes);
+            regInsertados = regInsertados + contador;
         }
-        if(contador==-1 || contador==0)
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else {
-            regInsertados=regInsertados+contador;
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
         }
         return regInsertados;
     }
 
-    public String eliminar(Estudiante estudiante){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        if(verificarIntegridad(estudiante, 3)) {
-            db.delete("detalleEstudiante","carnet='"+estudiante.getCarnet()+"'",null);
-            db.delete("respuesta", "carnet='" +estudiante.getCarnet()+"'",null);
-            db.delete("usuario", "nomusuario='"+estudiante.getCarnet()+"'",null);
-            contador+=db.delete("estudiante", "carnet='"+estudiante.getCarnet()+"'", null);
-            regAfectados+=contador;
+    public String eliminar(Estudiante estudiante) {
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        if (verificarIntegridad(estudiante, 3)) {
+            db.delete("detalleEstudiante", "carnet='" + estudiante.getCarnet() + "'", null);
+            db.delete("respuesta", "carnet='" + estudiante.getCarnet() + "'", null);
+            db.delete("usuario", "nomusuario='" + estudiante.getCarnet() + "'", null);
+            contador += db.delete("estudiante", "carnet='" + estudiante.getCarnet() + "'", null);
+            regAfectados += contador;
         } else {
             return "Registro con carnet " + estudiante.getCarnet() + " no existe";
         }
         return regAfectados;
     }
 
-    public Estudiante consultarEstudiante(String carnet){
+    public Estudiante consultarEstudiante(String carnet) {
         String[] id = {carnet};
         Cursor cursor = db.query("estudiante", camposEstudiante, "carnet = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             Estudiante est1 = new Estudiante();
             est1.setCarnet(cursor.getString(0));
             est1.setNombreestu(cursor.getString(1));
@@ -437,176 +395,148 @@ public class ControlBDHelper {
             est1.setCorreoestu(cursor.getString(3));
             est1.setDireccionestu(cursor.getString(4));
             return est1;
-        }else{
+        } else {
             return null;
         }
     }
 
-    public String actualizar(Estudiante estudiante){
+    public String actualizar(Estudiante estudiante) {
         //Si existe
-        if(verificarIntegridad(estudiante, 3)){
+        if (verificarIntegridad(estudiante, 3)) {
             String[] id = {estudiante.getCarnet()};
             ContentValues cv = new ContentValues();
-            cv.put("carnet",estudiante.getCarnet());
+            cv.put("carnet", estudiante.getCarnet());
             cv.put("nombreestu", estudiante.getNombreestu());
             cv.put("apellidoestu", estudiante.getApellidoestu());
             cv.put("correoestu", estudiante.getCorreoestu());
-            cv.put("direccionestu",estudiante.getDireccionestu());
+            cv.put("direccionestu", estudiante.getDireccionestu());
             cv.put("nomusuario", estudiante.getNomusuario());
             db.update("estudiante", cv, "carnet = ?", id);
             return "Registro Actualizado Correctamente";
-        }else{
+        } else {
             return "Registro con Usuario " + estudiante.getNombreestu() + " no existe";
         }
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public String insertar(Materia materia){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
+    public String insertar(Materia materia) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
         // verificar que no exista usuario
-        if(verificarIntegridad(materia,1))
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else
-        {
+        if (verificarIntegridad(materia, 1)) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
             ContentValues mat1 = new ContentValues();
             mat1.put("codmateria", materia.getCodmateria());
-            mat1.put("unidadval",materia.getUnidadval());
-            mat1.put("nombremat",materia.getNombremat());
-            contador=db.insert("materia", null, mat1);
-            regInsertados=regInsertados+contador;
+            mat1.put("unidadval", materia.getUnidadval());
+            mat1.put("nombremat", materia.getNombremat());
+            contador = db.insert("materia", null, mat1);
+            regInsertados = regInsertados + contador;
         }
-        if(contador==-1 || contador==0)
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
 
 
-        }
-        else {
-            regInsertados=regInsertados+contador;
+        } else {
+            regInsertados = regInsertados + contador;
         }
         return regInsertados;
     }
 
-    public String eliminar(Materia materia){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        int auxid=0;
-        if(verificarIntegridad(materia, 1)) {
-            Cursor cursorId= db.rawQuery("SELECT idmateria FROM materia WHERE codmateria='"+materia.getCodmateria()+"'",null);
-            if(cursorId.moveToFirst()){
-                auxid=cursorId.getInt(0);
+    public String eliminar(Materia materia) {
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        int auxid = 0;
+        if (verificarIntegridad(materia, 1)) {
+            Cursor cursorId = db.rawQuery("SELECT idmateria FROM materia WHERE codmateria='" + materia.getCodmateria() + "'", null);
+            if (cursorId.moveToFirst()) {
+                auxid = cursorId.getInt(0);
             }
-            db.delete("ofertaAcademica","idmateria="+auxid,null);
-            db.delete("materia", "codmateria='" +materia.getCodmateria()+"'",null);
-            regAfectados+=contador;
+            db.delete("ofertaAcademica", "idmateria=" + auxid, null);
+            db.delete("materia", "codmateria='" + materia.getCodmateria() + "'", null);
+            regAfectados += contador;
         } else {
             return "Registro con Usuario " + materia.getCodmateria() + " no existe";
         }
         return regAfectados;
     }
 
-    public Materia consultarMateria(String materia){
+    public Materia consultarMateria(String materia) {
         String[] id = {materia};
         Cursor cursor = db.query("materia", camposMateria, "codmateria = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             Materia est1 = new Materia();
             est1.setCodmateria(cursor.getString(0));
             est1.setUnidadval(cursor.getInt(1));
             est1.setNombremat(cursor.getString(2));
             return est1;
-        }else{
+        } else {
             return null;
         }
     }
 
-    public String actualizar(Materia materia){
+    public String actualizar(Materia materia) {
         //Si existe
-        if(verificarIntegridad(materia, 1)){
+        if (verificarIntegridad(materia, 1)) {
             String[] id = {materia.getCodmateria()};
             ContentValues cv = new ContentValues();
             cv.put("unidadval", materia.getUnidadval());
             cv.put("nombremat", materia.getNombremat());
             db.update("materia", cv, "codmateria = ?", id);
             return "Registro Actualizado Correctamente";
-        }else{
+        } else {
             return "Registro con Usuario " + materia.getCodmateria() + " no existe";
         }
     }
 
 
-
-
-
-
-
-    public String insertar(Ciclo ciclo){
-        String regInsertados="Registro Insertado Nº= ";
-        long contador=0;
+    public String insertar(Ciclo ciclo) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
         // verificar que no exista docente
-        if(verificarIntegridad(ciclo,2))
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else
-        {
+        if (verificarIntegridad(ciclo, 2)) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
             ContentValues cic = new ContentValues();
-            cic.put("numciclo",ciclo.getNumCiclo());
-            cic.put("aniociclo",ciclo.getAnioCiclo());
-            cic.put("fechaini",ciclo.getFechaIni());
-            cic.put("fechafin",ciclo.getFechaFin());
-            contador=db.insert("ciclo",null,cic);
-            regInsertados=regInsertados+contador;
+            cic.put("numciclo", ciclo.getNumCiclo());
+            cic.put("aniociclo", ciclo.getAnioCiclo());
+            cic.put("fechaini", ciclo.getFechaIni());
+            cic.put("fechafin", ciclo.getFechaFin());
+            contador = db.insert("ciclo", null, cic);
+            regInsertados = regInsertados + contador;
         }
-        if(contador==-1 || contador==0)
-        {
-            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
-        }
-        else {
-            regInsertados=regInsertados+contador;
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
         }
         return regInsertados;
     }
 
-    public String eliminar(Ciclo ciclo){
-        String regAfectados="filas afectadas= ";
-        int contador=0;
-        int auxid=0;
-        if(verificarIntegridad(ciclo, 2)) {
-            Cursor cursorId= db.rawQuery("SELECT idciclo FROM ciclo WHERE numciclo='"+ciclo.getNumCiclo()+"'"+" AND aniociclo='"+ciclo.getAnioCiclo()+"'",null);
-            if(cursorId.moveToFirst()){
+    public String eliminar(Ciclo ciclo) {
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        int auxid = 0;
+        if (verificarIntegridad(ciclo, 2)) {
+            Cursor cursorId = db.rawQuery("SELECT idciclo FROM ciclo WHERE numciclo='" + ciclo.getNumCiclo() + "'" + " AND aniociclo='" + ciclo.getAnioCiclo() + "'", null);
+            if (cursorId.moveToFirst()) {
                 System.out.println(auxid);
-                auxid=cursorId.getInt(0);
+                auxid = cursorId.getInt(0);
                 System.out.println(auxid);
             }
-            db.delete("ofertaAcademica","idciclo="+auxid,null);
-            contador=db.delete("ciclo", "idciclo='"+auxid+"'",null);
-            regAfectados+=contador;
+            db.delete("ofertaAcademica", "idciclo=" + auxid, null);
+            contador = db.delete("ciclo", "idciclo='" + auxid + "'", null);
+            regAfectados += contador;
         } else {
-            return "Registro con Numero de Ciclo  " + ciclo.getNumCiclo() + "y Anio de Ciclo "+ciclo.getAnioCiclo()+" no existe";
+            return "Registro con Numero de Ciclo  " + ciclo.getNumCiclo() + "y Anio de Ciclo " + ciclo.getAnioCiclo() + " no existe";
         }
         return regAfectados;
     }
 
-    public Ciclo consultarCiclo(String numero, String anio){
-        String[] id = {numero,anio};
+    public Ciclo consultarCiclo(String numero, String anio) {
+        String[] id = {numero, anio};
         Cursor cursor = db.query("ciclo", camposCiclo, "numciclo = ?  AND aniociclo = ?", id, null, null, null);
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             Ciclo ciclo = new Ciclo();
             ciclo.setNumCiclo(cursor.getInt(0));
             ciclo.setAnioCiclo(cursor.getInt(1));
@@ -614,24 +544,89 @@ public class ControlBDHelper {
             ciclo.setFechaFin(cursor.getString(3));
 
             return ciclo;
-        }else{
+        } else {
             return null;
         }
     }
 
-    public String actualizar(Ciclo ciclo){
+    public String actualizar(Ciclo ciclo) {
         //Si existe
-        if(verificarIntegridad(ciclo, 2)){
-            String[] id = {String.valueOf(ciclo.getNumCiclo()),String.valueOf(ciclo.getAnioCiclo())};
+        if (verificarIntegridad(ciclo, 2)) {
+            String[] id = {String.valueOf(ciclo.getNumCiclo()), String.valueOf(ciclo.getAnioCiclo())};
             ContentValues cv = new ContentValues();
             cv.put("fechaini", ciclo.getFechaIni());
             cv.put("fechafin", ciclo.getFechaFin());
             db.update("ciclo", cv, "numciclo = ? AND aniociclo = ?", id);
             return "Registro Actualizado Correctamente";
-        }else{
-            return "Registro con Numero de Ciclo  " + ciclo.getNumCiclo() + "y Anio de Ciclo "+ciclo.getAnioCiclo()+" no existe";
+        } else {
+            return "Registro con Numero de Ciclo  " + ciclo.getNumCiclo() + "y Anio de Ciclo " + ciclo.getAnioCiclo() + " no existe";
         }
     }
+
+
+    public String insertar(OfertaAcademica oferta) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+        // 1 Verificar integridad referencial
+        if (verificarIntegridad(oferta, 7)) {
+            // 2 Verificar registro duplicado
+            if (verificarIntegridad(oferta, 6)) {
+                regInsertados = "Error al Insertar el registro, Registro Duplicado.Verificar inserción";
+            } else {
+                int auxid1 = 0;
+                int auxid2 = 0;
+                int auxid3 = 0;
+                Materia mat1 = oferta.getMater();
+                Ciclo cic1 = oferta.getCic();
+                Docente doc1 = oferta.getDoc();
+
+                if(verificarIntegridad(doc1, 5)) {
+                    Cursor cursorId= db.rawQuery("SELECT iddocente FROM docente WHERE  nomusuario = '"+doc1.getNomusuario()+"'",null);
+                    if(cursorId.moveToFirst()){
+                        System.out.println(auxid1);
+                        auxid1=cursorId.getInt(0);
+                        System.out.println(auxid1);
+                    }
+                }
+                if(verificarIntegridad(cic1, 2)) {
+                    Cursor cursorId = db.rawQuery("SELECT idciclo FROM ciclo WHERE numciclo="+String.valueOf(cic1.getNumCiclo())+" AND aniociclo="+String.valueOf(cic1.getAnioCiclo()),null);
+                    if(cursorId.moveToFirst()){
+                        System.out.println(auxid2);
+                        auxid2=cursorId.getInt(0);
+                        System.out.println(auxid2);
+                    }
+                }
+                if(verificarIntegridad(mat1, 1)) {
+                    Cursor cursorId= db.rawQuery("SELECT idmateria FROM materia WHERE  codmateria = '"+mat1.getCodmateria()+"'",null);
+                    if(cursorId.moveToFirst()){
+                        System.out.println(auxid3);
+                        auxid3=cursorId.getInt(0);
+                        System.out.println(auxid3);
+                    }
+                }
+                ContentValues ofertas = new ContentValues();
+                ofertas.put("idmateria", auxid3);
+                ofertas.put("iddocente", auxid1);
+                ofertas.put("idciclo", auxid2);
+                ofertas.put("descripcion", oferta.getDescripcion());
+                contador = db.insert("ofertaAcademica", null, ofertas);
+            }
+        } else {
+             regInsertados = "Error al Insertar el registro, Registro sin referencias.Verificar inserción";
+        }
+        return  regInsertados+=contador;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -699,19 +694,6 @@ public class ControlBDHelper {
         switch(relacion){
             case 1:
             {
-               /* //verificar que al insertar nota exista carnet del alumno y el codigo de materia
-                Nota nota = (Nota)dato;
-                String[] id1 = {nota.getCarnet()};
-                String[] id2 = {nota.getCodmateria()};
-                abrir();
-                Cursor cursor1 = db.query("alumno", null, "carnet = ?", id1, null,null, null);
-                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,null, null, null);
-                if(cursor2.moveToFirst() && cursor1.moveToFirst()){
-                    //Se encontraron datos ||
-                    return true;
-                }
-                return false;
-            }*/
                Materia materia = (Materia) dato;
                String[] id1= {materia.getCodmateria()};
                abrir();
@@ -723,17 +705,6 @@ public class ControlBDHelper {
                }
             }
             case 2: {
-                /*//verificar que al modificar nota exista carnet del alumno, el codigo de materia y el ciclo
-                //Nota nota1 = (Nota)dato;
-                String[] ids = {nota1.getCarnet(), nota1.getCodmateria(), nota1.getCiclo()};
-                abrir();
-                Cursor c = db.query("nota", null, "carnet = ? AND codmateria = ? AND ciclo = ?", ids, null, null, null);
-                if(c.moveToFirst()){
-                    //Se encontraron datos
-                    return true;
-                }
-                return false;
-            }*/
                 Ciclo ciclo = (Ciclo) dato;
                 String[] idciclo = {String.valueOf(ciclo.getNumCiclo()),String.valueOf(ciclo.getAnioCiclo())};
                 abrir();
@@ -766,7 +737,6 @@ public class ControlBDHelper {
             }
             case 5:
             {
-                //verificar que exista alumno
                 Docente docente = (Docente) dato;
                 String[] id = {docente.getNomusuario()};
                 abrir();
@@ -777,16 +747,65 @@ public class ControlBDHelper {
                 return false;
             }
             case 6:
-            {
-                /*//verificar que exista Materia
-                Materia materia2 = (Materia)dato;
-                String[] idm = {materia2.getCodmateria()};
+                {
+                int auxid1=0;
+                int auxid2=0;
+                int auxid3=0;
+
+                OfertaAcademica oferta = (OfertaAcademica) dato;
+                Materia mat1 = oferta.getMater();
+                Ciclo cic1 = oferta.getCic();
+                Docente doc1 = oferta.getDoc();
+
+                if(verificarIntegridad(doc1, 5)) {
+                    Cursor cursorId= db.rawQuery("SELECT iddocente FROM docente WHERE  nomusuario = '"+doc1.getNomusuario()+"'",null);
+                    if(cursorId.moveToFirst()){
+                        auxid1=cursorId.getInt(0);
+                        System.out.println(auxid1);
+                    }
+                }
+                if(verificarIntegridad(cic1, 2)) {
+                    Cursor cursorId = db.rawQuery("SELECT idciclo FROM ciclo WHERE numciclo="+String.valueOf(cic1.getNumCiclo())+" AND aniociclo="+String.valueOf(cic1.getAnioCiclo()),null);
+                    if(cursorId.moveToFirst()){
+                        auxid2=cursorId.getInt(0);
+                        System.out.println(auxid2);
+                    }
+                }
+                if(verificarIntegridad(mat1, 1)) {
+                    Cursor cursorId= db.rawQuery("SELECT idmateria FROM materia WHERE  codmateria = '"+mat1.getCodmateria()+"'",null);
+                    if(cursorId.moveToFirst()){
+                        auxid3=cursorId.getInt(0);
+                        System.out.println(auxid3);
+                    }
+                }
+                String[] ids = {String.valueOf(auxid1),String.valueOf(auxid2),String.valueOf(auxid3)};
+
                 abrir();
-                Cursor cm = db.query("materia", null, "codmateria = ?", idm, null, null, null);
-                if(cm.moveToFirst()){
-                    //Se encontro Materia
+                Cursor c = db.rawQuery("SELECT idoferta FROM ofertaAcademica WHERE idmateria= "+ auxid3+" AND idciclo= "+auxid2+" AND iddocente="+auxid1,null);
+                if(c.moveToFirst()){
+                    //Se encontraron datos
                     return true;
-                }*/
+                }
+                return false;
+            }
+            case 7:
+            {
+                //verificar que al insertar nota exista carnet del alumno y el codigo de materia
+                OfertaAcademica oferta = (OfertaAcademica) dato;
+                Materia mat1 = oferta.getMater();
+                Ciclo cic1 = oferta.getCic();
+                Docente doc1 = oferta.getDoc();
+                String[] id1 = {doc1.getNomusuario()};
+                String[] id2 = {mat1.getCodmateria()};
+                String[] id3 = {String.valueOf(cic1.getNumCiclo()),String.valueOf(cic1.getAnioCiclo())};
+                abrir();
+                Cursor cursor1 = db.query("docente", null, "nomusuario = ?", id1, null,null, null);
+                Cursor cursor2 = db.query("materia", null, "codmateria = ?", id2,null, null, null);
+                Cursor cursor3 = db.query("ciclo",null,"numciclo = ? AND aniociclo = ?",id3,null,null,null,null);
+                if(cursor2.moveToFirst() && cursor1.moveToFirst() && cursor3.moveToFirst()){
+                    //Se encontraron datos ||
+                    return true;
+                }
                 return false;
             }
             default:
