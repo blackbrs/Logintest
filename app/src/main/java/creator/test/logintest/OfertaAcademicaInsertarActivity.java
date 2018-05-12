@@ -29,6 +29,7 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_oferta_academica_insertar);
         helper = new ControlBDHelper(this);
 

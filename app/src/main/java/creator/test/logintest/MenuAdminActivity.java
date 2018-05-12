@@ -1,6 +1,6 @@
 package creator.test.logintest;
 
-
+import android.support.v7.app.AppCompatActivity;
 import android.app.ListActivity;
 //import android.content.Intent;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-//import android.view.View;
-//import android.widget.ListView;
+import android.view.View;
+import android.widget.ListView;
 
 public class MenuAdminActivity extends ListActivity {
 
@@ -19,6 +19,7 @@ public class MenuAdminActivity extends ListActivity {
     ControlBDHelper BDHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menu));
     }

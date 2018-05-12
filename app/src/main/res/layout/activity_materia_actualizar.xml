@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:paddingTop="10dip"
-    android:stretchColumns="1" >
+    android:stretchColumns="1">
+
     <TableRow>
 
         <TextView
@@ -15,6 +16,7 @@
             android:inputType="text"
             android:maxLength="50" />
     </TableRow>
+
     <TableRow>
 
         <TextView
@@ -26,6 +28,7 @@
             android:inputType="text"
             android:maxLength="30" />
     </TableRow>
+
     <TableRow>
 
         <TextView
@@ -37,6 +40,7 @@
             android:inputType="text"
             android:maxLength="30" />
     </TableRow>
+
     <TableRow>
 
         <Button
@@ -45,7 +49,10 @@
             android:onClick="actualizarMateria"
             android:text="Actualizar" />
     </TableRow>
-    <TableRow>
+
+    <TableRow
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
 
         <Button
             android:background="@drawable/borde_redondo"
