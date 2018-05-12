@@ -6,9 +6,7 @@
     android:stretchColumns="1" >
     <TableRow>
 
-        <TextView
-            android:text="Carnet"
-            android:textColor="@android:color/background_dark" />
+        <TextView android:text="Carnet" />
 
         <EditText
             android:id="@+id/editarUsuario"
@@ -17,9 +15,7 @@
     </TableRow>
     <TableRow>
 
-        <TextView
-            android:text="Nombre"
-            android:textColor="@android:color/background_dark" />
+        <TextView android:text="Nombre" />
 
         <EditText
             android:id="@+id/editarNombre"
@@ -28,9 +24,7 @@
     </TableRow>
     <TableRow>
 
-        <TextView
-            android:text="Apellido"
-            android:textColor="@android:color/background_dark" />
+        <TextView android:text="Apellido" />
 
         <EditText
             android:id="@+id/editarApellido"
@@ -39,9 +33,7 @@
     </TableRow>
     <TableRow>
 
-        <TextView
-            android:text="Correo"
-            android:textColor="@android:color/background_dark" />
+        <TextView android:text="Correo" />
 
         <EditText
             android:id="@+id/editarCorreo"
@@ -50,9 +42,7 @@
     </TableRow>
     <TableRow>
 
-        <TextView
-            android:text="Direccion"
-            android:textColor="@android:color/background_dark" />
+        <TextView android:text="Direccion" />
         <EditText
             android:id="@+id/editarDireccion"
             android:inputType="text"
@@ -61,18 +51,12 @@
     <TableRow>
 
         <Button
-            android:background="@drawable/borde_redondo"
             android:onClick="actualizarEstudiante"
             android:text="Actualizar" />
     </TableRow>
-
     <TableRow>
 
         <Button
-            android:layout_width="61dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/borde_redondo"
-            android:baselineAligned="false"
             android:onClick="limpiarTexto"
             android:text="Limpiar" />
     </TableRow>

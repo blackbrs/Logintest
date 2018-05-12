@@ -6,29 +6,28 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class DocenteEliminarActivity extends AppCompatActivity {
-
-    EditText editDocente;
+public class MateriaEliminarActivity extends AppCompatActivity {
     ControlBDHelper helper;
+    EditText editCod;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_docente_eliminar);
+        setContentView(R.layout.activity_materia_eliminar);
         helper = new ControlBDHelper(this);
-        editDocente=(EditText) findViewById(R.id.editCodMateria);
+        editCod = (EditText) findViewById(R.id.editCodMateria);
     }
 
-
-    public void eliminarDocente(View v){
+    public void eliminarMateria(View v){
         String regAfectados;
-        String user=editDocente.getText().toString();
-        Docente profesor=new Docente();
-        profesor.setNomusuario(user);
-
+        String user=editCod.getText().toString();
+        Materia est1=new Materia();
+        est1.setCodmateria(user);
         helper.abrir();
-        regAfectados=helper.eliminar(profesor);
+        regAfectados=helper.eliminar(est1);
         helper.cerrar();
         Toast.makeText(this, regAfectados, Toast.LENGTH_SHORT).show();
     }
+
 }

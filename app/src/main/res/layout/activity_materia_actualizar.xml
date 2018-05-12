@@ -6,52 +6,35 @@
     android:stretchColumns="1" >
     <TableRow>
 
-        <TextView android:text="Usuario" />
+        <TextView android:text="Codigo de Materia" />
 
         <EditText
-            android:id="@+id/editarUsuario"
+            android:id="@+id/editCod"
             android:inputType="text"
             android:maxLength="50" />
     </TableRow>
     <TableRow>
 
-        <TextView android:text="Nombre" />
+        <TextView android:text="Unidades Valorativas" />
 
         <EditText
-            android:id="@+id/editarNombre"
+            android:id="@+id/editUnidadesValorativa"
             android:inputType="text"
             android:maxLength="30" />
     </TableRow>
     <TableRow>
 
-        <TextView android:text="Apellido" />
+        <TextView android:text="Nombre de Materia" />
 
         <EditText
-            android:id="@+id/editarApellido"
+            android:id="@+id/editNombremateria"
             android:inputType="text"
             android:maxLength="30" />
-    </TableRow>
-    <TableRow>
-
-        <TextView android:text="Correo" />
-
-        <EditText
-            android:id="@+id/editarCorreo"
-            android:inputType="text"
-            android:maxLength="100" />
-    </TableRow>
-    <TableRow>
-
-        <TextView android:text="Direccion" />
-        <EditText
-            android:id="@+id/editarDireccion"
-            android:inputType="text"
-            android:maxLength="100" />
     </TableRow>
     <TableRow>
 
         <Button
-            android:onClick="actualizarDocente"
+            android:onClick="actualizarMateria"
             android:text="Actualizar" />
     </TableRow>
     <TableRow>
