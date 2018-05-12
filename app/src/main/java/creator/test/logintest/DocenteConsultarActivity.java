@@ -20,8 +20,8 @@ public class DocenteConsultarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_docente_consultar);
         helper = new ControlBDHelper(this);
         editUserDoc = (EditText) findViewById(R.id.editUsua);
-        editName = (EditText) findViewById(R.id.editNombreEstu);
-        editLast = (EditText) findViewById(R.id.editApellidoEstu);
+        editName = (EditText) findViewById(R.id.editNombreDocente);
+        editLast = (EditText) findViewById(R.id.editApell);
         editMail = (EditText) findViewById(R.id.editMail);
         editAdress = (EditText) findViewById(R.id.editAdress);
     }

@@ -364,6 +364,7 @@ public class ControlBDHelper {
 
 
 
+
     public String insertar(Estudiante estudiante){
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
@@ -457,6 +458,101 @@ public class ControlBDHelper {
 
 
 
+    public String insertar(Materia materia){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        // verificar que no exista usuario
+        if(verificarIntegridad(materia,1))
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else
+        {
+            ContentValues mat1 = new ContentValues();
+            mat1.put("codmateria", materia.getCodmateria());
+            mat1.put("unidadval",materia.getUnidadval());
+            mat1.put("nombremat",materia.getNombremat());
+            contador=db.insert("materia", null, mat1);
+            regInsertados=regInsertados+contador;
+        }
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+
+
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+    public String eliminar(Materia materia){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        int auxid=0;
+        if(verificarIntegridad(materia, 1)) {
+            Cursor cursorId= db.rawQuery("SELECT idmateria FROM materia WHERE codmateria='"+materia.getCodmateria()+"'",null);
+            if(cursorId.moveToFirst()){
+                auxid=cursorId.getInt(0);
+            }
+            db.delete("ofertaAcademica","idmateria="+auxid,null);
+            db.delete("materia", "codmateria='" +materia.getCodmateria()+"'",null);
+            regAfectados+=contador;
+        } else {
+            return "Registro con Usuario " + materia.getCodmateria() + " no existe";
+        }
+        return regAfectados;
+    }
+
+    public Materia consultarMateria(String materia){
+        String[] id = {materia};
+        Cursor cursor = db.query("materia", camposMateria, "codmateria = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Materia est1 = new Materia();
+            est1.setCodmateria(cursor.getString(0));
+            est1.setUnidadval(cursor.getInt(1));
+            est1.setNombremat(cursor.getString(2));
+            return est1;
+        }else{
+            return null;
+        }
+    }
+
+    public String actualizar(Materia materia){
+        //Si existe
+        if(verificarIntegridad(materia, 1)){
+            String[] id = {materia.getCodmateria()};
+            ContentValues cv = new ContentValues();
+            cv.put("unidadval", materia.getUnidadval());
+            cv.put("nombremat", materia.getNombremat());
+            db.update("materia", cv, "codmateria = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con Usuario " + materia.getCodmateria() + " no existe";
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public String insertar(Usuario us){
         String regInsertados="Registro Insertado Nº= ";
         long contador=0;
@@ -494,6 +590,8 @@ public class ControlBDHelper {
 
 
 
+
+
     private boolean verificarIntegridad(Object dato, int relacion) throws
             SQLException{
         switch(relacion){
@@ -512,10 +610,10 @@ public class ControlBDHelper {
                 }
                 return false;
             }*/
-               Estudiante estud = (Estudiante) dato;
-               String[] id1= {estud.getCarnet()};
+               Materia materia = (Materia) dato;
+               String[] id1= {materia.getCodmateria()};
                abrir();
-               Cursor cursor1 = db.query("estudiante",null,"carnet = ?",id1,null,null,null,null);
+               Cursor cursor1 = db.query("materia",null,"codmateria = ?",id1,null,null,null,null);
                if (cursor1.moveToFirst()){
                    return true;
                }
