@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="141dp"
         android:layout_marginTop="11dp"
-        android:text="Usuario Docente" />
+        android:text="Usuario Docente"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/usuariodoc"
@@ -32,7 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView21"
         android:layout_below="@+id/usuariodoc"
-        android:text="Numero de Ciclo" />
+        android:text="Numero de Ciclo"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/numerocic"
@@ -49,7 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/numerocic"
         android:layout_centerHorizontal="true"
-        android:text="Año de Ciclo" />
+        android:text="Año de Ciclo"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/aniociclo"
@@ -66,7 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView22"
         android:layout_below="@+id/aniociclo"
-        android:text="Codigo de Materia" />
+        android:text="Codigo de Materia"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/codmaterias"
@@ -84,6 +88,7 @@
         android:layout_below="@+id/codmaterias"
         android:layout_marginEnd="44dp"
         android:layout_marginTop="95dp"
+        android:background="@drawable/borde_redondo"
         android:layout_toStartOf="@+id/button4"
         android:onClick="insertarOfertaAcademica"
         android:text="Crear Oferta" />
@@ -94,6 +99,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button3"
         android:layout_alignBottom="@+id/button3"
+        android:background="@drawable/borde_redondo"
         android:layout_alignEnd="@+id/codmaterias"
         android:onClick="limpiarTexto"
         android:text="Limpiar" />
@@ -104,7 +110,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/codmaterias"
         android:layout_centerHorizontal="true"
-        android:text="Descripcion" />
+        android:text="Descripcion"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/descripcion"
