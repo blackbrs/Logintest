@@ -42,6 +42,7 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
 
     public void consultarListaMateria() {
         Materia materia =null;
+        int idciclo=0;
         MateriasList = new ArrayList<Materia>();
         helper.abrir();
         helper.cerrar();
@@ -49,6 +50,7 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         Cursor cursorMateria = helper.consultarListaMaterias();
         while(cursorMateria.moveToNext()){
             materia = new Materia();
+            idciclo=cursorMateria.getInt(0);
             materia.setCodmateria(cursorMateria.getString(1));
             materia.setUnidadval(cursorMateria.getInt(2));
             materia.setNombremat(cursorMateria.getString(3));
@@ -56,20 +58,21 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
             System.out.println(materia.getNombremat());
             MateriasList.add(materia);
         }
-        obtenerListaMateria();
+        obtenerListaMateria(idciclo);
     }
 
-    public void obtenerListaMateria(){
+    public void obtenerListaMateria(int id){
         listaMateria = new ArrayList<>();
         listaMateria.add("Seleccione");
         for (int i=0; i<MateriasList.size();i++){
-            listaMateria.add(MateriasList.get(i).getCodmateria()+"-"+MateriasList.get(i).getNombremat());
+            listaMateria.add(String.valueOf(id)+" "+MateriasList.get(i).getCodmateria());
         }
         System.out.println(listaMateria);
     }
 
     public void consultarListaCiclo() {
         Ciclo ciclo =null;
+        int idciclo=0;
         CiclosList = new ArrayList<Ciclo>();
         helper.abrir();
         helper.cerrar();
@@ -77,19 +80,20 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         Cursor cursorCiclo = helper.consultarListaCiclos();
         while(cursorCiclo.moveToNext()){
             ciclo = new Ciclo();
+            idciclo=cursorCiclo.getInt(0);
             ciclo.setNumCiclo(cursorCiclo.getInt(1));
             ciclo.setAnioCiclo(cursorCiclo.getInt(2));
             ciclo.setFechaIni(cursorCiclo.getString(3));
             ciclo.setFechaFin(cursorCiclo.getString(4));
             CiclosList.add(ciclo);
         }
-        obtenerListaCiclo();
+        obtenerListaCiclo(idciclo);
     }
-    private void obtenerListaCiclo() {
+    private void obtenerListaCiclo(int id) {
         listaCiclo = new ArrayList<>();
         listaCiclo.add("Seleccione");
         for (int i=0; i<CiclosList.size();i++){
-            listaCiclo.add(CiclosList.get(i).getAnioCiclo()+"-"+CiclosList.get(i).getNumCiclo());
+            listaCiclo.add(String.valueOf(id)+CiclosList.get(i).getAnioCiclo()+"-"+CiclosList.get(i).getNumCiclo());
         }
         System.out.println();
     }
@@ -103,11 +107,11 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
 
         while(cursorDocente.moveToNext()){
             docente = new Docente();
-            docente.setNombdocente(cursorDocente.getString(0));
-            docente.setApelldocente(cursorDocente.getString(1));
-            docente.setCorreo(cursorDocente.getString(2));
-            docente.setDireccion(cursorDocente.getString(3));
-            docente.setNomusuario(cursorDocente.getString(4));
+            docente.setNombdocente(cursorDocente.getString(1));
+            docente.setApelldocente(cursorDocente.getString(2));
+            docente.setCorreo(cursorDocente.getString(3));
+            docente.setDireccion(cursorDocente.getString(4));
+            docente.setNomusuario(cursorDocente.getString(5));
             DocentesList.add(docente);
         }
         obtenerListaDocente();
@@ -117,7 +121,7 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         listaDocente = new ArrayList<>();
         listaDocente.add("Seleccione");
         for (int i=0; i<DocentesList.size();i++){
-            listaDocente.add(DocentesList.get(i).getNombdocente()+","+DocentesList.get(i).getApelldocente());
+            listaDocente.add(DocentesList.get(i).getNomusuario());
         }
     }
 
