@@ -59,7 +59,10 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
         }
         if (isdocente==1){
             if (fila.getCount() > 0){
-                //vista para el docente
+            Intent i = new Intent(this, MenuDocenteActivity.class);
+            startActivity(i);
+            et1.setText("");
+            et2.setText("");
             }else{
                 Toast.makeText(getApplicationContext(), "Usuario Incorrecto", Toast.LENGTH_LONG).show();
             }

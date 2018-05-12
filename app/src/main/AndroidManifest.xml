@@ -38,7 +38,8 @@
         <activity android:name=".CicloEliminarActivity" />
         <activity android:name=".CicloConsultarActivity" />
         <activity android:name=".CicloActualizarActivity" />
-        <activity android:name=".OfertaAcademicaInsertarActivity"></activity>
+        <activity android:name=".OfertaAcademicaInsertarActivity" />
+        <activity android:name=".MenuDocenteActivity"></activity>
     </application>
 
 </manifest>
