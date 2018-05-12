@@ -17,7 +17,7 @@
         android:text="Numero de Ciclo" />
 
     <EditText
-        android:id="@+id/editNum"
+        android:id="@+id/editnumerociclo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -30,16 +30,16 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editNum"
+        android:layout_below="@+id/editnumerociclo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="Año Ciclo" />
 
     <EditText
-        android:id="@+id/editAnio"
+        android:id="@+id/editaniociclo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editNum"
+        android:layout_alignStart="@+id/editnumerociclo"
         android:layout_below="@+id/textView18"
         android:ems="10"
         android:inputType="textPersonName" />
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView18"
-        android:layout_below="@+id/editAnio"
+        android:layout_below="@+id/editaniociclo"
         android:layout_marginTop="14dp"
         android:text="Fecha Inicio" />
 
@@ -57,10 +57,11 @@
         android:id="@+id/editFechaIni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/editAnio"
+        android:layout_alignStart="@+id/editaniociclo"
         android:layout_below="@+id/textView19"
         android:ems="10"
-        android:inputType="date" />
+        android:hint="yyyy-mm-dd"
+        android:inputType="datetime" />
 
     <TextView
         android:id="@+id/textView20"
@@ -78,7 +79,8 @@
         android:layout_alignStart="@+id/editFechaIni"
         android:layout_below="@+id/textView20"
         android:ems="10"
-        android:inputType="date" />
+        android:hint="yyyy-mm-dd"
+        android:inputType="datetime" />
     <Button
         android:id="@+id/buttonCrear"
         android:layout_width="250dp"

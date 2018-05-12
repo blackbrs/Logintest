@@ -20,8 +20,8 @@ public class CicloInsertarActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_ciclo_insertar);
         helper = new ControlBDHelper(this);
-        editCod = (EditText) findViewById(R.id.editNum);
-        editAnio = (EditText) findViewById(R.id.editAnio);
+        editCod = (EditText) findViewById(R.id.editnumerociclo);
+        editAnio = (EditText) findViewById(R.id.editaniociclo);
         editFechaIni = (EditText) findViewById(R.id.editFechaIni);
         editFechaFin = (EditText) findViewById(R.id.editFechaFin);
     }

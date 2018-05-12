@@ -53,6 +53,8 @@ public class ControlBDHelper {
         DBHelper = new DatabaseHelper(context);
     }
 
+
+
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "appTest.s3db";
         private static final int VERSION = 1;
@@ -308,12 +310,10 @@ public class ControlBDHelper {
 
 
     public String eliminar(Docente docente){
-        System.out.println("ENTRO AL METODO ELIMINAR EN LA CONEXION");
         String regAfectados="filas afectadas= ";
         int contador=0;
         int auxid=0;
         if(verificarIntegridad(docente, 5)) {
-            System.out.println("ENTRO A LA VERIFICACION DE INTEGRIDAD");
             Cursor cursorId= db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='"+docente.getNomusuario()+"'",null);
             if(cursorId.moveToFirst()){
                 System.out.println(auxid);
@@ -583,7 +583,55 @@ public class ControlBDHelper {
         return regInsertados;
     }
 
+    public String eliminar(Ciclo ciclo){
+        String regAfectados="filas afectadas= ";
+        int contador=0;
+        int auxid=0;
+        if(verificarIntegridad(ciclo, 2)) {
+            Cursor cursorId= db.rawQuery("SELECT idciclo FROM ciclo WHERE numciclo='"+ciclo.getNumCiclo()+"'"+" AND aniociclo='"+ciclo.getAnioCiclo()+"'",null);
+            if(cursorId.moveToFirst()){
+                System.out.println(auxid);
+                auxid=cursorId.getInt(0);
+                System.out.println(auxid);
+            }
+            db.delete("ofertaAcademica","idciclo="+auxid,null);
+            contador=db.delete("ciclo", "idciclo='"+auxid+"'",null);
+            regAfectados+=contador;
+        } else {
+            return "Registro con Numero de Ciclo  " + ciclo.getNumCiclo() + "y Anio de Ciclo "+ciclo.getAnioCiclo()+" no existe";
+        }
+        return regAfectados;
+    }
 
+    public Ciclo consultarCiclo(String numero, String anio){
+        String[] id = {numero,anio};
+        Cursor cursor = db.query("ciclo", camposCiclo, "numciclo = ?  AND aniociclo = ?", id, null, null, null);
+        if(cursor.moveToFirst()){
+            Ciclo ciclo = new Ciclo();
+            ciclo.setNumCiclo(cursor.getInt(0));
+            ciclo.setAnioCiclo(cursor.getInt(1));
+            ciclo.setFechaIni(cursor.getString(2));
+            ciclo.setFechaFin(cursor.getString(3));
+
+            return ciclo;
+        }else{
+            return null;
+        }
+    }
+
+    public String actualizar(Ciclo ciclo){
+        //Si existe
+        if(verificarIntegridad(ciclo, 2)){
+            String[] id = {String.valueOf(ciclo.getNumCiclo()),String.valueOf(ciclo.getAnioCiclo())};
+            ContentValues cv = new ContentValues();
+            cv.put("fechaini", ciclo.getFechaIni());
+            cv.put("fechafin", ciclo.getFechaFin());
+            db.update("ciclo", cv, "numciclo = ? AND aniociclo = ?", id);
+            return "Registro Actualizado Correctamente";
+        }else{
+            return "Registro con Numero de Ciclo  " + ciclo.getNumCiclo() + "y Anio de Ciclo "+ciclo.getAnioCiclo()+" no existe";
+        }
+    }
 
 
 

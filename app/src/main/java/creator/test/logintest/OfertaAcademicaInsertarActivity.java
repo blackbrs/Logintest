@@ -72,7 +72,7 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
 
     public void consultarListaCiclo() {
         Ciclo ciclo =null;
-        int idciclo=0;
+        ArrayList<Integer> idciclo =   idciclo = new ArrayList<>();;
         CiclosList = new ArrayList<Ciclo>();
         helper.abrir();
         helper.cerrar();
@@ -80,7 +80,7 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         Cursor cursorCiclo = helper.consultarListaCiclos();
         while(cursorCiclo.moveToNext()){
             ciclo = new Ciclo();
-            idciclo=cursorCiclo.getInt(0);
+            idciclo.add(cursorCiclo.getInt(0));
             ciclo.setNumCiclo(cursorCiclo.getInt(1));
             ciclo.setAnioCiclo(cursorCiclo.getInt(2));
             ciclo.setFechaIni(cursorCiclo.getString(3));
@@ -89,11 +89,11 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         }
         obtenerListaCiclo(idciclo);
     }
-    private void obtenerListaCiclo(int id) {
+    private void obtenerListaCiclo(ArrayList<Integer> id) {
         listaCiclo = new ArrayList<>();
         listaCiclo.add("Seleccione");
         for (int i=0; i<CiclosList.size();i++){
-            listaCiclo.add(String.valueOf(id)+CiclosList.get(i).getAnioCiclo()+"-"+CiclosList.get(i).getNumCiclo());
+            listaCiclo.add(String.valueOf(id.get(i))+" "+CiclosList.get(i).getAnioCiclo()+" - "+CiclosList.get(i).getNumCiclo());
         }
         System.out.println();
     }

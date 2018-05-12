@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="creator.test.logintest.CicloActualizarActivity">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dip"
+    android:stretchColumns="1" >
+    <TableRow>
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:text="Numero Ciclo"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editnumeroCiclo"
+            android:inputType="text"
+            android:maxLength="7" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:text="Año Ciclo"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editaniociclO"
+            android:inputType="text"
+            android:maxLength="30" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:text="Fecha Inicio"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editfechainiciO"
+            android:inputType="text"
+            android:maxLength="30" />
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:text="Fecha Final"
+            android:textColor="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editfechafinaL"
+            android:inputType="text"
+            android:maxLength="100" />
+    </TableRow>
+    <TableRow>
+
+    </TableRow>
+    <TableRow>
+
+        <Button
+            android:background="@drawable/borde_redondo"
+            android:onClick="actualizarCiclo"
+            android:text="Actualizar" />
+    </TableRow>
+    <TableRow>
+
+        <Button
+            android:background="@drawable/borde_redondo"
+            android:onClick="limpiarTexto"
+            android:text="Limpiar" />
+    </TableRow>
+</TableLayout>
