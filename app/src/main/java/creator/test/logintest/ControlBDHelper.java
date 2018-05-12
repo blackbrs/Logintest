@@ -243,6 +243,22 @@ public class ControlBDHelper {
         return cursor;
     }
 
+    public Cursor consultarListaMaterias(){
+        DBHelper.getReadableDatabase();
+        Cursor cursor1=null;
+        cursor1=db.rawQuery("SELECT * FROM materia",null);
+        return cursor1;
+    }
+    public Cursor consultarListaDocentes(){
+        DBHelper.getReadableDatabase();
+        Cursor cursor1=db.rawQuery("SELECT * FROM docente",null);
+        return cursor1;
+    }
+    public Cursor consultarListaCiclos(){
+        DBHelper.getReadableDatabase();
+        Cursor cursor1=db.rawQuery("SELECT * FROM ciclo",null);
+        return cursor1;
+    }
 
 
 

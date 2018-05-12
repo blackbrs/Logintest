@@ -28,7 +28,6 @@
         <activity android:name=".DocenteEliminarActivity" />
         <activity android:name=".DocenteActualizarActivity" />
         <activity android:name=".DocenteConsultarActivity" />
-        <activity android:name=".OfertaAcademicaMenuActivity" />
         <activity android:name=".MateriaMenuActivity" />
         <activity android:name=".CicloMenuActivity" />
         <activity android:name=".MateriaInsertarActivity" />
@@ -38,7 +37,8 @@
         <activity android:name=".CicloInsertarActivity" />
         <activity android:name=".CicloEliminarActivity" />
         <activity android:name=".CicloConsultarActivity" />
-        <activity android:name=".CicloActualizarActivity"></activity>
+        <activity android:name=".CicloActualizarActivity" />
+        <activity android:name=".OfertaAcademicaInsertarActivity"></activity>
     </application>
 
 </manifest>
