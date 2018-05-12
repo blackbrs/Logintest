@@ -39,7 +39,14 @@
         <activity android:name=".CicloConsultarActivity" />
         <activity android:name=".CicloActualizarActivity" />
         <activity android:name=".OfertaAcademicaInsertarActivity" />
-        <activity android:name=".MenuDocenteActivity"></activity>
+        <activity android:name=".MenuDocenteActivity" />
+        <activity android:name=".AreaEvaluacionInsertarActivity" />
+        <activity android:name=".AreaEvaluacionMenuActivity" />
+        <activity android:name=".AreaEvaluacionEliminarActivity" />
+        <activity android:name=".AreaEvaluacionConsultarActivity" />
+        <activity android:name=".AreaEvaluacionActualizarActivity" />
+        <activity android:name=".CuestionarioMenuActivity" />
+        <activity android:name=".OfertaAcademicaConsultaActivity"></activity>
     </application>
 
 </manifest>
