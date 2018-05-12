@@ -87,9 +87,9 @@ public class ControlBDHelper {
 
 
                 db.execSQL("CREATE TABLE ciclo( " +
-                        "idciclo INTEGER NOT NULL PRIMARY KEY, " +
-                        "numciclo INTEGER NOT NULL, " +
-                        "aniociclo INTEGER NOT NULL, " +
+                        "idciclo INTEGER  PRIMARY KEY AUTOINCREMENT," +
+                        "numciclo INTEGER  NOT NULL, " +
+                        "aniociclo INTEGER  NOT NULL, " +
                         "fechaini  TEXT NOT NULL, " +
                         "fechafin TEXT NOT NULL)");
 
@@ -555,6 +555,44 @@ public class ControlBDHelper {
 
 
 
+    public String insertar(Ciclo ciclo){
+        String regInsertados="Registro Insertado Nº= ";
+        long contador=0;
+        // verificar que no exista docente
+        if(verificarIntegridad(ciclo,2))
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else
+        {
+            ContentValues cic = new ContentValues();
+            cic.put("numciclo",ciclo.getNumCiclo());
+            cic.put("aniociclo",ciclo.getAnioCiclo());
+            cic.put("fechaini",ciclo.getFechaIni());
+            cic.put("fechafin",ciclo.getFechaFin());
+            contador=db.insert("ciclo",null,cic);
+            regInsertados=regInsertados+contador;
+        }
+        if(contador==-1 || contador==0)
+        {
+            regInsertados= "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        }
+        else {
+            regInsertados=regInsertados+contador;
+        }
+        return regInsertados;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -632,9 +670,9 @@ public class ControlBDHelper {
                Cursor cursor1 = db.query("materia",null,"codmateria = ?",id1,null,null,null,null);
                if (cursor1.moveToFirst()){
                    return true;
+               }else {
+                   return false;
                }
-               return false;
-
             }
             case 2: {
                 /*//verificar que al modificar nota exista carnet del alumno, el codigo de materia y el ciclo
@@ -648,7 +686,15 @@ public class ControlBDHelper {
                 }
                 return false;
             }*/
-                return true;
+                Ciclo ciclo = (Ciclo) dato;
+                String[] idciclo = {String.valueOf(ciclo.getNumCiclo()),String.valueOf(ciclo.getAnioCiclo())};
+                abrir();
+                Cursor cursor = db.rawQuery("SELECT idciclo FROM ciclo WHERE numciclo="+String.valueOf(ciclo.getNumCiclo())+" AND aniociclo="+String.valueOf(ciclo.getAnioCiclo()),null);
+                System.out.println(cursor.moveToFirst());
+                if (cursor.moveToFirst()){
+                    return true;
+                }
+                return false;
             }
             case 3: {
                 Estudiante estudiante = (Estudiante) dato;
