@@ -6,7 +6,9 @@
     android:stretchColumns="1" >
     <TableRow>
 
-        <TextView android:text="Codigo de Materia" />
+        <TextView
+            android:text="Codigo de Materia"
+            android:textColor="@android:color/background_dark" />
 
         <EditText
             android:id="@+id/editCod"
@@ -15,7 +17,9 @@
     </TableRow>
     <TableRow>
 
-        <TextView android:text="Unidades Valorativas" />
+        <TextView
+            android:text="Unidades Valorativas"
+            android:textColor="@android:color/background_dark" />
 
         <EditText
             android:id="@+id/editUnidadesValorativa"
@@ -24,7 +28,9 @@
     </TableRow>
     <TableRow>
 
-        <TextView android:text="Nombre de Materia" />
+        <TextView
+            android:text="Nombre de Materia"
+            android:textColor="@android:color/background_dark" />
 
         <EditText
             android:id="@+id/editNombremateria"
@@ -34,12 +40,16 @@
     <TableRow>
 
         <Button
+            android:background="@drawable/borde_redondo"
+            android:elevation="13dp"
             android:onClick="actualizarMateria"
             android:text="Actualizar" />
     </TableRow>
     <TableRow>
 
         <Button
+            android:background="@drawable/borde_redondo"
+            android:elevation="1dp"
             android:onClick="limpiarTexto"
             android:text="Limpiar" />
     </TableRow>

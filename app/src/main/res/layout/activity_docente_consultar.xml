@@ -7,7 +7,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario" />
+        android:text="Usuario"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/editUsua"
@@ -23,6 +24,7 @@
             android:id="@+id/botonConsultar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/borde_redondo"
             android:onClick="consultarDocente"
             android:text="Consultar" />
 
@@ -30,6 +32,7 @@
             android:id="@+id/botonLimpiar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/borde_redondo"
             android:onClick="limpiarTexto"
             android:text="Limpiar" />
     </LinearLayout>
@@ -37,7 +40,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre" />
+        android:text="Nombre"
+        android:textColor="@android:color/background_dark" />
     <EditText
         android:id="@+id/editNombreDocente"
         android:layout_width="fill_parent"
@@ -52,7 +56,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apellido" />
+        android:text="Apellido"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/editApell"
@@ -68,7 +73,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Correo" />
+        android:text="Correo"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/editMail"
@@ -84,7 +90,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Direccion" />
+        android:text="Direccion"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/editAdress"

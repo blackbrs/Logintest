@@ -6,7 +6,9 @@
     android:stretchColumns="1" >
     <TableRow>
 
-        <TextView android:text="Usuario" />
+        <TextView
+            android:text="Usuario"
+            android:textColor="@android:color/background_dark" />
 
         <EditText
             android:id="@+id/editarUsuario"
@@ -15,7 +17,9 @@
     </TableRow>
     <TableRow>
 
-        <TextView android:text="Nombre" />
+        <TextView
+            android:text="Nombre"
+            android:textColor="@android:color/background_dark" />
 
         <EditText
             android:id="@+id/editarNombre"
@@ -24,7 +28,9 @@
     </TableRow>
     <TableRow>
 
-        <TextView android:text="Apellido" />
+        <TextView
+            android:text="Apellido"
+            android:textColor="@android:color/background_dark" />
 
         <EditText
             android:id="@+id/editarApellido"
@@ -33,7 +39,9 @@
     </TableRow>
     <TableRow>
 
-        <TextView android:text="Correo" />
+        <TextView
+            android:text="Correo"
+            android:textColor="@android:color/background_dark" />
 
         <EditText
             android:id="@+id/editarCorreo"
@@ -42,7 +50,9 @@
     </TableRow>
     <TableRow>
 
-        <TextView android:text="Direccion" />
+        <TextView
+            android:text="Direccion"
+            android:textColor="@android:color/background_dark" />
         <EditText
             android:id="@+id/editarDireccion"
             android:inputType="text"
@@ -51,12 +61,17 @@
     <TableRow>
 
         <Button
+            android:layout_width="116dp"
+            android:background="@drawable/borde_redondo"
+            android:elevation="16dp"
             android:onClick="actualizarDocente"
             android:text="Actualizar" />
     </TableRow>
     <TableRow>
 
         <Button
+            android:background="@drawable/borde_redondo"
+            android:elevation="19dp"
             android:onClick="limpiarTexto"
             android:text="Limpiar" />
     </TableRow>
