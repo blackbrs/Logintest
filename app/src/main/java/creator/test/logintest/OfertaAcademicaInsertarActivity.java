@@ -30,9 +30,14 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         consultarListaMateria();
         ArrayAdapter<CharSequence> adaptador = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,listaMateria);
         comboMaterias.setAdapter(adaptador);
+
         consultarListaCiclo();
         ArrayAdapter<CharSequence> adaptador1 = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,listaCiclo);
+        comboCiclo.setAdapter(adaptador1);
+
         consultarListaDocentes();
+        ArrayAdapter<CharSequence> adaptador2 = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,listaDocente);
+        comboDocente.setAdapter(adaptador2);
     }
 
     public void consultarListaMateria() {
@@ -104,6 +109,15 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
             docente.setDireccion(cursorDocente.getString(3));
             docente.setNomusuario(cursorDocente.getString(4));
             DocentesList.add(docente);
+        }
+        obtenerListaDocente();
+    }
+
+    private void obtenerListaDocente() {
+        listaDocente = new ArrayList<>();
+        listaDocente.add("Seleccione");
+        for (int i=0; i<DocentesList.size();i++){
+            listaDocente.add(DocentesList.get(i).getNombdocente()+","+DocentesList.get(i).getApelldocente());
         }
     }
 
