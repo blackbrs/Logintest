@@ -20,14 +20,14 @@
         android:id="@+id/comboCiclo"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/spinner3"
-        android:layout_alignStart="@+id/spinner3"
+        android:layout_above="@+id/comboDocente"
+        android:layout_alignStart="@+id/comboDocente"
         android:layout_marginBottom="125dp"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="162dp" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/comboDocente"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

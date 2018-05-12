@@ -26,7 +26,7 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         helper = new ControlBDHelper(this);
         comboMaterias = (Spinner) findViewById(R.id.comboMaterias);
         comboCiclo= (Spinner) findViewById(R.id.comboCiclo);
-        comboDocente= (Spinner) findViewById(R.id.spinner3);
+        comboDocente= (Spinner) findViewById(R.id.comboDocente);
         consultarListaMateria();
         ArrayAdapter<CharSequence> adaptador = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,listaMateria);
         comboMaterias.setAdapter(adaptador);
