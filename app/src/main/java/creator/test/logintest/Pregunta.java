@@ -8,6 +8,7 @@ public class Pregunta {
     private int idarea;
     private int ponderapregunta;
     private String descrippreg;
+    private int tipo;
 
 
     public Pregunta(){
@@ -36,5 +37,13 @@ public class Pregunta {
 
     public void setDescrippreg(String descrippreg) {
         this.descrippreg = descrippreg;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 }

@@ -14,18 +14,25 @@ import java.util.ArrayList;
 
 public class PreguntaInsertarActivity extends AppCompatActivity {
     Spinner comboArea;
+    Spinner comboTipoPregunta;
     ControlBDHelper helper;
     ArrayList<String> listaArea;
     ArrayList<AreaEvaluacion> AreasList;
     String id;
+    String [] tipoPreguntaLista={"1.Opcion Multiple", "2.Verdadero o Falso"};
+    ArrayList<Integer> listatipo= new ArrayList<Integer>();
+    int tipoPregunta;
     EditText ponderacion;
     EditText descrippreg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        listatipo.add(1);
+        listatipo.add(2);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregunta_insertar);
         helper = new ControlBDHelper(this);
         comboArea = (Spinner) findViewById(R.id.spinnerAreaEvaluacion);
+        comboTipoPregunta = (Spinner) findViewById(R.id.spinnerTipoPregunta);
         consultarListaArea();
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,listaArea);
         comboArea.setAdapter(adapter);
@@ -43,6 +50,35 @@ public class PreguntaInsertarActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+        ArrayAdapter<CharSequence> adapatado1 = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,tipoPreguntaLista);
+        comboTipoPregunta.setAdapter(adapatado1);
+
+
+
+        comboTipoPregunta.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 0:
+                        tipoPregunta = listatipo.get(i);
+                        System.out.println(tipoPregunta);
+                        break;
+                    case 1:
+                        tipoPregunta = listatipo.get(i);
+                        System.out.println(tipoPregunta);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         ponderacion = (EditText) findViewById(R.id.editPonde);
         descrippreg =(EditText) findViewById(R.id.editDec);
     }
@@ -79,11 +115,13 @@ public class PreguntaInsertarActivity extends AppCompatActivity {
         int pondera = Integer.parseInt(ponderacion.getText().toString());
         String descripcion = descrippreg.getText().toString();
         int idArea= Integer.parseInt(id);
+        int tipo = tipoPregunta;
         String regInsertados;
         Pregunta pr1 = new Pregunta();
         pr1.setIdarea(idArea);
         pr1.setPonderapregunta(pondera);
         pr1.setDescrippreg(descripcion);
+        pr1.setTipo(tipo);
         helper.abrir();
         regInsertados = helper.insertar(pr1);
         helper.cerrar();

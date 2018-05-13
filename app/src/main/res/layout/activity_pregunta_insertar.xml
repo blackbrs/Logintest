@@ -69,11 +69,29 @@
         android:id="@+id/buttonCrear"
         android:layout_width="250dp"
         android:layout_height="30dp"
-        android:layout_below="@+id/editPonde"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
+        android:layout_marginBottom="66dp"
         android:background="@drawable/borde_redondo"
         android:onClick="insertarPregunta"
         android:text="Crear" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editPonde"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Tipo de Pregunta"
+        android:textColor="@android:color/background_dark" />
+
+    <Spinner
+        android:id="@+id/spinnerTipoPregunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView28"
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>

@@ -810,6 +810,7 @@ public class ControlBDHelper {
                 preg.put("idarea", pr1.getIdarea());
                 preg.put("ponderapregunt",pr1.getPonderapregunta());
                 preg.put("descrippreg", pr1.getDescrippreg());
+                preg.put("tipopreg", pr1.getTipo());
                 contador = db.insert("pregunta", null, preg);
                 regInsertados = regInsertados + contador;
             }
