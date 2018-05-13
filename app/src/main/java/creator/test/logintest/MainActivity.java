@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
         if(isadmin==1) {
             if (fila.getCount() > 0) {
                 Intent i = new Intent(this,MenuAdminActivity.class);
+                i.putExtra("Usuario",usuario);
                 startActivity(i);
                 et1.setText("");
                 et2.setText("");
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
         if (isdocente==1){
             if (fila.getCount() > 0){
             Intent i = new Intent(this, MenuDocenteActivity.class);
+            i.putExtra("Usuario",usuario);
             startActivity(i);
             et1.setText("");
             et2.setText("");

@@ -8,7 +8,7 @@
     tools:context="creator.test.logintest.AreaEvaluacionMenuActivity">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnIngresar"
         android:layout_width="275dp"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
@@ -20,11 +20,11 @@
         tools:layout_editor_absoluteY="83dp" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnEliminar"
         android:layout_width="275dp"
         android:layout_height="40dp"
-        android:layout_alignStart="@+id/button5"
-        android:layout_below="@+id/button5"
+        android:layout_alignStart="@+id/btnIngresar"
+        android:layout_below="@+id/btnIngresar"
         android:layout_marginTop="52dp"
         android:background="@drawable/borde_redondo2"
         android:text="Eliminar Area de Evaluacion"
@@ -32,22 +32,22 @@
         tools:layout_editor_absoluteY="161dp" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnConsultar"
         android:layout_width="275dp"
         android:layout_height="40dp"
-        android:layout_alignStart="@+id/button6"
-        android:layout_below="@+id/button6"
-        android:layout_marginTop="44dp"
+        android:layout_alignStart="@+id/btnEliminar"
+        android:layout_below="@+id/btnEliminar"
+        android:layout_marginTop="45dp"
         android:background="@drawable/borde_redondo2"
         android:text="Consultar Area de Evaluacion"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="242dp" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnActualizar"
         android:layout_width="275dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/button7"
+        android:layout_below="@+id/btnConsultar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
         android:background="@drawable/borde_redondo2"

@@ -17,6 +17,7 @@ public class MenuAdminActivity extends ListActivity {
     String[] menu={"Gestionar Docente","Gestionar Alumno","Oferta Academica","Gestionar Ciclo","Gestionar Materia"};
     String[] activities={"DocenteMenuActivity", "EstudianteMenuActivity","OfertaAcademicaInsertarActivity","CicloMenuActivity","MateriaMenuActivity"};
     ControlBDHelper BDHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

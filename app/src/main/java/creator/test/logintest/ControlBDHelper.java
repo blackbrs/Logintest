@@ -265,6 +265,33 @@ public class ControlBDHelper {
     }
 
 
+    public Cursor consultarListaOferta(String user) {
+        DBHelper.getReadableDatabase();
+        int auxid=0;
+        Docente docente = new Docente();
+        docente.setNomusuario(user);
+        if (verificarIntegridad(docente, 5)) {
+            Cursor cursorId = db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='" + docente.getNomusuario() + "'", null);
+            if (cursorId.moveToFirst()) {
+                auxid = cursorId.getInt(0);
+
+            }
+        }
+        Cursor cursor1 = null;
+        cursor1 = db.rawQuery("SELECT * FROM ofertaAcademica WHERE iddocente="+String.valueOf(auxid), null);
+        return cursor1;
+    }
+
+
+
+
+
+
+
+
+
+
+
     public String insertar(Docente docente) {
         String regInsertados = "Registro Insertado Nº= ";
         long contador = 0;
@@ -689,7 +716,7 @@ public class ControlBDHelper {
 
 
 
-    private boolean verificarIntegridad(Object dato, int relacion) throws
+    protected boolean verificarIntegridad(Object dato, int relacion) throws
             SQLException{
         switch(relacion){
             case 1:
