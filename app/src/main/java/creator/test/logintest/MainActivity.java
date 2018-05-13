@@ -35,17 +35,21 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
         String  password= et2.getText().toString();
         fila = BDHelper.ConsultarUsuPasAdmin(usuario,password);
         Cursor admin = BDHelper.db.rawQuery("SELECT isadmin FROM usuario WHERE nomusuario='"+usuario+"'"+"AND clave='"+password+"'",null);
+
         if (admin.moveToFirst()){
             isadmin=admin.getInt(0);
+
         }
 
         if(isadmin==1) {
+
             if (fila.getCount() > 0) {
                 Intent i = new Intent(this,MenuAdminActivity.class);
                 i.putExtra("Usuario",usuario);
                 startActivity(i);
                 et1.setText("");
                 et2.setText("");
+
             } else {
                 Toast.makeText(getApplicationContext(), "Usuario Incorrecto", Toast.LENGTH_LONG).show();
             }
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
         if (docente.moveToFirst()){
             isdocente=docente.getInt(0);
         }
+
         if (isdocente==1){
             if (fila.getCount() > 0){
             Intent i = new Intent(this, MenuDocenteActivity.class);
@@ -78,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
         if (estudiante.moveToFirst()){
             isestudiante=estudiante.getInt(0);
         }
+
         if (isestudiante==1){
             if (fila.getCount() > 0){
                 //vista para el estudiante

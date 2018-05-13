@@ -29,6 +29,7 @@ public class PreguntaInsertarActivity extends AppCompatActivity {
         listatipo.add(1);
         listatipo.add(2);
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_pregunta_insertar);
         helper = new ControlBDHelper(this);
         comboArea = (Spinner) findViewById(R.id.spinnerAreaEvaluacion);
