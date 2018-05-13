@@ -44,14 +44,18 @@
         <activity android:name=".AreaEvaluacionInsertarActivity" />
         <activity android:name=".AreaEvaluacionMenuActivity" />
         <activity android:name=".AreaEvaluacionEliminarActivity" />
-        <activity android:name=".AreaEvaluacionConsultarActivity" />
-        <activity android:name=".AreaEvaluacionActualizarActivity" />
         <activity android:name=".CuestionarioMenuActivity" />
         <activity android:name=".OfertaAcademicaConsultaActivity" />
         <activity android:name=".CuestionarioInsertarActivity" />
         <activity android:name=".CuestionarioEliminarActivity" />
         <activity android:name=".CuestionarioConsultarActivity" />
-        <activity android:name=".CuestionarioActualizarActivity"></activity>
+        <activity android:name=".CuestionarioActualizarActivity" />
+        <activity android:name=".PreguntaMenuActivity" />
+        <activity android:name=".OpcionMenuActivity" />
+        <activity android:name=".PreguntaInsertarActivity" />
+        <activity android:name=".PreguntaEliminarActivity" />
+        <activity android:name=".PreguntaConsultarActivity" />
+        <activity android:name=".PreguntaActualizarActivity" />
     </application>
 
 </manifest>

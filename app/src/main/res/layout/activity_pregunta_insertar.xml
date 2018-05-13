@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+    tools:context="creator.test.logintest.PreguntaInsertarActivity">
+
+
+    <Spinner
+        android:id="@+id/spinnerAreaEvaluacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:id="@+id/area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="Area de Evaluacion"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/pregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerAreaEvaluacion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Contenido de la Pregunta"
+        android:textColor="@android:color/background_dark" />
+
+    <EditText
+        android:id="@+id/editDec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/pregunta"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/pregunta"
+        android:layout_below="@+id/editDec"
+        android:layout_marginTop="33dp"
+        android:text="Ponderacion de la Pregunta"
+        android:textColor="@android:color/background_dark" />
+
+    <EditText
+        android:id="@+id/editPonde"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/buttonCrear"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/editPonde"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:background="@drawable/borde_redondo"
+        android:onClick="insertarPregunta"
+        android:text="Crear" />
+
+</RelativeLayout>

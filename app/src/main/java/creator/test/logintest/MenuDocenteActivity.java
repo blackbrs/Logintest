@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 public class MenuDocenteActivity extends ListActivity {
 
-    String[] menu={"Gestionar Area de Evaluacion","Gestionar Cuestionario","Consultar Oferta Academica"};
-    String[] activities={"AreaEvaluacionMenuActivity", "CuestionarioMenuActivity","OfertaAcademicaConsultaActivity"};
+    String[] menu={"Gestionar Area de Evaluacion","Gestionar Cuestionario","Consultar Oferta Academica","Gestionar Pregunta","Gestionar Opciones"};
+    String[] activities={"AreaEvaluacionMenuActivity", "CuestionarioMenuActivity","OfertaAcademicaConsultaActivity","PreguntaMenuActivity","OpcionMenuActivity"};
     ControlBDHelper BDHelper;
     String user;
     @Override

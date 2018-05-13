@@ -54,6 +54,7 @@ public class ControlBDHelper {
     }
 
 
+
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "appTest.s3db";
         private static final int VERSION = 1;
@@ -82,9 +83,7 @@ public class ControlBDHelper {
 
 
                 db.execSQL("CREATE TABLE areaEvaluacion( idarea INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                        "idoferta INTEGER, " +
-                        "tipoarea VARCHAR(50) NOT NULL," +
-                        " CONSTRAINT fk_idoferta FOREIGN KEY (idoferta) REFERENCES ofertaAcademica(idoferta) ON DELETE RESTRICT)");
+                        "tipoarea VARCHAR(50) NOT NULL)");
 
 
                 db.execSQL("CREATE TABLE ciclo( " +
@@ -282,6 +281,13 @@ public class ControlBDHelper {
         return cursor1;
     }
 
+    public Cursor consultarListaAreas() {
+        DBHelper.getReadableDatabase();
+        Cursor cursor1 = null;
+        cursor1 = db.rawQuery("SELECT * FROM areaEvaluacion", null);
+        return cursor1;
+
+    }
 
 
 
@@ -369,6 +375,24 @@ public class ControlBDHelper {
             return "Registro con Usuario " + docente.getNomusuario() + " no existe";
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public String insertar(Estudiante estudiante) {
@@ -591,6 +615,25 @@ public class ControlBDHelper {
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public String insertar(OfertaAcademica oferta) {
         String regInsertados = "Registro Insertado Nº= ";
         long contador = 0;
@@ -645,6 +688,50 @@ public class ControlBDHelper {
     }
 
 
+
+
+
+
+
+
+
+    public String insertar(AreaEvaluacion areas) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+        // verificar que no exista docente
+        if (verificarIntegridad(areas, 8)) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            ContentValues areaEva = new ContentValues();
+            areaEva.put("tipoarea", areas.getArea());
+            contador = db.insert("areaEvaluacion", null, areaEva);
+            regInsertados = regInsertados + contador;
+        }
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
+        }
+        return regInsertados;
+    }
+
+    public String eliminar(AreaEvaluacion areadeEvaluacion) {
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        int auxid = 0;
+        if (verificarIntegridad(areadeEvaluacion, 8)) {
+            Cursor cursorId = db.rawQuery("SELECT idarea FROM areaEvaluacion WHERE tipoarea='" + areadeEvaluacion.getArea()+ "'", null);
+            if (cursorId.moveToFirst()) {
+                auxid = cursorId.getInt(0);
+            }
+            db.delete("pregunta", "idarea=" + auxid, null);
+            db.delete("areaEvaluacion", "tipoarea='" + areadeEvaluacion.getArea() + "'", null);
+            regAfectados += contador;
+        } else {
+            return "Registro de Area de Evaluacion " + areadeEvaluacion.getArea() + " no existe";
+        }
+        return regAfectados;
+    }
 
 
 
@@ -709,6 +796,28 @@ public class ControlBDHelper {
     }
 
 
+
+    public String insertar(Pregunta pr1) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+        // 1 Verificar integridad referencial
+        if (verificarIntegridad(pr1, 9)) {
+            // 2 Verificar registro duplicado
+            if (verificarIntegridad(pr1, 10)) {
+                regInsertados = "Error al Insertar el registro, Registro Duplicado.Verificar inserción";
+            } else {
+                ContentValues preg = new ContentValues();
+                preg.put("idarea", pr1.getIdarea());
+                preg.put("ponderapregunt",pr1.getPonderapregunta());
+                preg.put("descrippreg", pr1.getDescrippreg());
+                contador = db.insert("pregunta", null, preg);
+                regInsertados = regInsertados + contador;
+            }
+        } else {
+            regInsertados = "Error al Insertar el registro, Registro sin referencias.Verificar inserción";
+        }
+        return  regInsertados+=contador;
+    }
 
 
 
@@ -834,6 +943,38 @@ public class ControlBDHelper {
                     return true;
                 }
                 return false;
+            }
+            case 8:{
+                AreaEvaluacion area = (AreaEvaluacion) dato;
+                String[] id1= {area.getArea()};
+                abrir();
+                Cursor cursor1 = db.query("areaEvaluacion",null,"tipoarea = ?",id1,null,null,null,null);
+                if (cursor1.moveToFirst()){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+            case 9:{
+                Pregunta pr = (Pregunta) dato;
+                String[] id1= {String.valueOf(pr.getIdarea())};
+                abrir();
+                Cursor cursor1 = db.query("areaEvaluacion",null,"idarea = ?",id1,null,null,null,null);
+                if (cursor1.moveToFirst()){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+            case 10:{
+                Pregunta pr = (Pregunta) dato;
+                abrir();
+                Cursor cursor1 = db.rawQuery("SELECT idpregunta FROM pregunta WHERE idarea= "+pr.getIdarea()+" AND descrippreg ='"+pr.getDescrippreg()+"'",null);
+                if (cursor1.moveToFirst()){
+                    return true;
+                }else {
+                    return false;
+                }
             }
             default:
                 return false;

@@ -73,6 +73,7 @@ public class OfertaAcademicaInsertarActivity extends AppCompatActivity {
         numciclo.setText("");
         aniociclo.setText("");
         docente.setText("");
+        descrip.setText("");
 
     }
 

@@ -17,9 +17,9 @@ public class CuestionarioMenuActivity extends AppCompatActivity implements View.
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_cuestionario_menu);
-        btn1 = findViewById(R.id.btnIngresar);
-        btn2 = findViewById(R.id.btnEliminar);
-        btn3 = findViewById(R.id.btnConsultar);
+        btn1 = findViewById(R.id.btnIngresar2);
+        btn2 = findViewById(R.id.btnEliminar2);
+        btn3 = findViewById(R.id.btnConsultar2);
         btn4 = findViewById(R.id.btnActualizar);
 
         btn1.setOnClickListener(this);
@@ -33,17 +33,17 @@ public class CuestionarioMenuActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btnIngresar:
+            case R.id.btnIngresar2:
                 Intent intento = new Intent(this,CuestionarioInsertarActivity.class);
                 intento.putExtra("Usuario",user);
                 startActivity(intento);
                 break;
-            case R.id.btnEliminar:
+            case R.id.btnEliminar2:
                 Intent intento2 = new Intent(this,CuestionarioEliminarActivity.class);
                 intento2.putExtra("Usuario",user);
                 startActivity(intento2);
                 break;
-            case R.id.btnConsultar:
+            case R.id.btnConsultar2:
                 Intent intento3 = new Intent(this,CuestionarioConsultarActivity.class);
                 intento3.putExtra("Usuario",user);
                 startActivity(intento3);

@@ -69,6 +69,7 @@ public class OfertaAcademicaConsultaActivity extends AppCompatActivity {
                 System.out.println("Materia AUXID3 POS 1");
                 System.out.println(auxid3);
                 }
+
             System.out.println(cursorOferta.getString(4));
             mat1.setCodmateria(auxid3);
             cic1.setNumCiclo(Integer.parseInt(auxid2));

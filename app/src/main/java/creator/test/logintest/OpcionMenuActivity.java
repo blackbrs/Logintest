@@ -3,11 +3,11 @@ package creator.test.logintest;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AreaEvaluacionActualizarActivity extends AppCompatActivity {
+public class OpcionMenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_area_evaluacion_actualizar);
+        setContentView(R.layout.activity_opcion_menu);
     }
 }

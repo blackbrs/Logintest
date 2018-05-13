@@ -8,50 +8,27 @@
     tools:context="creator.test.logintest.AreaEvaluacionMenuActivity">
 
     <Button
-        android:id="@+id/btnIngresar"
+        android:id="@+id/btnIngresar2"
         android:layout_width="275dp"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="136dp"
         android:background="@drawable/borde_redondo2"
         android:text="Ingresar Area de Evaluacion"
         tools:layout_editor_absoluteX="-6dp"
         tools:layout_editor_absoluteY="83dp" />
 
     <Button
-        android:id="@+id/btnEliminar"
+        android:id="@+id/btnEliminar2"
         android:layout_width="275dp"
         android:layout_height="40dp"
-        android:layout_alignStart="@+id/btnIngresar"
-        android:layout_below="@+id/btnIngresar"
-        android:layout_marginTop="52dp"
+        android:layout_alignStart="@+id/btnIngresar2"
+        android:layout_below="@+id/btnIngresar2"
+        android:layout_marginTop="71dp"
         android:background="@drawable/borde_redondo2"
         android:text="Eliminar Area de Evaluacion"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="161dp" />
 
-    <Button
-        android:id="@+id/btnConsultar"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_alignStart="@+id/btnEliminar"
-        android:layout_below="@+id/btnEliminar"
-        android:layout_marginTop="45dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Consultar Area de Evaluacion"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="242dp" />
-
-    <Button
-        android:id="@+id/btnActualizar"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/btnConsultar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Actualizar Area de Evaluacion"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="322dp" />
 </RelativeLayout>
