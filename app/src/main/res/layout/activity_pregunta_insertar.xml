@@ -40,11 +40,13 @@
     <EditText
         android:id="@+id/editDec"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="70dp"
         android:layout_alignParentStart="true"
+        android:inputType="textMultiLine"
         android:layout_below="@+id/pregunta"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:textAlignment="viewStart"
+        android:textAllCaps="false" />
 
     <TextView
         android:id="@+id/textView30"
