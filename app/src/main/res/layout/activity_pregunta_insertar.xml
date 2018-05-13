@@ -12,7 +12,7 @@
     <Spinner
         android:id="@+id/spinnerAreaEvaluacion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="40dp" />
@@ -40,7 +40,7 @@
     <EditText
         android:id="@+id/editDec"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/pregunta"
         android:ems="10"
@@ -52,18 +52,10 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/pregunta"
         android:layout_below="@+id/editDec"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="27dp"
         android:text="Ponderacion de la Pregunta"
         android:textColor="@android:color/background_dark" />
 
-    <EditText
-        android:id="@+id/editPonde"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/buttonCrear"
@@ -89,9 +81,19 @@
     <Spinner
         android:id="@+id/spinnerTipoPregunta"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView28"
         android:layout_marginTop="20dp" />
+
+    <EditText
+        android:id="@+id/editPonde"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView30"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="number" />
 
 </RelativeLayout>
