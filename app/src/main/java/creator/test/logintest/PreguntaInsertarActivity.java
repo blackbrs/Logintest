@@ -70,7 +70,7 @@ public class PreguntaInsertarActivity extends AppCompatActivity {
         listaArea.add("Seleccione");
 
         for (int i=0; i< AreasList.size();i++){
-            listaArea.add(idarea.get(i) + AreasList.get(i).getArea());
+            listaArea.add(AreasList.get(i).getIdarea() + AreasList.get(i).getArea());
     }
 }
 
