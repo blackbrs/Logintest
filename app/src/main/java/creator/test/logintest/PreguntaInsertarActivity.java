@@ -23,6 +23,7 @@ public class PreguntaInsertarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_pregunta_insertar);
         helper = new ControlBDHelper(this);
         comboArea = (Spinner) findViewById(R.id.spinnerAreaEvaluacion);
