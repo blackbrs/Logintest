@@ -23,9 +23,9 @@
         <Button
             android:id="@+id/botonConsultar"
             android:layout_width="wrap_content"
-            android:background="@drawable/borde_redondo"
             android:layout_height="wrap_content"
-            android:onClick="consultarMateria"
+            android:background="@drawable/borde_redondo"
+            android:onClick="consultarListaPreguntas"
             android:text="Consultar" />
 
         <Button
@@ -37,47 +37,14 @@
             android:text="Limpiar" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pregunta:"
-        android:textColor="@android:color/background_dark" />
+        <ListView
+            android:id="@+id/listViewPregunta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/txtNombreMateria"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        </ListView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ponderacion"
-        android:textColor="@android:color/background_dark" />
 
-    <EditText
-        android:id="@+id/txtPonderacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:cursorVisible="false"
-        android:enabled="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="text"
-        android:longClickable="false" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tipo de Pregunta"
-        android:textColor="@android:color/background_dark" />
-
-    <EditText
-        android:id="@+id/txtTipoPregunta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" />
 
 </LinearLayout>
