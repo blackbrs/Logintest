@@ -40,16 +40,17 @@
     <EditText
         android:id="@+id/txtDescrip"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_below="@+id/textView31"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/borde_redondo"
         android:layout_below="@+id/txtDescrip"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
