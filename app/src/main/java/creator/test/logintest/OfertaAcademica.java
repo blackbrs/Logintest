@@ -10,9 +10,18 @@ class OfertaAcademica {
     Materia mater;
     Ciclo cic;
     Docente doc;
+    private int idoferta;
 
 
     public OfertaAcademica() {
+    }
+
+    public int getIdoferta() {
+        return idoferta;
+    }
+
+    public void setIdoferta(int idoferta) {
+        this.idoferta = idoferta;
     }
 
     public Materia getMater() {

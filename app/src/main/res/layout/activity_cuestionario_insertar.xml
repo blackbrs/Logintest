@@ -1,9 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingRight="64dp"
+    android:paddingLeft="64dp"
+    android:paddingTop="16dp"
     tools:context="creator.test.logintest.CuestionarioInsertarActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <Spinner
+        android:id="@+id/spinnerOferta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerOferta"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="Descripcion:" />
+
+    <EditText
+        android:id="@+id/editDescripcionExamen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView32"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editDescripcionExamen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="Ponderacion" />
+
+    <EditText
+        android:id="@+id/editPonderacionExamen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView33"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editPonderacionExamen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="Fecha de Examen" />
+
+    <EditText
+        android:id="@+id/editFechaExamen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView34"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editFechaExamen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:onClick="insertarCuestionario"
+        android:text="Crear Cuetionario" />
+</RelativeLayout>

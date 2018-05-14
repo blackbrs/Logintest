@@ -98,7 +98,6 @@ public class ControlBDHelper {
                         "idoferta INTEGER,\n" +
                         "descricuestionario VARCHAR(1024),\n" +
                         "fechaexamen TEXT,\n" +
-                        "duracion INTEGER,\n" +
                         "ponderacion FLOAT,\n" +
                         "CONSTRAINT fk_idoferta FOREIGN KEY (idoferta) REFERENCES ofertaAcademica(idoferta) ON DELETE RESTRICT)");
 
@@ -269,6 +268,7 @@ public class ControlBDHelper {
         int auxid=0;
         Docente docente = new Docente();
         docente.setNomusuario(user);
+        System.out.println(user);
         if (verificarIntegridad(docente, 5)) {
             Cursor cursorId = db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='" + docente.getNomusuario() + "'", null);
             if (cursorId.moveToFirst()) {
@@ -705,9 +705,6 @@ public class ControlBDHelper {
 
 
 
-
-
-
     public String insertar(AreaEvaluacion areas) {
         String regInsertados = "Registro Insertado Nº= ";
         long contador = 0;
@@ -880,7 +877,28 @@ public class ControlBDHelper {
     }
 
 
-
+    public String insertar(Cuestionario cuestionario) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+        // verificar que no exista docente
+        if (verificarIntegridad(cuestionario, 11)) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            ContentValues eva1 = new ContentValues();
+            eva1.put("tipoarea", cuestionario.getIdoferta());
+            eva1.put("",cuestionario.getDescricuestinario());
+            eva1.put("",cuestionario.getFechacuestionario());
+            eva1.put("",cuestionario.getPonderacion());
+            contador = db.insert("areaEvaluacion", null, eva1);
+            regInsertados = regInsertados + contador;
+        }
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
+        }
+        return regInsertados;
+    }
 
 
 
@@ -944,6 +962,7 @@ public class ControlBDHelper {
                 Docente docente = (Docente) dato;
                 String[] id = {docente.getNomusuario()};
                 abrir();
+                System.out.println("LLEGO AQUI");
                 Cursor c2 = db.query("docente", null, "nomusuario = ?", id, null, null, null);
                 if(c2.moveToFirst()){
                     return true;
@@ -1038,6 +1057,23 @@ public class ControlBDHelper {
                 Pregunta pr = (Pregunta) dato;
                 abrir();
                 Cursor cursor1 = db.rawQuery("SELECT idpregunta FROM pregunta WHERE idarea= "+pr.getIdarea()+" AND descrippreg ='"+pr.getDescrippreg()+"'",null);
+                if (cursor1.moveToFirst()){
+                    return true;
+                }else {
+                    return false;
+                }
+            }
+            case 11:{
+                Cuestionario cuest1 = (Cuestionario) dato;
+                int auxid=0;
+                Cursor aux = db.rawQuery("SELECT idcuestionario FROM cuestionario WHERE descricuestionario='"+cuest1.getDescricuestinario()+"' AND ponderacion="+cuest1.getPonderacion()+" AND idoferta="+cuest1.getIdoferta(),null);
+                System.out.println(aux.moveToFirst());
+                if(aux.moveToFirst()){
+                    auxid= aux.getInt(0);
+                }
+                String[] id1= {String.valueOf(auxid)};
+                abrir();
+                Cursor cursor1 = db.query("cuestionario",null,"idcuestionario = ?",id1,null,null,null,null);
                 if (cursor1.moveToFirst()){
                     return true;
                 }else {
