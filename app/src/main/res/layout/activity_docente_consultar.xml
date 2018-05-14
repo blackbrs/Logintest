@@ -11,7 +11,7 @@
         android:textColor="@android:color/background_dark" />
 
     <EditText
-        android:id="@+id/editUsua"
+        android:id="@+id/editUsuaCONSULTAR"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:inputType="text" />
@@ -42,16 +42,13 @@
         android:layout_height="wrap_content"
         android:text="Nombre"
         android:textColor="@android:color/background_dark" />
+
     <EditText
-        android:id="@+id/editNombreDocente"
-        android:layout_width="fill_parent"
+        android:id="@+id/editNombreDocCONSULTAR"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
-        android:enabled="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:cursorVisible="false"
-        android:longClickable="false" />
+        android:ems="10"
+        android:inputType="textPersonName" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,7 +57,7 @@
         android:textColor="@android:color/background_dark" />
 
     <EditText
-        android:id="@+id/editApell"
+        android:id="@+id/editApellCONSULTAR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:cursorVisible="false"
@@ -77,7 +74,7 @@
         android:textColor="@android:color/background_dark" />
 
     <EditText
-        android:id="@+id/editMail"
+        android:id="@+id/editMailCONSULTAR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:cursorVisible="false"
@@ -94,7 +91,7 @@
         android:textColor="@android:color/background_dark" />
 
     <EditText
-        android:id="@+id/editAdress"
+        android:id="@+id/editAdressCONSULTAR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:cursorVisible="false"

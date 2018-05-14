@@ -17,7 +17,8 @@ import android.os.Bundle;
 
 public class ControlBDHelper {
 
-    private static final String[] camposDocente = new String[]{"nombdocente", "apelldocente", "correo", "direccion"};
+    private static final String[] camposDocente = new String[]{"nombredocente", "apelldocente", "correo", "direccion"};
+    private static final String[] camposDocentes = new String[]{"nombdocente","apelldocente","correo","direccion"};
     private static final String[] camposAreaEvaluacion = new String[]{"idoferta", "tipoarea"};
     private static final String[] camposMateria = new String[]{"codmateria", "unidadval", "nombremat"};
     private static final String[] camposCiclo = new String[]{"numciclo", "aniociclo", "fechaini", "fechafin"};
@@ -119,7 +120,7 @@ public class ControlBDHelper {
 
                 db.execSQL("CREATE TABLE docente (\n" +
                         "iddocente INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-                        "nombdocente VARCHAR(50) NOT NULL,\n" +
+                        "nombredocente VARCHAR(50) NOT NULL,\n" +
                         "apelldocente VARCHAR(50) NOT NULL,\n" +
                         "correo VARCHAR(100) NOT NULL,\n" +
                         "direccion VARCHAR (70) NOT NULL,\n" +
@@ -312,7 +313,7 @@ public class ControlBDHelper {
             regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
         } else {
             ContentValues docen = new ContentValues();
-            docen.put("nombdocente", docente.getNombdocente());
+            docen.put("nombredocente", docente.getNombdocente());
             docen.put("apelldocente", docente.getApelldocente());
             docen.put("nomusuario", docente.getNomusuario());
             docen.put("correo", docente.getCorreo());
@@ -352,13 +353,19 @@ public class ControlBDHelper {
 
     public Docente consultarDocente(String usuario) {
         String[] id = {usuario};
-        Cursor cursor = db.query("docente", camposDocente, "nomusuario = ?", id, null, null, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM docente WHERE nomusuario='"+usuario+"'",null);
         if (cursor.moveToFirst()) {
             Docente profe = new Docente();
-            profe.setNombdocente(cursor.getString(0));
-            profe.setApelldocente(cursor.getString(1));
-            profe.setCorreo(cursor.getString(2));
-            profe.setDireccion(cursor.getString(3));
+            System.out.println(cursor.getString(0));
+            System.out.println(cursor.getString(1));
+            System.out.println(cursor.getString(2));
+            System.out.println(cursor.getString(3));
+            System.out.println(cursor.getString(4));
+            System.out.println(cursor.getString(5));
+            profe.setNombdocente(cursor.getString(1));
+            profe.setApelldocente(cursor.getString(2));
+            profe.setCorreo(cursor.getString(3));
+            profe.setDireccion(cursor.getString(4));
             return profe;
         } else {
             return null;
@@ -370,7 +377,7 @@ public class ControlBDHelper {
         if (verificarIntegridad(docente, 5)) {
             String[] id = {docente.getNomusuario()};
             ContentValues cv = new ContentValues();
-            cv.put("nombdocente", docente.getNombdocente());
+            cv.put("nombredocente", docente.getNombdocente());
             cv.put("apelldocente", docente.getApelldocente());
             cv.put("correo", docente.getCorreo());
             cv.put("direccion", docente.getDireccion());

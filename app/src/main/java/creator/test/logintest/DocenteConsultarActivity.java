@@ -19,11 +19,11 @@ public class DocenteConsultarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_docente_consultar);
         helper = new ControlBDHelper(this);
-        editUserDoc = (EditText) findViewById(R.id.editUsua);
-        editName = (EditText) findViewById(R.id.editNombreDocente);
-        editLast = (EditText) findViewById(R.id.editApell);
-        editMail = (EditText) findViewById(R.id.editMail);
-        editAdress = (EditText) findViewById(R.id.editAdress);
+        editUserDoc = (EditText) findViewById(R.id.editUsuaCONSULTAR);
+        editName = (EditText) findViewById(R.id.editNombreDocCONSULTAR);
+        editLast = (EditText) findViewById(R.id.editApellCONSULTAR);
+        editMail = (EditText) findViewById(R.id.editMailCONSULTAR);
+        editAdress = (EditText) findViewById(R.id.editAdressCONSULTAR);
     }
     public void consultarDocente(View v) {
         helper.abrir();
