@@ -54,7 +54,6 @@ public class ControlBDHelper {
     }
 
 
-
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "appTest.s3db";
         private static final int VERSION = 1;
@@ -289,6 +288,13 @@ public class ControlBDHelper {
 
     }
 
+
+    public Cursor consultarListaPregunta(int idarea) {
+        DBHelper.getReadableDatabase();
+        Cursor cursor=null;
+        cursor = db.rawQuery("SELECT descrippreg FROM pregunta WHERE idarea= "+idarea,null);
+        return cursor;
+    }
 
 
 
@@ -820,7 +826,28 @@ public class ControlBDHelper {
         return  regInsertados+=contador;
     }
 
-
+    public String eliminar(Pregunta pregunta) {
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        int auxid = 0;
+        if (verificarIntegridad(pregunta, 9)) {
+            System.out.println("ENTRA");
+            if (verificarIntegridad(pregunta, 10)) {
+                Cursor cursorId = db.rawQuery("SELECT idpregunta FROM pregunta WHERE descrippreg='" + pregunta.getDescrippreg() + "' AND idarea="+pregunta.getIdarea(), null);
+                if (cursorId.moveToFirst()) {
+                    auxid = cursorId.getInt(0);
+                    System.out.println(auxid);
+                }
+                db.delete("detallePregunta", "idpregunta=" + auxid, null);
+                db.delete("opcion", "idpregunta="+auxid,null);
+                contador=db.delete("pregunta", "idpregunta=" +auxid , null);
+                regAfectados += contador;
+            } else {
+                return "Pregunta: " + pregunta.getDescrippreg() + " no existe";
+            }
+        }
+        return regAfectados;
+    }
 
 
 

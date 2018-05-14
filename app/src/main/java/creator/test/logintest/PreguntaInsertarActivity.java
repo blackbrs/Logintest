@@ -20,7 +20,7 @@ public class PreguntaInsertarActivity extends AppCompatActivity {
     ArrayList<AreaEvaluacion> AreasList;
     String id;
     String [] tipoPreguntaLista={"1.Opcion Multiple", "2.Verdadero o Falso"};
-    ArrayList<Integer> listatipo= new ArrayList<Integer>();
+    ArrayList<Integer> listatipo = new ArrayList<Integer>();
     int tipoPregunta;
     EditText ponderacion;
     EditText descrippreg;
@@ -42,6 +42,7 @@ public class PreguntaInsertarActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long idl) {
                 if(position!=0) {
+
                     id = String.valueOf(AreasList.get(position-1).getIdarea());
                 }
             }
@@ -132,8 +133,6 @@ public class PreguntaInsertarActivity extends AppCompatActivity {
     public void limpiarTexto(View v) {
         ponderacion.setText("");
         descrippreg.setText("");
-
-
     }
 
 
