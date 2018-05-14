@@ -25,7 +25,7 @@ public class PreguntaEliminarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         helper = new ControlBDHelper(this);
         setContentView(R.layout.activity_pregunta_eliminar);
-        comboArea = (Spinner) findViewById(R.id.spinnerArea);
+        comboArea = (Spinner) findViewById(R.id.spinnerArea2);
         descripcion = (EditText) findViewById(R.id.txtDescrip);
         getSupportActionBar().hide();
         consultarListaArea();

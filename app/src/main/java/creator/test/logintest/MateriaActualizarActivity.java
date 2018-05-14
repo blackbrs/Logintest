@@ -32,6 +32,7 @@ public class MateriaActualizarActivity extends AppCompatActivity {
         String estado = helper.actualizar(est1);
         helper.cerrar();
         Toast.makeText(this, estado, Toast.LENGTH_SHORT).show();
+
     }
     public void limpiarTexto(View v) {
         editCod.setText("");

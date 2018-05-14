@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,7 +27,7 @@ public class PreguntaConsultarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         helper = new ControlBDHelper(this);
         setContentView(R.layout.activity_pregunta_consultar);
-        comboArea = (Spinner) findViewById(R.id.spinnerArea);
+        comboArea = (Spinner) findViewById(R.id.spinnerArea2);
         descripcion = (EditText) findViewById(R.id.txtDescrip);
         listaPreguntas = (ListView) findViewById(R.id.listViewPregunta);
         getSupportActionBar().hide();
@@ -108,6 +107,8 @@ public class PreguntaConsultarActivity extends AppCompatActivity {
             listaArea.add(AreasList.get(i).getIdarea() + AreasList.get(i).getArea());
         }
     }
+
+
 
 }
 

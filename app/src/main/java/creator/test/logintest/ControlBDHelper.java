@@ -858,6 +858,39 @@ public class ControlBDHelper {
 
 
 
+    public String actualizarPregunta(Pregunta pregunta) {
+        //Si existe
+        int auxid=0;
+
+        if (verificarIntegridad(pregunta, 10)) {
+            Cursor cursor1 = db.rawQuery("SELECT idpregunta FROM pregunta WHERE idarea= "+pregunta.getIdarea()+" AND descrippreg ='"+pregunta.getDescrippreg()+"'",null);
+            if (cursor1.moveToFirst()){
+               auxid=cursor1.getInt(0);
+                System.out.println(cursor1.getInt(0));
+            }
+            String[] id = {String.valueOf(auxid)};
+            ContentValues cv = new ContentValues();
+            cv.put("descrippreg", pregunta.getDescrippreg());
+            cv.put("ponderapregunt", pregunta.getPonderapregunta());
+            db.update("pregunta", cv, "idpregunta = ?", id);
+            return "Registro Actualizado Correctamente";
+        } else {
+            return "La pregunta no Existe ";
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     protected boolean verificarIntegridad(Object dato, int relacion) throws

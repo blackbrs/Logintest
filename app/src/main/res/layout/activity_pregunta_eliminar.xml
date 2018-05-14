@@ -21,7 +21,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <Spinner
-        android:id="@+id/spinnerArea"
+        android:id="@+id/spinnerArea2"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
@@ -31,7 +31,7 @@
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinnerArea"
+        android:layout_below="@+id/spinnerArea2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
         android:text="Pregunta a Eliminar"
