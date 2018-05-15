@@ -11,6 +11,7 @@ public class CuestionarioMenuActivity extends AppCompatActivity implements View.
     Button btn2;
     Button btn3;
     Button btn4;
+    Button btn5;
     String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,12 @@ public class CuestionarioMenuActivity extends AppCompatActivity implements View.
         btn2 = findViewById(R.id.btnEliminar2);
         btn3 = findViewById(R.id.btnConsultar2);
         btn4 = findViewById(R.id.btnActualizar);
-
+        btn5 = findViewById(R.id.btnAnadir);
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
         btn4.setOnClickListener(this);
+        btn5.setOnClickListener(this);
         Intent i = getIntent();
         user = i.getStringExtra("Usuario");
     }
@@ -52,6 +54,11 @@ public class CuestionarioMenuActivity extends AppCompatActivity implements View.
                 Intent intento4 = new Intent(this,CuestionarioActualizarActivity.class);
                 intento4.putExtra("Usuario",user);
                 startActivity(intento4);
+                break;
+            case R.id.btnAnadir:
+                Intent intento5 = new Intent(this,AsignarPreguntasCuestionarioActivity.class);
+                intento5.putExtra("Usuario",user);
+                startActivity(intento5);
                 break;
         }
     }
