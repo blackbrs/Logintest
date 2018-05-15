@@ -35,8 +35,9 @@
         android:id="@+id/btnAsignarPreguntas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView39"
         android:layout_below="@+id/oferta"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
         android:background="@drawable/borde_redondo"
         android:onClick="asignarPreguntas"
         android:text="Agregar preguntas" />
@@ -47,22 +48,24 @@
         android:layout_width="250dp"
         android:layout_height="35dp"
         android:layout_alignStart="@+id/oferta"
-        android:layout_centerVertical="true" />
+        android:layout_below="@+id/textView40"
+        android:layout_marginTop="18dp" />
 
     <Spinner
         android:id="@+id/area"
         android:layout_width="250dp"
         android:layout_height="35dp"
-        android:layout_above="@+id/btnFiltrarPreguntas"
-        android:layout_alignStart="@+id/cuestionario" />
+        android:layout_alignStart="@+id/cuestionario"
+        android:layout_below="@+id/textView41"
+        android:layout_marginTop="22dp" />
 
     <Button
         android:id="@+id/btnFiltrarPreguntas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/preguntas"
-        android:layout_alignEnd="@+id/btnAsignarPreguntas"
-        android:layout_marginBottom="20dp"
+        android:layout_alignStart="@+id/btnVerOferta"
+        android:layout_below="@+id/area"
+        android:layout_marginTop="24dp"
         android:background="@drawable/borde_redondo"
         android:onClick="consultarListaPreguntas"
         android:text="Filtrar Preguntas" />
@@ -71,8 +74,9 @@
         android:id="@+id/preguntas"
         android:layout_width="250dp"
         android:layout_height="35dp"
-        android:layout_above="@+id/btnCrearCuestionario"
-        android:layout_alignStart="@+id/area" />
+        android:layout_alignStart="@+id/area"
+        android:layout_below="@+id/textView42"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/btnCrearCuestionario"
@@ -107,8 +111,9 @@
         android:id="@+id/textView40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/cuestionario"
-        android:layout_alignStart="@+id/textView42"
+        android:layout_alignEnd="@+id/btnVerOferta"
+        android:layout_below="@+id/btnAsignarPreguntas"
+        android:layout_marginTop="21dp"
         android:text="Cuestionario:"
         android:textColor="@android:color/background_dark" />
 
@@ -116,8 +121,8 @@
         android:id="@+id/textView41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/area"
-        android:layout_alignStart="@+id/btnVerOferta"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="Area Evaluacion:"
         android:textColor="@android:color/background_dark" />
 
@@ -125,8 +130,9 @@
         android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/preguntas"
+        android:layout_below="@+id/btnFiltrarPreguntas"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
         android:text="Preguntas:"
         android:textColor="@android:color/background_dark" />
 
