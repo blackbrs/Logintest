@@ -43,6 +43,7 @@
 
     <Button
         android:id="@+id/botonActualizar"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/borde_redondo"
