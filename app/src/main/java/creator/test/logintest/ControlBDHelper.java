@@ -944,6 +944,19 @@ public class ControlBDHelper {
         return regInsertados;
     }
 
+    public String eliminar(Cuestionario cuestionario) {
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+        int auxid = 0;
+
+
+                db.delete("detallePregunta", "idcuestionario=" + cuestionario.getIdcuestionario(), null);
+                contador=db.delete("cuestionario", "idcuestionario=" +cuestionario.getIdcuestionario() , null);
+                regAfectados += contador;
+
+
+        return regAfectados;
+    }
 
 
 

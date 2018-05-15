@@ -56,7 +56,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/borde_redondo"
-        android:onClick="insertarDetalleCuestionario"
+        android:onClick="eliminarCuestionario"
         android:text="Eliminar Cuestionario" />
 
     <TextView
