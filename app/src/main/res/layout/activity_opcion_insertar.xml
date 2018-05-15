@@ -1,9 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="creator.test.logintest.OpcionInsertarActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textview44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="Area:"
+        android:textColor="@android:color/background_dark" />
+
+    <Spinner
+        android:id="@+id/SpinnerAreaOpcion"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textview44"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+
+    <Button
+        android:id="@+id/btnFiltroPreguntaOpinion"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/SpinnerAreaOpcion"
+        android:background="@drawable/borde_redondo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="Filtrar Pregunta" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnFiltroPreguntaOpinion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="Pregunta:"
+        android:textColor="@android:color/background_dark" />
+
+    <Spinner
+        android:id="@+id/SpinnerPregOpcion"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textView45"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SpinnerPregOpcion"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Descripcion de la respuesta:"
+        android:textColor="@android:color/background_dark" />
+
+    <EditText
+        android:id="@+id/editRespuesta"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView46"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textStyle="italic" />
+
+    <RadioButton
+        android:id="@+id/Correcta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/SpinnerPregOpcion"
+        android:layout_below="@+id/editRespuesta"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="30dp"
+        android:text="Correcta"
+        android:textColor="@android:color/background_dark" />
+
+    <RadioButton
+        android:id="@+id/Incorrecta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Correcta"
+        android:layout_toEndOf="@+id/textView45"
+        android:text="Incorrecta"
+        android:textColor="@android:color/background_dark" />
+
+    <Button
+        android:id="@+id/Agregar"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/Incorrecta"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:background="@drawable/borde_redondo"
+        android:text="Agregar Respuesta" />
+</RelativeLayout>

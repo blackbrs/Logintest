@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="creator.test.logintest.OpcionEliminarActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Area:"
+        android:textColor="@android:color/background_dark" />
+
+    <Spinner
+        android:id="@+id/SpinnerAreaOpEliminar"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/textView44"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
+
+    <Button
+        android:id="@+id/btnFiltroEliminar"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/SpinnerAreaOpEliminar"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/borde_redondo"
+        android:text="Filtrar Pregunta" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnFiltroEliminar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="Pregunta:"
+        android:textColor="@android:color/background_dark" />
+
+    <Spinner
+        android:id="@+id/SpinnerPregEliminar"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@+id/SpinnerAreaOpEliminar"
+        android:layout_below="@+id/textView47"
+        android:layout_marginTop="11dp" />
+
+    <Button
+        android:id="@+id/btnFiltroOpcionEliminar"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/btnFiltroEliminar"
+        android:layout_below="@+id/SpinnerPregEliminar"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/borde_redondo"
+        android:text="Filtrar Respuesta" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView47"
+        android:layout_below="@+id/btnFiltroOpcionEliminar"
+        android:layout_marginTop="22dp"
+        android:text="Respuestas:"
+        android:textColor="@android:color/background_dark" />
+
+    <Spinner
+        android:id="@+id/SpinnerRespuestaEliminar"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_alignStart="@+id/SpinnerPregEliminar"
+        android:layout_below="@+id/textView48"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/btnEliminarRespuestas"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/btnFiltroOpcionEliminar"
+        android:layout_marginBottom="42dp"
+        android:background="@drawable/borde_redondo"
+        android:text="Eliminar Respuesta" />
+</RelativeLayout>
