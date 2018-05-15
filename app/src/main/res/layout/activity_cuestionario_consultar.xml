@@ -1,9 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="creator.test.logintest.CuestionarioConsultarActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Materia" />
+
+    <Spinner
+        android:id="@+id/materiaConsultar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView38"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnVerOferta"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/materiaEliminar"
+        android:layout_below="@+id/materiaEliminar"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/borde_redondo"
+        android:onClick="verOferta"
+        android:text="Ver Ofertas" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Oferta Academica" />
+
+    <Spinner
+        android:id="@+id/ofertaConsultar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/btnVerOferta"
+        android:layout_below="@+id/textView39"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/btnAsignarPreguntas"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/ofertaEliminar"
+        android:layout_below="@+id/ofertaEliminar"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/borde_redondo"
+        android:onClick="asignarPreguntas"
+        android:text="Ver Cuestioarios" />
+
+
+    <ListView
+        android:id="@+id/cuestionarioConsultar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+
+
+</LinearLayout>
+
