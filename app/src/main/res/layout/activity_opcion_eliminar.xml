@@ -73,6 +73,7 @@
         android:textColor="@android:color/background_dark" />
 
     <Spinner
+
         android:id="@+id/SpinnerRespuestaEliminar"
         android:layout_width="350dp"
         android:layout_height="45dp"
