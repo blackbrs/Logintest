@@ -1,9 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="creator.test.logintest.CuestionarioActualizarActivity">
+    tools:context="creator.test.logintest.CuestionarioEliminarActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <Spinner
+        android:id="@+id/materiaActualizar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
+
+    <Button
+        android:id="@+id/btnVerOferta"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/btnAsignarPreguntas"
+        android:layout_below="@+id/materiaActualizar"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/borde_redondo"
+        android:onClick="verOferta"
+        android:text="Ver Ofertas" />
+
+    <Spinner
+        android:id="@+id/ofertaActualizar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/btnAsignarPreguntas"
+        android:layout_below="@+id/textView36" />
+
+    <Button
+        android:id="@+id/btnAsignarPreguntas"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/cuestionarioActualizar"
+        android:layout_below="@+id/ofertaActualizar"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/borde_redondo"
+        android:onClick="asignarPreguntas"
+        android:text="Ver Cuestioarios" />
+
+
+    <Spinner
+        android:id="@+id/cuestionarioActualizar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/materiaActualizar"
+        android:layout_below="@+id/btnAsignarPreguntas"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/textView35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Materia" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnVerOferta"
+        android:layout_centerHorizontal="true"
+        android:text="Oferta Academica" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cuestionarioActualizar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="Ponderacion" />
+
+    <EditText
+        android:id="@+id/editPonderacionAct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView37"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnActualizarRegistro"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/cuestionarioActualizar"
+        android:layout_marginBottom="55dp"
+        android:background="@drawable/borde_redondo"
+        android:text="Actualizar Registro" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editPonderacionAct"
+        android:layout_centerHorizontal="true"
+        android:text="Fecha de Examen:" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView43"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="date" />
+</RelativeLayout>
