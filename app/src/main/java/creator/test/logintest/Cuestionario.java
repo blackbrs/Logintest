@@ -6,12 +6,21 @@ package creator.test.logintest;
 
 public class Cuestionario {
     private int idoferta;
+    private int idcuestionario;
     private String descricuestinario;
     private String fechacuestionario;
     private double ponderacion;
 
     public Cuestionario(){
 
+    }
+
+    public int getIdcuestionario() {
+        return idcuestionario;
+    }
+
+    public void setIdcuestionario(int idcuestionario) {
+        this.idcuestionario = idcuestionario;
     }
 
     public int getIdoferta() {

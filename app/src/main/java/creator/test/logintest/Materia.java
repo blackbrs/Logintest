@@ -9,6 +9,7 @@ public class Materia {
     private String codmateria;
     private int unidadval;
     private String nombremat;
+    private  int idmateria;
 
     public Materia(String codmateria, int unidadval, String nombremat) {
         this.codmateria = codmateria;
@@ -17,6 +18,14 @@ public class Materia {
     }
 
     public Materia() {
+    }
+
+    public int getIdmateria() {
+        return idmateria;
+    }
+
+    public void setIdmateria(int idmateria) {
+        this.idmateria = idmateria;
     }
 
     public String getCodmateria() {

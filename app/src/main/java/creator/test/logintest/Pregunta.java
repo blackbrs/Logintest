@@ -9,10 +9,19 @@ public class Pregunta {
     private int ponderapregunta;
     private String descrippreg;
     private int tipo;
+    private int idpregunta;
 
 
     public Pregunta(){
 
+    }
+
+    public int getIdpregunta() {
+        return idpregunta;
+    }
+
+    public void setIdpregunta(int idpregunta) {
+        this.idpregunta = idpregunta;
     }
 
     public int getIdarea() {

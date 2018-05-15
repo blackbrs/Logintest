@@ -55,6 +55,7 @@ public class ControlBDHelper {
     }
 
 
+
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "appTest.s3db";
         private static final int VERSION = 1;
@@ -268,7 +269,7 @@ public class ControlBDHelper {
         int auxid=0;
         Docente docente = new Docente();
         docente.setNomusuario(user);
-        System.out.println(user);
+
         if (verificarIntegridad(docente, 5)) {
             Cursor cursorId = db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='" + docente.getNomusuario() + "'", null);
             if (cursorId.moveToFirst()) {
@@ -277,7 +278,32 @@ public class ControlBDHelper {
             }
         }
         Cursor cursor1 = null;
-        cursor1 = db.rawQuery("SELECT * FROM ofertaAcademica WHERE iddocente="+String.valueOf(auxid), null);
+        cursor1 = db.rawQuery("SELECT * FROM ofertaAcademica WHERE iddocente="+auxid, null);
+        return cursor1;
+    }
+
+    public Cursor consultarListaOfertaMateria(int idmateria) {
+        DBHelper.getReadableDatabase();
+        //int auxid=0;
+        //Docente docente = new Docente();
+        //docente.setNomusuario(user);
+
+        /*if (verificarIntegridad(docente, 5)) {
+            Cursor cursorId = db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='" + docente.getNomusuario() + "'", null);
+            if (cursorId.moveToFirst()) {
+                auxid = cursorId.getInt(0);
+
+            }
+        }*/
+        Cursor cursor1 = null;
+        cursor1 = db.rawQuery("SELECT idoferta, descripcion FROM ofertaAcademica WHERE idmateria="+idmateria, null);
+        return cursor1;
+    }
+    public Cursor consultarListaCuestionario(int oferta) {
+        System.out.println("ESTE ES EL PARAMETRO");
+        System.out.println(oferta);
+        Cursor cursor1 = null;
+        cursor1 = db.rawQuery("SELECT idcuestionario, descricuestionario,ponderacion FROM cuestionario WHERE idoferta="+oferta, null);
         return cursor1;
     }
 
@@ -293,12 +319,9 @@ public class ControlBDHelper {
     public Cursor consultarListaPregunta(int idarea) {
         DBHelper.getReadableDatabase();
         Cursor cursor=null;
-        cursor = db.rawQuery("SELECT descrippreg FROM pregunta WHERE idarea= "+idarea,null);
+        cursor = db.rawQuery("SELECT descrippreg,idpregunta FROM pregunta WHERE idarea= "+idarea,null);
         return cursor;
     }
-
-
-
 
 
 
@@ -748,6 +771,28 @@ public class ControlBDHelper {
 
 
 
+    public String insertar(DetallePregunta detalle){
+        String regInsertados;
+        long contador=0;
+        if (verificarIntegridad(detalle, 12)) {
+            // 2 Verificar registro duplicado
+            if (verificarIntegridad(detalle, 13)) {
+                regInsertados = "Error al Insertar el registro, Registro Duplicado.Verificar inserción";
+            } else {
+                ContentValues deta1 = new ContentValues();
+                deta1.put("idcuestionario", detalle.getIdcuestionario());
+                deta1.put("idpregunta", detalle.getIdpregunta());
+                contador = db.insert("detallePregunta", null, deta1);
+                regInsertados = regInsertados + contador;
+            }
+        } else {
+            regInsertados = "Error al Insertar el registro, Registro sin referencias.Verificar inserción";
+        }
+        return  regInsertados+=contador;
+
+    }
+
+
 
 
 
@@ -885,11 +930,11 @@ public class ControlBDHelper {
             regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
         } else {
             ContentValues eva1 = new ContentValues();
-            eva1.put("tipoarea", cuestionario.getIdoferta());
-            eva1.put("",cuestionario.getDescricuestinario());
-            eva1.put("",cuestionario.getFechacuestionario());
-            eva1.put("",cuestionario.getPonderacion());
-            contador = db.insert("areaEvaluacion", null, eva1);
+            eva1.put("idoferta", cuestionario.getIdoferta());
+            eva1.put("descricuestionario",cuestionario.getDescricuestinario());
+            eva1.put("fechaexamen",cuestionario.getFechacuestionario());
+            eva1.put("ponderacion",cuestionario.getPonderacion());
+            contador = db.insert("cuestionario", null, eva1);
             regInsertados = regInsertados + contador;
         }
         if (contador == -1 || contador == 0) {
@@ -1079,6 +1124,34 @@ public class ControlBDHelper {
                 }else {
                     return false;
                 }
+            }
+            case 12: {
+            DetallePregunta detalle = (DetallePregunta) dato;
+            String[] id1={String.valueOf(detalle.getIdcuestionario())};
+            String[] id2={String.valueOf(detalle.getIdpregunta())};
+                System.out.println(detalle.getIdcuestionario());
+                System.out.println(detalle.getIdpregunta());
+                Cursor cursor2 = db.query("cuestionario", null, "idcuestionario= ?", id1,null, null, null);
+                Cursor cursor3 = db.query("pregunta",null,"idpregunta = ?",id2,null,null,null,null);
+                if(cursor2.moveToFirst()  && cursor3.moveToFirst()){
+                    //Se encontraron datos ||
+                    return true;
+                }
+                System.out.println("RETORNO TRUE");
+                return false;
+
+            }
+            case 13:{
+                DetallePregunta detallePregunta = (DetallePregunta) dato;
+                String[] id1= {String.valueOf(detallePregunta.getIdcuestionario()),String.valueOf(detallePregunta.getIdpregunta())};
+                abrir();
+                Cursor cursor1 = db.rawQuery("SELECT * FROM detallePregunta WHERE idcuestionario = "+detallePregunta.getIdcuestionario()+" AND idpregunta ="+detallePregunta.getIdpregunta(),null);
+                if (cursor1.moveToFirst()){
+                    return true;
+                }else {
+                    return false;
+                }
+
             }
             default:
                 return false;
