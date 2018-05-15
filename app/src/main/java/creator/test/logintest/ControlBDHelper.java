@@ -772,7 +772,7 @@ public class ControlBDHelper {
 
 
     public String insertar(DetallePregunta detalle){
-        String regInsertados;
+        String regInsertados="Registro Inserto N= ";
         long contador=0;
         if (verificarIntegridad(detalle, 12)) {
             // 2 Verificar registro duplicado
@@ -783,7 +783,6 @@ public class ControlBDHelper {
                 deta1.put("idcuestionario", detalle.getIdcuestionario());
                 deta1.put("idpregunta", detalle.getIdpregunta());
                 contador = db.insert("detallePregunta", null, deta1);
-                regInsertados = regInsertados + contador;
             }
         } else {
             regInsertados = "Error al Insertar el registro, Registro sin referencias.Verificar inserción";
