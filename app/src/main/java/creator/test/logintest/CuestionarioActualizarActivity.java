@@ -7,8 +7,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,6 +19,8 @@ public class CuestionarioActualizarActivity extends AppCompatActivity {
     int id;
     int idcuestionario;
     int idoferta;
+    EditText ponderacionActualizar;
+    EditText fechaActualizar;
     ArrayList<String> listaMateria;
     ArrayList<Materia> MateriasList;
     ArrayList<String> ofertaLista;
@@ -69,6 +73,9 @@ public class CuestionarioActualizarActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
+
+        ponderacionActualizar = (EditText) findViewById(R.id.editPonderacionAct);
+        fechaActualizar = (EditText) findViewById(R.id.editFechaActualizar);
     }
     public void consultarListaMateria() {
         Materia materia =null;
@@ -190,6 +197,16 @@ public class CuestionarioActualizarActivity extends AppCompatActivity {
             listaCuestionario.add(CuestionariosList.get(i).getDescricuestinario());
         }
     }
+    public void actualizarCuestioinario(View v) {
+        Cuestionario cuest1 = new Cuestionario();
+        cuest1.setPonderacion(Double.parseDouble(ponderacionActualizar.getText().toString()));
+        cuest1.setFechacuestionario(fechaActualizar.getText().toString());
+        cuest1.setIdcuestionario(idcuestionario);
+        helper.abrir();
+        String estado = helper.actualizarCuestionarios(cuest1);
+        helper.cerrar();
+        Toast.makeText(this, estado, Toast.LENGTH_SHORT).show();
+    }
 
     public void asignarPreguntas(View v) {
 
@@ -203,6 +220,7 @@ public class CuestionarioActualizarActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i!=0){
                     idcuestionario = CuestionariosList.get(i - 1).getIdcuestionario();
+                    btn3.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -211,6 +229,6 @@ public class CuestionarioActualizarActivity extends AppCompatActivity {
 
             }
         });
-
     }
+
 }

@@ -56,7 +56,10 @@
         <activity android:name=".PreguntaEliminarActivity" />
         <activity android:name=".PreguntaConsultarActivity" />
         <activity android:name=".PreguntaActualizarActivity" />
-        <activity android:name=".AsignarPreguntasCuestionarioActivity"></activity>
+        <activity android:name=".AsignarPreguntasCuestionarioActivity" />
+        <activity android:name=".OpcionInsertarActivity" />
+        <activity android:name=".OpcionEliminarActivity" />
+        <activity android:name=".OpcionConsultarActivity"></activity>
     </application>
 
 </manifest>

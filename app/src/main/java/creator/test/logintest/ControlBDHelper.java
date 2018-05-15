@@ -958,10 +958,14 @@ public class ControlBDHelper {
         return regAfectados;
     }
 
-
-
-
-
+    public String actualizarCuestionarios(Cuestionario cuestionario) {
+        //Si existe
+            ContentValues cv = new ContentValues();
+            cv.put("ponderacion", cuestionario.getPonderacion());
+            cv.put("fechaexamen", cuestionario.getFechacuestionario());
+            db.update("cuestionario", cv, "idcuestionario = ?",new String[]{String.valueOf(cuestionario.getIdcuestionario())});
+            return "Registro Actualizado Correctamente";
+    }
 
 
 

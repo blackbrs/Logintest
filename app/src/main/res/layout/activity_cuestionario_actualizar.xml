@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="creator.test.logintest.CuestionarioEliminarActivity">
+    tools:context="creator.test.logintest.CuestionarioActualizarActivity">
 
 
     <Spinner
@@ -94,6 +94,7 @@
         android:layout_alignStart="@+id/cuestionarioActualizar"
         android:layout_marginBottom="55dp"
         android:background="@drawable/borde_redondo"
+        android:onClick="actualizarCuestioinario"
         android:text="Actualizar Registro" />
 
     <TextView
@@ -105,7 +106,7 @@
         android:text="Fecha de Examen:" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editFechaActualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView43"

@@ -56,16 +56,14 @@
         android:layout_width="250dp"
         android:layout_height="35dp"
         android:layout_alignStart="@+id/cuestionario"
-        android:layout_below="@+id/textView41"
-        android:layout_marginTop="22dp" />
+        android:layout_below="@+id/textView41" />
 
     <Button
         android:id="@+id/btnFiltrarPreguntas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/btnVerOferta"
         android:layout_below="@+id/area"
-        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/borde_redondo"
         android:onClick="consultarListaPreguntas"
         android:text="Filtrar Preguntas" />
@@ -75,8 +73,7 @@
         android:layout_width="250dp"
         android:layout_height="35dp"
         android:layout_alignStart="@+id/area"
-        android:layout_below="@+id/textView42"
-        android:layout_marginTop="20dp" />
+        android:layout_alignTop="@+id/btnCrearCuestionario" />
 
     <Button
         android:id="@+id/btnCrearCuestionario"
@@ -121,8 +118,8 @@
         android:id="@+id/textView41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/textView40"
+        android:layout_below="@+id/cuestionario"
         android:text="Area Evaluacion:"
         android:textColor="@android:color/background_dark" />
 
@@ -130,9 +127,9 @@
         android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnFiltrarPreguntas"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
+        android:layout_above="@+id/btnCrearCuestionario"
+        android:layout_alignStart="@+id/textView38"
+        android:layout_marginBottom="13dp"
         android:text="Preguntas:"
         android:textColor="@android:color/background_dark" />
 
