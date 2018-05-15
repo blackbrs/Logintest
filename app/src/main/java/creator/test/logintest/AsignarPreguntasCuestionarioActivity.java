@@ -15,6 +15,7 @@ public class AsignarPreguntasCuestionarioActivity extends AppCompatActivity {
     ControlBDHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asignar_preguntas_cuestionario);
         helper = new ControlBDHelper(this);

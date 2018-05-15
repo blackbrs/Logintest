@@ -6,75 +6,85 @@
     android:layout_height="match_parent"
     tools:context="creator.test.logintest.CuestionarioActualizarActivity">
 
-    <TextView
-        android:id="@+id/textView35"
+
+    <Spinner
+        android:id="@+id/materia"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="Area de Evaluacion"
-        android:textColor="@android:color/background_dark" />
+        android:layout_below="@+id/materia"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/borde_redondo"
+        android:text="Ver Ofertas" />
 
     <Spinner
-        android:id="@+id/spinnerArea2"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView35" />
-
-        android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:id="@+id/spinner4"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/materia"
+        android:layout_below="@+id/button12"
+        android:layout_marginTop="28dp" />
 
     <Button
-        android:id="@+id/botonConsultar"
-        android:layout_width="match_parent"
+        android:id="@+id/button13"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/spinnerArea2"
+        android:layout_above="@+id/spinner5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/borde_redondo"
-        android:onClick="consultarListaPreguntas"
+        android:text="Agregar preguntas" />
+
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_above="@+id/spinner6"
+        android:layout_alignStart="@+id/spinner4"
+        android:layout_marginBottom="25dp" />
+
+    <Spinner
+        android:id="@+id/spinner6"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/spinner5"
+        android:layout_centerVertical="true" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinner7"
+        android:layout_alignStart="@+id/button13"
+        android:layout_marginBottom="17dp"
+        android:background="@drawable/borde_redondo"
         android:text="Filtrar Preguntas" />
 
-        android:id="@+id/linearLayout4"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
     <Spinner
-        android:id="@+id/spinnerPregunta"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView36"
-        android:visibility="visible"></Spinner>
-
-    <EditText
-        android:id="@+id/ponderaciontxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/botonActualizar"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="55dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+        android:id="@+id/spinner7"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_above="@+id/button15"
+        android:layout_alignStart="@+id/spinner6"
+        android:layout_marginBottom="57dp" />
 
     <Button
-        android:id="@+id/botonActualizar"
-        android:layout_width="match_parent"
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="57dp"
         android:background="@drawable/borde_redondo"
-        android:onClick="actualizarMateria"
-        android:text="Actualizar Pregunta" />
-
-    <TextView
-        android:id="@+id/textView36"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/botonConsultar"
-        android:layout_centerHorizontal="true" />
+        android:text="Crear Detalle cuestionario" />
 
 
 </RelativeLayout>
