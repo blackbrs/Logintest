@@ -7,6 +7,7 @@ public class CuestionarioEliminarActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuestionario_eliminar);
     }
