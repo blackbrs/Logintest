@@ -1,9 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="creator.test.logintest.CuestionarioEliminarActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <Spinner
+        android:id="@+id/materiaEliminar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView38"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btnVerOferta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materiaEliminar"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/borde_redondo"
+        android:onClick="verOferta"
+        android:text="Ver Ofertas" />
+
+    <Spinner
+        android:id="@+id/ofertaEliminar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/materiaEliminar"
+        android:layout_below="@+id/textView39" />
+
+    <Button
+        android:id="@+id/btnAsignarPreguntas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ofertaEliminar"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/borde_redondo"
+        android:onClick="asignarPreguntas"
+        android:text="Ver Cuestioarios" />
+
+
+    <Spinner
+        android:id="@+id/cuestionarioEliminar"
+        android:layout_width="250dp"
+        android:layout_height="35dp"
+        android:layout_alignStart="@+id/ofertaEliminar"
+        android:layout_centerVertical="true" />
+
+    <Button
+        android:id="@+id/btnEiminarCuestionario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cuestionarioEliminar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/borde_redondo"
+        android:onClick="insertarDetalleCuestionario"
+        android:text="Eliminar Cuestionario" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Materia:"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnVerOferta"
+        android:layout_centerHorizontal="true"
+        android:text="Oferta Academica:"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cuestionarioEliminar"
+        android:layout_alignEnd="@+id/btnVerOferta"
+        android:text="Cuestionario:"
+        android:textColor="@android:color/background_dark" />
+
+
+</RelativeLayout>
