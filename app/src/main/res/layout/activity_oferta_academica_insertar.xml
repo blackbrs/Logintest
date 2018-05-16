@@ -11,10 +11,9 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/textView23"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="13dp"
         android:text="Usuario Docente"
         android:textColor="@android:color/background_dark" />
 
@@ -49,8 +48,8 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView25"
         android:layout_below="@+id/numerocic"
-        android:layout_centerHorizontal="true"
         android:text="Año de Ciclo"
         android:textColor="@android:color/background_dark" />
 
@@ -83,24 +82,23 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/codmaterias"
-        android:layout_marginEnd="44dp"
-        android:layout_marginTop="95dp"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/textView24"
+        android:layout_below="@+id/descripcion"
+        android:layout_marginTop="34dp"
         android:background="@drawable/borde_redondo"
-        android:layout_toStartOf="@+id/button4"
         android:onClick="insertarOfertaAcademica"
         android:text="Crear Oferta" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/button3"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="31dp"
         android:background="@drawable/borde_redondo"
-        android:layout_alignEnd="@+id/codmaterias"
         android:onClick="limpiarTexto"
         android:text="Limpiar" />
 
