@@ -19,6 +19,11 @@ import java.util.ArrayList;
 public class OpcionInsertarActivity extends AppCompatActivity {
     int id;
     int idpregunta;
+    int tipodepregunta;
+    String ver;
+    boolean valida;
+    String[] tipo={"Selecione","Verdadero","Falso"};
+    String[] tipoVal={"Correcta","Incorrecta"};
     ControlBDHelper helper;
     ArrayList<String> listaArea;
     ArrayList<AreaEvaluacion> AreasList;
@@ -27,11 +32,10 @@ public class OpcionInsertarActivity extends AppCompatActivity {
     EditText descripcion;
     Spinner comboPreguntas;
     Spinner comboArea;
+    Spinner tipoPregunta;
+    Spinner validador;
     Button btn1;
     Button btn2;
-    RadioButton radio1;
-    RadioButton radio2;
-    RadioGroup grupo;
     int id2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +45,19 @@ public class OpcionInsertarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_opcion_insertar);
         comboArea = (Spinner) findViewById(R.id.SpinnerAreaOpcion);
         comboPreguntas = (Spinner) findViewById(R.id.SpinnerPregOpcion);
+        validador = (Spinner) findViewById(R.id.spinnerValidacion);
+        ArrayAdapter<CharSequence> adapte6 = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,tipoVal);
+        validador.setAdapter(adapte6);
+        validador.setVisibility(View.INVISIBLE);
+        tipoPregunta =(Spinner) findViewById(R.id.spinnerTipo);
+        ArrayAdapter<CharSequence> adapter5 = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,tipo);
+        tipoPregunta.setAdapter(adapter5);
+        tipoPregunta.setVisibility(View.INVISIBLE);
         comboPreguntas.setEnabled(false);
         btn1 = (Button) findViewById(R.id.btnFiltroPreguntaOpinion);
         btn2 = (Button) findViewById(R.id.Agregar);
         descripcion = (EditText) findViewById(R.id.editRespuesta);
-        grupo = (RadioGroup) findViewById(R.id.grupoCorrecta);
-
+        descripcion.setVisibility(View.INVISIBLE);
 
 
         consultarListaArea();
@@ -70,6 +81,23 @@ public class OpcionInsertarActivity extends AppCompatActivity {
 
             }
         });
+
+        validador.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i==0){
+                    valida = true;
+                }else{
+                    valida = false;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
 
     private void consultarListaArea() {
@@ -109,6 +137,7 @@ public class OpcionInsertarActivity extends AppCompatActivity {
             preg1l = new Pregunta();
             preg1l.setDescrippreg(cursorPregunta.getString(0));
             preg1l.setIdpregunta(cursorPregunta.getInt(1));
+            preg1l.setTipo(cursorPregunta.getInt(2));
             PreguntasList.add(preg1l);
         }
         obtenerListaPreguntas();
@@ -133,7 +162,17 @@ public class OpcionInsertarActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int postition, long l) {
                 if(postition != 0){
                     idpregunta=PreguntasList.get(postition-1).getIdpregunta();
-                    btn2.setVisibility(View.VISIBLE);
+                    tipodepregunta=PreguntasList.get(postition-1).getTipo();
+                    validador.setVisibility(View.VISIBLE);
+                    if(PreguntasList.get(postition-1).getTipo()==1) {
+                        descripcion.setVisibility(View.VISIBLE);
+                        btn2.setVisibility(View.VISIBLE);
+                        tipoPregunta.setVisibility(View.INVISIBLE);
+                    }else{
+                        tipoPregunta.setVisibility(View.VISIBLE);
+                        descripcion.setVisibility(View.INVISIBLE);
+                        btn2.setVisibility(View.VISIBLE);
+                    }
                 }else{
                     btn2.setVisibility(View.INVISIBLE);
                 }
@@ -144,28 +183,83 @@ public class OpcionInsertarActivity extends AppCompatActivity {
 
             }
         });
+
+        tipoPregunta.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 0:
+                        break;
+                    case 1:
+                        ver= "Verdadero";
+                        break;
+                    case 2:
+                        ver="Falso";
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
     }
 
     public void AsignarRespuesta(View v){
-        String regInsertados;
-        Opcion opcion = new Opcion();
-        opcion.setIdpregunta(idpregunta);
-        opcion.setDescripcion(descripcion.getText().toString());
-        id2 = grupo.getCheckedRadioButtonId();
-        if(id2==-1){
-
-        }else{
-            radio1= findViewById(id2);
-        }
-        if(radio1.getText().toString()=="Correcta"){
-            opcion.setIsCorrect(1);
-        }else{
-            opcion.setIsCorrect(0);
-        }
-
+        int x=0;
         helper.abrir();
-        regInsertados = helper.insertar(opcion);
-        helper.cerrar();
-        Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+        System.out.println(ver);
+        Cursor cursorauxiliar = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+idpregunta,null);
+        if(cursorauxiliar.moveToNext()){
+            if(cursorauxiliar.getInt(0)==1){
+                x++;
+            }
+        }
+        if (tipodepregunta == 1) {
+
+            if (x == 0 && valida == true) {
+                String regInsertados;
+                Opcion opcion = new Opcion();
+                opcion.setIdpregunta(idpregunta);
+                opcion.setDescripcion(descripcion.getText().toString());
+                opcion.setIsCorrect(valida);
+                helper.abrir();
+                regInsertados = helper.insertar(opcion);
+                helper.cerrar();
+                Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+            } else if (x != 0 && valida == false) {
+                String regInsertados;
+                Opcion opcion = new Opcion();
+                opcion.setIdpregunta(idpregunta);
+                opcion.setDescripcion(descripcion.getText().toString());
+                opcion.setIsCorrect(valida);
+                helper.abrir();
+                regInsertados = helper.insertar(opcion);
+                helper.cerrar();
+                Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            if (x == 0 && valida == true) {
+                String regInsertados;
+                Opcion opcion = new Opcion();
+                opcion.setIdpregunta(idpregunta);
+                opcion.setDescripcion(ver);
+                opcion.setIsCorrect(valida);
+                helper.abrir();
+                regInsertados = helper.insertar(opcion);
+                helper.cerrar();
+                Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+            } else if (x != 0 && valida == false) {
+                String regInsertados;
+                Opcion opcion = new Opcion();
+                opcion.setIdpregunta(idpregunta);
+                opcion.setDescripcion(ver);
+                opcion.setIsCorrect(valida);
+                helper.abrir();
+                regInsertados = helper.insertar(opcion);
+                helper.cerrar();
+                Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

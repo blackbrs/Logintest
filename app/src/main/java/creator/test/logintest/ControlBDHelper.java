@@ -320,7 +320,7 @@ public class ControlBDHelper {
     public Cursor consultarListaPregunta(int idarea) {
         DBHelper.getReadableDatabase();
         Cursor cursor=null;
-        cursor = db.rawQuery("SELECT descrippreg,idpregunta FROM pregunta WHERE idarea= "+idarea,null);
+        cursor = db.rawQuery("SELECT descrippreg,idpregunta,tipopreg FROM pregunta WHERE idarea= "+idarea,null);
         return cursor;
     }
 

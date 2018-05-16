@@ -69,7 +69,6 @@
         android:layout_height="40dp"
         android:layout_below="@+id/textView46"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textStyle="italic" />
@@ -84,26 +83,28 @@
         android:onClick="AsignarRespuesta"
         android:text="Agregar Respuesta" />
 
-    <RadioGroup
-        android:id="@+id/grupoCorrecta"
+    <Spinner
+        android:id="@+id/spinnerTipo"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/SpinnerAreaOpcion"
+        android:layout_below="@+id/editRespuesta" />
+
+    <Spinner
+        android:id="@+id/spinnerValidacion"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/spinnerTipo"
+        android:layout_below="@+id/spinnerTipo"
+        android:layout_marginTop="36dp" />
+
+    <TextView
+        android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editRespuesta"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp">
+        android:layout_alignStart="@+id/textView45"
+        android:layout_below="@+id/spinnerTipo"
+        android:layout_marginTop="17dp"
+        android:text="Validacion" />
 
-        <RadioButton
-            android:id="@+id/Correcta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Correcta" />
-
-        <RadioButton
-            android:id="@+id/Incorrecta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Incorrecta" />
-    </RadioGroup>
 </RelativeLayout>
