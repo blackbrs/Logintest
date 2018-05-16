@@ -324,6 +324,12 @@ public class ControlBDHelper {
         return cursor;
     }
 
+    public Cursor consultarListaOpciones(int id) {
+        DBHelper.getReadableDatabase();
+        Cursor cursor1 = null;
+        cursor1 = db.rawQuery("SELECT idopcion,descripopc,idpregunta FROM opcion WHERE idpregunta="+id, null);
+        return cursor1;
+    }
 
 
 
@@ -948,13 +954,9 @@ public class ControlBDHelper {
         String regAfectados = "filas afectadas= ";
         int contador = 0;
         int auxid = 0;
-
-
                 db.delete("detallePregunta", "idcuestionario=" + cuestionario.getIdcuestionario(), null);
                 contador=db.delete("cuestionario", "idcuestionario=" +cuestionario.getIdcuestionario() , null);
                 regAfectados += contador;
-
-
         return regAfectados;
     }
 
@@ -987,6 +989,15 @@ public class ControlBDHelper {
             regInsertados = regInsertados + contador;
         }
         return regInsertados;
+    }
+
+    public String eliminar(Opcion opcion) {
+        String regAfectados = "filas afectadas= ";
+        int contador = 0;
+
+        contador=db.delete("opcion", "idpregunta=" +opcion.getIdpregunta()+" AND descripopc='"+opcion.getDescripcion()+"'" , null);
+        regAfectados += contador;
+        return regAfectados;
     }
 
 

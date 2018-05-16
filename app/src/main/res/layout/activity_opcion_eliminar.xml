@@ -32,6 +32,7 @@
         android:layout_below="@+id/SpinnerAreaOpEliminar"
         android:layout_centerHorizontal="true"
         android:background="@drawable/borde_redondo"
+        android:onClick="consultarListaPreguntas"
         android:text="Filtrar Pregunta" />
 
     <TextView
@@ -60,6 +61,7 @@
         android:layout_below="@+id/SpinnerPregEliminar"
         android:layout_marginTop="21dp"
         android:background="@drawable/borde_redondo"
+        android:onClick="filtrarRespuestas"
         android:text="Filtrar Respuesta" />
 
     <TextView
@@ -90,5 +92,6 @@
         android:layout_alignStart="@+id/btnFiltroOpcionEliminar"
         android:layout_marginBottom="42dp"
         android:background="@drawable/borde_redondo"
+        android:onClick="eliminarRespuesta"
         android:text="Eliminar Respuesta" />
 </RelativeLayout>
