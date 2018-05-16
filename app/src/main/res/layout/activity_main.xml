@@ -5,30 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
-    android:background="@drawable/gradient"
+    android:background="@color/Login"
     tools:context="creator.test.logintest.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        app:srcCompat="@drawable/test" />
+        android:layout_alignStart="@+id/textView2"
+        android:layout_below="@+id/registrar"
+        android:layout_marginTop="42dp"
+        app:srcCompat="@drawable/logo_eisi" />
 
     <EditText
         android:id="@+id/usuario"
         android:layout_width="200dp"
         android:layout_height="20dp"
+        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="45dp"
         android:background="#11000000"
+        android:drawableLeft="@drawable/ic_user"
         android:ems="10"
-        android:hint="Usuario"
-        android:inputType="textPersonName"
-        android:drawableLeft="@drawable/ic_action_user"
-        android:textSize="16sp" />
+        android:hint="  Usuario"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/contra"
@@ -36,19 +36,21 @@
         android:layout_height="20dp"
         android:layout_alignStart="@+id/usuario"
         android:layout_below="@+id/usuario"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="45dp"
         android:background="#11000000"
+        android:drawableLeft="@drawable/ic_key"
         android:ems="10"
-        android:drawableLeft="@drawable/ic_action_name"
-        android:hint="Contraseña"
-        android:inputType="textPassword" />
+        android:hint=" Contraseña"
+        android:inputType="textPassword"
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView"
         android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
         android:lineSpacingExtra="8sp"
         android:text="Cuestionarios EISI"
         android:textAppearance="@style/TextAppearance.AppCompat"
@@ -56,27 +58,29 @@
 
     <Button
         android:id="@+id/iniciarsesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
+        android:layout_width="150sp"
+        android:layout_height="25sp"
         android:layout_below="@+id/contra"
-        android:layout_marginTop="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
         android:background="@drawable/borde_redondo"
         android:onClick="ingresar"
-        android:text="Iniciar Sesion" />
+        android:text="Iniciar Sesion"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/iniciarsesion"
-        android:layout_alignStart="@+id/iniciarsesion"
-        android:layout_below="@+id/iniciarsesion"
-        android:layout_marginTop="52dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="34dp"
+        android:layout_toEndOf="@+id/textView2"
         android:background="@drawable/borde_redondo"
+        android:backgroundTint="@color/Login"
+        android:onClick="onClick"
         android:text="Registrar Usuario"
-        android:onClick="onClick"/>
+        android:textColor="@color/linkBlue"
+        android:textStyle="" />
 
 
 </RelativeLayout>
