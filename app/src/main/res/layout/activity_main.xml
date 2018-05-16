@@ -23,7 +23,7 @@
         android:layout_height="20dp"
         android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="32dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_user"
         android:ems="10"

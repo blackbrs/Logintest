@@ -3,67 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/gradient_6">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnIngresar2"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Crear Cuestionario"
-        tools:layout_editor_absoluteX="-6dp"
-        tools:layout_editor_absoluteY="83dp" />
-
-    <Button
-        android:id="@+id/btnAnadir"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/btnActualizar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Añadir Preguntas"
-        tools:layout_editor_absoluteX="-6dp"
-        tools:layout_editor_absoluteY="83dp" />
-
-    <Button
-        android:id="@+id/btnEliminar2"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_alignStart="@+id/btnIngresar2"
-        android:layout_below="@+id/btnIngresar2"
-        android:layout_marginTop="52dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Eliminar Cuestionario"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="161dp" />
-
-    <Button
-        android:id="@+id/btnConsultar2"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_alignStart="@+id/btnEliminar2"
-        android:layout_below="@+id/btnEliminar2"
-        android:layout_marginTop="45dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Consultar Cuestionario"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="242dp" />
-
-    <Button
-        android:id="@+id/btnActualizar"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/btnConsultar2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Actualizar Cuestionario"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="322dp" />
     </RelativeLayout>
 

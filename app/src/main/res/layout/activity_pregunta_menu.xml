@@ -4,54 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_6"
     tools:context="creator.test.logintest.PreguntaMenuActivity">
 
-    <Button
-        android:id="@+id/btnIngresar2"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Ingresar Pregunta"
-        tools:layout_editor_absoluteX="-6dp"
-        tools:layout_editor_absoluteY="83dp" />
-
-    <Button
-        android:id="@+id/btnEliminar2"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_alignStart="@+id/btnIngresar2"
-        android:layout_below="@+id/btnIngresar2"
-        android:layout_marginTop="52dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Eliminar Pregunta"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="161dp" />
-
-    <Button
-        android:id="@+id/btnConsultar2"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_alignStart="@+id/btnEliminar2"
-        android:layout_below="@+id/btnEliminar2"
-        android:layout_marginTop="45dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Consultar Pregunta"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="242dp" />
-
-    <Button
-        android:id="@+id/btnActualizar2"
-        android:layout_width="275dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/btnConsultar2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/borde_redondo2"
-        android:text="Actualizar Pregunta"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="322dp" />
 </RelativeLayout>
