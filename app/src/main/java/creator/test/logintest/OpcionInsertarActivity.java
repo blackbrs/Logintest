@@ -222,6 +222,7 @@ public class OpcionInsertarActivity extends AppCompatActivity {
                 Opcion opcion = new Opcion();
                 opcion.setIdpregunta(idpregunta);
                 opcion.setDescripcion(descripcion.getText().toString());
+                System.out.println(descripcion.getText().toString());
                 opcion.setIsCorrect(valida);
                 helper.abrir();
                 regInsertados = helper.insertar(opcion);
@@ -232,6 +233,7 @@ public class OpcionInsertarActivity extends AppCompatActivity {
                 Opcion opcion = new Opcion();
                 opcion.setIdpregunta(idpregunta);
                 opcion.setDescripcion(descripcion.getText().toString());
+                System.out.println(descripcion.getText().toString());
                 opcion.setIsCorrect(valida);
                 helper.abrir();
                 regInsertados = helper.insertar(opcion);

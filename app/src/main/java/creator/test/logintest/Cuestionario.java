@@ -10,6 +10,7 @@ public class Cuestionario {
     private String descricuestinario;
     private String fechacuestionario;
     private double ponderacion;
+    private Boolean activo;
 
     public Cuestionario(){
 
@@ -45,6 +46,14 @@ public class Cuestionario {
 
     public void setFechacuestionario(String fechacuestionario) {
         this.fechacuestionario = fechacuestionario;
+    }
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
     }
 
     public double getPonderacion() {

@@ -1000,6 +1000,27 @@ public class ControlBDHelper {
         return regAfectados;
     }
 
+    public String insertar(DetalleEstudiante detalleEstudiante) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+        // verificar que no exista docente
+        if (verificarIntegridad(detalleEstudiante, 15)) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            ContentValues eva1 = new ContentValues();
+            eva1.put("idoferta",detalleEstudiante.getIdoferta());
+            eva1.put("carnet",detalleEstudiante.getCarnet());
+            contador = db.insert("detalleEstudiante", null, eva1);
+            regInsertados = regInsertados + contador;
+        }
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
+        }
+        return regInsertados;
+    }
+
 
 
 
@@ -1210,6 +1231,17 @@ public class ControlBDHelper {
                     return true;
                 }
                 return false;
+            }
+            case 15:{
+                DetalleEstudiante de = (DetalleEstudiante) dato;
+                String[] id1= {String.valueOf(de.getIdoferta()),de.getCarnet()};
+                abrir();
+                Cursor cursor1 = db.query("detalleEstudiante",null,"idoferta = ? AND carnet = ?",id1,null,null,null,null);
+                if (cursor1.moveToFirst()){
+                    return true;
+                }else {
+                    return false;
+                }
             }
             default:
                 return false;

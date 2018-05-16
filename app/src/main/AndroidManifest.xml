@@ -58,7 +58,11 @@
         <activity android:name=".AsignarPreguntasCuestionarioActivity" />
         <activity android:name=".OpcionInsertarActivity" />
         <activity android:name=".OpcionEliminarActivity" />
-        <activity android:name=".OpcionConsultarActivity"></activity>
+        <activity android:name=".OpcionConsultarActivity" />
+        <activity android:name=".MenuEstudianteActivity" />
+        <activity android:name=".EstudianteInscribirActivity" />
+        <activity android:name=".RealizarExamenActivity" />
+        <activity android:name=".EvaluacionActivity"></activity>
     </application>
 
 </manifest>
