@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Path;
 import android.os.Bundle;
 
 /**
@@ -967,6 +968,27 @@ public class ControlBDHelper {
             return "Registro Actualizado Correctamente";
     }
 
+    public String insertar(Opcion op) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+        // verificar que no exista docente
+        if (verificarIntegridad(op, 14)) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            ContentValues eva1 = new ContentValues();
+            eva1.put("idpregunta",op.getIdpregunta());
+            eva1.put("descripopc",op.getDescripcion());
+            eva1.put("esCorrecta",op.getIsCorrect());
+            contador = db.insert("opcion", null, eva1);
+            regInsertados = regInsertados + contador;
+        }
+        if (contador == -1 || contador == 0) {
+            regInsertados = "Error al Insertar el registro, Registro Duplicado. Verificar inserción";
+        } else {
+            regInsertados = regInsertados + contador;
+        }
+        return regInsertados;
+    }
 
 
 
@@ -1168,6 +1190,16 @@ public class ControlBDHelper {
                     return false;
                 }
 
+            }
+            case 14:{
+                Opcion op1 = (Opcion) dato;
+                abrir();
+                Cursor cursor1 = db.rawQuery("SELECT * FROM opcion WHERE idpregunta= " +op1.getIdpregunta()+" AND descripopc='"+op1.getDescripcion()+"'",null);
+                System.out.println(cursor1.moveToFirst());
+                if(cursor1.moveToFirst()){
+                    return true;
+                }
+                return false;
             }
             default:
                 return false;

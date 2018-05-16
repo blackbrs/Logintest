@@ -10,7 +10,7 @@ public class Opcion {
     private int idpregunta;
     private int idopcion;
     private String descripcion;
-    private boolean isCorrect;
+    private int isCorrect;
 
     public Opcion(){
 
@@ -40,11 +40,11 @@ public class Opcion {
         this.descripcion = descripcion;
     }
 
-    public boolean isCorrect() {
+    public int getIsCorrect() {
         return isCorrect;
     }
 
-    public void setCorrect(boolean correct) {
-        isCorrect = correct;
+    public void setIsCorrect(int isCorrect) {
+        this.isCorrect = isCorrect;
     }
 }

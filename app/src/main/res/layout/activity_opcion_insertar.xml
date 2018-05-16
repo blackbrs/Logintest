@@ -29,9 +29,10 @@
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_below="@+id/SpinnerAreaOpcion"
-        android:background="@drawable/borde_redondo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="13dp"
+        android:background="@drawable/borde_redondo"
+        android:onClick="consultarListaPreguntas"
         android:text="Filtrar Pregunta" />
 
     <TextView
@@ -73,33 +74,36 @@
         android:inputType="textPersonName"
         android:textStyle="italic" />
 
-    <RadioButton
-        android:id="@+id/Correcta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/SpinnerPregOpcion"
-        android:layout_below="@+id/editRespuesta"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="30dp"
-        android:text="Correcta"
-        android:textColor="@android:color/background_dark" />
-
-    <RadioButton
-        android:id="@+id/Incorrecta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/Correcta"
-        android:layout_toEndOf="@+id/textView45"
-        android:text="Incorrecta"
-        android:textColor="@android:color/background_dark" />
-
     <Button
         android:id="@+id/Agregar"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_below="@+id/Incorrecta"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp"
         android:background="@drawable/borde_redondo"
+        android:onClick="AsignarRespuesta"
         android:text="Agregar Respuesta" />
+
+    <RadioGroup
+        android:id="@+id/grupoCorrecta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editRespuesta"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp">
+
+        <RadioButton
+            android:id="@+id/Correcta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Correcta" />
+
+        <RadioButton
+            android:id="@+id/Incorrecta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Incorrecta" />
+    </RadioGroup>
 </RelativeLayout>
