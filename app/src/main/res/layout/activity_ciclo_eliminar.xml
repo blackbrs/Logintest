@@ -7,13 +7,14 @@
     tools:context="creator.test.logintest.CicloEliminarActivity">
 
     <TextView
-    android:id="@+id/textView17"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="69dp"
-    android:text="Numero de Ciclo" />
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:text="Numero de Ciclo"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
     android:id="@+id/editNumeroCiclo"
@@ -25,13 +26,14 @@
     android:inputType="textPersonName" />
 
     <TextView
-    android:id="@+id/textView18"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/editNumeroCiclo"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="58dp"
-    android:text="Año Ciclo" />
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editNumeroCiclo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:text="Año Ciclo"
+        android:textColor="@android:color/background_dark" />
 
     <EditText
     android:id="@+id/editAnioCiclo"
