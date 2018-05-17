@@ -42,7 +42,7 @@
         android:layout_below="@+id/textView22"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textView23"
@@ -60,7 +60,7 @@
         android:layout_below="@+id/textView23"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="number" />
 
     <TextView
         android:id="@+id/textView24"

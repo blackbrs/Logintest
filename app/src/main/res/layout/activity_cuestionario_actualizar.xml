@@ -84,8 +84,8 @@
         android:layout_below="@+id/textView37"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:inputType="textPersonName"
-         />
+        android:inputType="numberDecimal"
+        />
 
     <Button
         android:id="@+id/btnActualizarRegistro"
@@ -114,5 +114,5 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="date"
-        android:numeric="integer" />
+        />
 </RelativeLayout>

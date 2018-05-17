@@ -25,7 +25,7 @@
 
         <EditText
             android:id="@+id/editUnidadesValorativa"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="30" />
     </TableRow>
 

@@ -86,7 +86,7 @@
         android:layout_alignStart="@+id/editNombreDocente"
         android:layout_below="@+id/textView10"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="12sp" />
 
 </RelativeLayout>

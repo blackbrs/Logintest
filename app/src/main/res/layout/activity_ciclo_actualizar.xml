@@ -12,7 +12,7 @@
 
         <EditText
             android:id="@+id/editnumeroCiclo"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="7" />
     </TableRow>
     <TableRow>
@@ -23,7 +23,7 @@
 
         <EditText
             android:id="@+id/editaniociclO"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="30" />
     </TableRow>
     <TableRow>

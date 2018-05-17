@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 public class OpcionMenuActivity extends ListActivity {
 
-    String[] menu = {"InsertarRegistro", "EliminarRegistro", "ConsultarRegistro"};
+    String[] menu = {"Insertar Registro", "Eliminar Registro", "Consultar Registro"};
     String[] activities = {"OpcionInsertarActivity", "OpcionEliminarActivity", "OpcionConsultarActivity"};
 
     @Override
