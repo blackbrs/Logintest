@@ -227,6 +227,12 @@ public class ControlBDHelper {
         DBHelper.close();
     }
 
+    public Cursor ConsultarUsuPas(String user, String pass) throws SQLException {
+        Cursor cursor = null;
+        cursor = DBHelper.getReadableDatabase().query("usuario", new String[]{"nomusuario", "clave", "isadmin", "isdocente", "isestudiante"}, "nomusuario='" + user + "'" + " AND clave='" + pass + "'", null, null, null, null);
+        return cursor;
+    }
+
     public Cursor ConsultarUsuPasAdmin(String user, String pass) throws SQLException {
         Cursor cursor = null;
         cursor = DBHelper.getReadableDatabase().query("usuario", new String[]{"nomusuario", "clave", "isadmin", "isdocente", "isestudiante"}, "nomusuario='" + user + "'" + "AND clave='" + pass + "'" + "AND isadmin= 1", null, null, null, null);

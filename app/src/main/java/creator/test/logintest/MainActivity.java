@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
         String usuario = et1.getText().toString();
         String password = et2.getText().toString();
         fila = BDHelper.ConsultarUsuPas(usuario, password);
-        
+
 
         System.out.println(fila.moveToFirst() + "    " + fila.getCount());
         if (!(fila.moveToFirst() )) { //Si la combinacion Usuario - Contraseña no existe, mostrar el toast
