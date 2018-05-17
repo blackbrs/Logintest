@@ -52,7 +52,7 @@ public class EvaluacionActivity extends AppCompatActivity {
                 listaPreguntas.add(pregunta.getString(0));
                 listaTipoPreguntas.add(pregunta.getInt(1));
                 listaPonderacion.add(pregunta.getInt(2));
-                ponderacionTotal+=1;
+                ponderacionTotal+=pregunta.getInt(2);
                 System.out.println("PONDERACION TOTAL:"+ponderacionTotal);
                 Cursor respuesta= helper.db.rawQuery("SELECT descripopc FROM opcion WHERE idpregunta= "+detallesList.get(x).getIdpregunta(),null);
                 while(respuesta.moveToNext()){
@@ -266,7 +266,7 @@ public class EvaluacionActivity extends AppCompatActivity {
             }
             mQuestionNumber++;
         }else{
-            Toast.makeText(this,"Nota del Examen:"+String.valueOf((ponderacionParcial/listaPreguntas.size())*10.0),Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Nota del Examen:"+String.valueOf((ponderacionParcial/ponderacionTotal)*10.00),Toast.LENGTH_LONG).show();
             Intent i = new Intent(this,RealizarExamenActivity.class);
             startActivity(i);
         }
@@ -275,9 +275,10 @@ public class EvaluacionActivity extends AppCompatActivity {
     public void onClick(View view){
         Button answer1 = (Button)  view;
         if (answer1.getText().equals(answer)){
-                ponderacionParcial+=1;
+                ponderacionParcial+=listaPonderacion.get(mQuestionWeight);
             System.out.println("LA PONDERACION ES"+ponderacionParcial);
         }
+        mQuestionWeight++;
         updateQuestion();
     }
 

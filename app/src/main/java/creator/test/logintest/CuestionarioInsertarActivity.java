@@ -29,6 +29,7 @@ public class CuestionarioInsertarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cuestionario_insertar);
+        getSupportActionBar().hide();
         helper = new ControlBDHelper(this);
         ListaOferta = (Spinner) findViewById(R.id.spinnerOferta);
         descricuestinario = (EditText) findViewById(R.id.editDescripcionExamen);
