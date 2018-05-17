@@ -198,6 +198,14 @@ public class ControlBDHelper {
                         "WHERE ofertaAcademica.idciclo = old.idciclo; " +
                         "END;");
 
+                db.execSQL( " CREATE TRIGGER actualizarMateria " +
+                        "AFTER UPDATE OF nombremat ON materia " +
+                        "FOR EACH ROW WHEN new.idmateria = old.idmateria " +
+                        "BEGIN  " +
+                        "UPDATE ofertaAcademica SET descripcion = 'Informacion de la materia fue actualizada' " +
+                        "WHERE ofertaAcademica.idmateria = old.idmateria; " +
+                        "END;");
+
                 db.execSQL("INSERT INTO usuario VALUES('admin','administrador',1,0,0)");
                 db.execSQL("INSERT INTO materia VALUES (NULL,'MAT-115',4,'Matetmaticas 1')");
                 db.execSQL("INSERT INTO materia VALUES (NUll,'MAT-215',4,'Matematicas 2')");
