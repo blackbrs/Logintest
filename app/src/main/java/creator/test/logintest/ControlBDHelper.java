@@ -189,6 +189,15 @@ public class ControlBDHelper {
                         "CONSTRAINT fk_carnet FOREIGN KEY (carnet) REFERENCES estudiante(carnet) ON DELETE RESTRICT,\n" +
                         "CONSTRAINT fk_idcuestionario FOREIGN KEY (idcuestionario) REFERENCES cuestionario(idcuestionario) ON DELETE RESTRICT)");
 
+
+                db.execSQL( " CREATE TRIGGER actualizarCiclo " +
+                        "AFTER UPDATE OF numciclo ON ciclo " +
+                        "FOR EACH ROW WHEN new.idciclo = old.idciclo " +
+                        "BEGIN  " +
+                        "UPDATE ofertaAcademica SET descripcion = 'Informacion de ciclo modificada con anterioridad' " +
+                        "WHERE ofertaAcademica.idciclo = old.idciclo; " +
+                        "END;");
+
                 db.execSQL("INSERT INTO usuario VALUES('admin','administrador',1,0,0)");
                 db.execSQL("INSERT INTO materia VALUES (NULL,'MAT-115',4,'Matetmaticas 1')");
                 db.execSQL("INSERT INTO materia VALUES (NUll,'MAT-215',4,'Matematicas 2')");
