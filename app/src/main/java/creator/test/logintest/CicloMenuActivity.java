@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 public class CicloMenuActivity extends ListActivity {
 
-    String[] menu ={"InsertarRegistro","EliminarRegistro","ConsultarRegistro","ActualizarRegistro"};
+    String[] menu ={"Insertar Registro","Eliminar Registro","Consultar Registro","Actualizar Registro"};
     String[] activities ={"CicloInsertarActivity", "CicloEliminarActivity", "CicloConsultarActivity", "CicloActualizarActivity"};
 
     @Override

@@ -20,6 +20,7 @@ public class OfertaAcademicaConsultaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_oferta_academica_consulta);
         helper = new ControlBDHelper(this);
         Intent i = getIntent();

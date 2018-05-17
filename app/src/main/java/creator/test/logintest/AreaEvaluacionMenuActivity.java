@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 public class AreaEvaluacionMenuActivity extends ListActivity {
     String[] menu = {"Ingresar area de evaluacion", "Eliminar area de evaluacion"};
-    String[] activities = {"AreaEvaluacionInsertarActivity" , "AreadeEvaluacionEliminarActivity"};
+    String[] activities = {"AreaEvaluacionInsertarActivity" , "AreaEvaluacionEliminarActivity"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
