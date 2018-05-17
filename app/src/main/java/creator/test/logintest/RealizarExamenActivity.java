@@ -17,6 +17,7 @@ public class RealizarExamenActivity extends AppCompatActivity implements ListVie
     int id;
     int idcuestionario;
     int idoferta;
+    String user;
     ArrayList<String> listaMateria;
     ArrayList<Materia> MateriasList;
     ArrayList<String> ofertaLista;
@@ -36,7 +37,8 @@ public class RealizarExamenActivity extends AppCompatActivity implements ListVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_realizar_examen);
         helper = new ControlBDHelper(this);
-
+        Intent i = getIntent();
+        user = i.getStringExtra("Usuario");
         comboMateria = (Spinner) findViewById(R.id.materiaConsultar);
         comboOfertas = (Spinner) findViewById(R.id.ofertaConsultar);
         comboCuestionario = (ListView) findViewById(R.id.cuestionarioConsultar);
@@ -200,11 +202,12 @@ public class RealizarExamenActivity extends AppCompatActivity implements ListVie
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         System.out.println("ID CUESTIONARIO");
-        System.out.println(CuestionariosList.get(i).getIdcuestionario());
+        idcuestionario=CuestionariosList.get(i).getIdcuestionario();
             Intent nuevoForm = new Intent(this,EvaluacionActivity.class);
-            nuevoForm.putExtra("id",idcuestionario);
+            nuevoForm.putExtra("idcuestionario",String.valueOf(idcuestionario));
             nuevoForm.putExtra("materia",id);
             nuevoForm.putExtra("idoferta",idoferta);
+            nuevoForm.putExtra("Usuario",user);
             startActivity(nuevoForm);
     }
 }

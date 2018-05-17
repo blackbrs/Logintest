@@ -6,26 +6,53 @@
     android:layout_height="match_parent"
     tools:context="creator.test.logintest.EvaluacionActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:id="@+id/scrollView3">
-
-        <ListView
-            android:id="@+id/examen"
-            android:layout_width="match_parent"
-            android:layout_height="450dp" />
-    </ScrollView>
-
-    <Button
-        android:id="@+id/button7"
+    <TextView
+        android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scrollView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/choice1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="34dp"
-        android:text="Enviar Resultados"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="463dp" />
+        android:onClick="onClick"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/choice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/choice1"
+        android:layout_below="@+id/choice1"
+        android:layout_marginTop="36dp"
+        android:onClick="onClick"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/choice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/choice2"
+        android:layout_below="@+id/choice2"
+        android:layout_marginTop="38dp"
+        android:onClick="onClick"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/choice4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/choice3"
+        android:layout_below="@+id/choice3"
+        android:layout_marginTop="40dp"
+        android:onClick="onClick"
+        android:text="Button" />
 
 </RelativeLayout>
