@@ -26,8 +26,8 @@ public class EvaluacionActivity extends AppCompatActivity {
     ArrayList<Integer> listaPonderacion;
     private TextView mQuestionView;
     private int answerNumber=0;
-    private int ponderacionTotal=0;
-    private int ponderacionParcial=0;
+    private double ponderacionTotal=0;
+    private double ponderacionParcial=0;
     private Button btnRespuesta1;
     private Button btnRespuesta2;
     private Button btnRespuesta3;
@@ -73,69 +73,129 @@ public class EvaluacionActivity extends AppCompatActivity {
             if(listaTipoPreguntas.get(mQuestionNumber)==1){
                 btnRespuesta3.setVisibility(View.VISIBLE);
                 btnRespuesta4.setVisibility(View.VISIBLE);
-                for (int i=1; i <= 4; i++){
+                for (int i=1; i <= 4; i++) {
+                    if (mQuestionNumber == listaPreguntas.size()-1) {
+                        switch (i) {
+                            case 1:
+                                Cursor cursorCorrecta = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta=" + detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='" + listaRespuestas.get(answerNumber) + "'", null);
+                                while (cursorCorrecta.moveToNext()) {
+                                    if (cursorCorrecta.getInt(0) == 1) {
+                                        btnRespuesta1.setText(listaRespuestas.get(answerNumber));
+                                        answer = listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    } else {
+                                        btnRespuesta1.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
 
-                    switch (i){
-                        case 1:
-                            Cursor cursorCorrecta = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+detallesList.get(mQuestionNumber).getIdpregunta()+ " AND descripopc='"+listaRespuestas.get(answerNumber)+"'",null);
-                            while(cursorCorrecta.moveToNext()){
-                                if(cursorCorrecta.getInt(0)==1){
-                                    btnRespuesta1.setText(listaRespuestas.get(answerNumber));
-                                    answer=listaRespuestas.get(answerNumber);
-                                    answerNumber++;
-                                }else{
-                                    btnRespuesta1.setText(listaRespuestas.get(answerNumber));
-                                    answerNumber++;
+                                    }
+                                }
 
+                                break;
+                            case 2:
+                                Cursor cursorCorrecta2 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta=" + detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='" + listaRespuestas.get(answerNumber) + "'", null);
+                                while (cursorCorrecta2.moveToNext()) {
+                                    if (cursorCorrecta2.getInt(0) == 1) {
+                                        btnRespuesta2.setText(listaRespuestas.get(answerNumber));
+                                        answer = listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    } else {
+                                        btnRespuesta2.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
+                                    }
                                 }
-                            }
+                                break;
+                            case 3:
+                                Cursor cursorCorrecta3 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta=" + detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='" + listaRespuestas.get(answerNumber) + "'", null);
+                                while (cursorCorrecta3.moveToNext()) {
+                                    if (cursorCorrecta3.getInt(0) == 1) {
+                                        btnRespuesta3.setText(listaRespuestas.get(answerNumber));
+                                        answer = listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    } else {
+                                        btnRespuesta3.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
+                                    }
+                                }
+                                break;
+                            case 4:
+                                answerNumber--;
+                                Cursor cursorCorrecta4 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta=" + detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='" + listaRespuestas.get(answerNumber) + "'", null);
+                                while (cursorCorrecta4.moveToNext()) {
+                                    if (cursorCorrecta4.getInt(0) == 1) {
+                                        btnRespuesta4.setText(listaRespuestas.get(answerNumber));
+                                        answer = listaRespuestas.get(answerNumber-1);
+                                        answerNumber++;
+                                    } else {
+                                        btnRespuesta4.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
+                                    }
+                                }
+                                break;
+                        }
+                    } else {
+                        switch (i) {
+                            case 1:
+                                Cursor cursorCorrecta = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta=" + detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='" + listaRespuestas.get(answerNumber) + "'", null);
+                                while (cursorCorrecta.moveToNext()) {
+                                    if (cursorCorrecta.getInt(0) == 1) {
+                                        btnRespuesta1.setText(listaRespuestas.get(answerNumber));
+                                        answer = listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    } else {
+                                        btnRespuesta1.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
 
-                            break;
-                        case 2:
-                            Cursor cursorCorrecta2 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='"+listaRespuestas.get(answerNumber)+"'",null);
-                            while(cursorCorrecta2.moveToNext()){
-                                if(cursorCorrecta2.getInt(0)==1){
-                                    btnRespuesta2.setText(listaRespuestas.get(answerNumber));
-                                    answer=listaRespuestas.get(answerNumber);
-                                    answerNumber++;
-                                }else{
-                                    btnRespuesta2.setText(listaRespuestas.get(answerNumber));
-                                    answerNumber++;
+                                    }
                                 }
-                            }
-                            break;
-                        case 3:
-                            Cursor cursorCorrecta3 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='"+listaRespuestas.get(answerNumber)+"'",null);
-                            while(cursorCorrecta3.moveToNext()){
-                                if(cursorCorrecta3.getInt(0)==1){
-                                    btnRespuesta3.setText(listaRespuestas.get(answerNumber));
-                                    answer=listaRespuestas.get(answerNumber);
-                                    answerNumber++;
-                                }else{
-                                    btnRespuesta3.setText(listaRespuestas.get(answerNumber));
-                                    answerNumber++;
+
+                                break;
+                            case 2:
+                                Cursor cursorCorrecta2 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta=" + detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='" + listaRespuestas.get(answerNumber) + "'", null);
+                                while (cursorCorrecta2.moveToNext()) {
+                                    if (cursorCorrecta2.getInt(0) == 1) {
+                                        btnRespuesta2.setText(listaRespuestas.get(answerNumber));
+                                        answer = listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    } else {
+                                        btnRespuesta2.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
+                                    }
                                 }
-                            }
-                            break;
-                        case 4:
-                            Cursor cursorCorrecta4 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='"+listaRespuestas.get(answerNumber)+"'",null);
-                            while(cursorCorrecta4.moveToNext()){
-                                if(cursorCorrecta4.getInt(0)==1){
-                                    btnRespuesta4.setText(listaRespuestas.get(answerNumber));
-                                    answer=listaRespuestas.get(answerNumber);
-                                    answerNumber++;
-                                }else{
-                                    btnRespuesta4.setText(listaRespuestas.get(answerNumber));
-                                    answerNumber++;
+                                break;
+                            case 3:
+                                Cursor cursorCorrecta3 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta=" + detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='" + listaRespuestas.get(answerNumber) + "'", null);
+                                while (cursorCorrecta3.moveToNext()) {
+                                    if (cursorCorrecta3.getInt(0) == 1) {
+                                        btnRespuesta3.setText(listaRespuestas.get(answerNumber));
+                                        answer = listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    } else {
+                                        btnRespuesta3.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
+                                    }
                                 }
-                            }
-                            break;
+                                break;
+                            case 4:
+                                Cursor cursorCorrecta4 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta=" + detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='" + listaRespuestas.get(answerNumber) + "'", null);
+                                while (cursorCorrecta4.moveToNext()) {
+                                    if (cursorCorrecta4.getInt(0) == 1) {
+                                        btnRespuesta4.setText(listaRespuestas.get(answerNumber));
+                                        answer = listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    } else {
+                                        btnRespuesta4.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
+                                    }
+                                }
+                                break;
+                        }
                     }
-                }
-            }else{
+                    }
+            } else{
                 btnRespuesta3.setVisibility(View.INVISIBLE);
                 btnRespuesta4.setVisibility(View.INVISIBLE);
                 for (int i=1; i <= 2; i++){
+                    if(mQuestionNumber == listaPreguntas.size()-1){
                     switch (i){
                         case 1:
                             System.out.println("ESTA EN CASO 1 OPCION VERDADERO");
@@ -154,10 +214,11 @@ public class EvaluacionActivity extends AppCompatActivity {
 
                             break;
                         case 2:
+                            answerNumber--;
                             Cursor cursorCorrecta2 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='"+listaRespuestas.get(answerNumber)+"'",null);
                             while(cursorCorrecta2.moveToNext()){
                                 if(cursorCorrecta2.getInt(0)==1){
-                                    btnRespuesta2.setText(listaRespuestas.get(answerNumber));
+                                    btnRespuesta2.setText(listaRespuestas.get(answerNumber-1));
                                     answer=listaRespuestas.get(answerNumber);
                                     answerNumber++;
                                 }else{
@@ -167,11 +228,44 @@ public class EvaluacionActivity extends AppCompatActivity {
                             }
                             break;
                     }
+                    }else{
+                        switch (i){
+                            case 1:
+                                System.out.println("ESTA EN CASO 1 OPCION VERDADERO");
+                                Cursor cursorCorrecta = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='"+listaRespuestas.get(answerNumber)+"'",null);
+                                while(cursorCorrecta.moveToNext()){
+                                    if(cursorCorrecta.getInt(0)==1){
+                                        btnRespuesta1.setText(listaRespuestas.get(answerNumber));
+                                        answer=listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    }else{
+                                        System.out.println("ESTA EN CASO 2 OPCION FALSO");
+                                        btnRespuesta1.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
+                                    }
+                                }
+
+                                break;
+                            case 2:
+                                Cursor cursorCorrecta2 = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+detallesList.get(mQuestionNumber).getIdpregunta() + " AND descripopc='"+listaRespuestas.get(answerNumber)+"'",null);
+                                while(cursorCorrecta2.moveToNext()){
+                                    if(cursorCorrecta2.getInt(0)==1){
+                                        btnRespuesta2.setText(listaRespuestas.get(answerNumber));
+                                        answer=listaRespuestas.get(answerNumber);
+                                        answerNumber++;
+                                    }else{
+                                        btnRespuesta2.setText(listaRespuestas.get(answerNumber));
+                                        answerNumber++;
+                                    }
+                                }
+                                break;
+                        }
+                    }
                 }
             }
             mQuestionNumber++;
         }else{
-            Toast.makeText(this,"Nota del Examen:"+String.valueOf((ponderacionParcial/ponderacionTotal*1.0)*10),Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Nota del Examen:"+String.valueOf((ponderacionParcial/listaPreguntas.size())*10.0),Toast.LENGTH_LONG).show();
             Intent i = new Intent(this,RealizarExamenActivity.class);
             startActivity(i);
         }
