@@ -35,6 +35,7 @@ public class ConsultaNotasActivity extends AppCompatActivity implements ListView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_consulta_notas);
         helper = new ControlBDHelper(this);
         Intent i = getIntent();

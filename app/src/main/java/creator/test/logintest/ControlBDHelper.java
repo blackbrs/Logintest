@@ -188,7 +188,20 @@ public class ControlBDHelper {
                         "nota FLOAT,"+
                         "CONSTRAINT fk_carnet FOREIGN KEY (carnet) REFERENCES estudiante(carnet) ON DELETE RESTRICT,\n" +
                         "CONSTRAINT fk_idcuestionario FOREIGN KEY (idcuestionario) REFERENCES cuestionario(idcuestionario) ON DELETE RESTRICT)");
+
                 db.execSQL("INSERT INTO usuario VALUES('admin','administrador',1,0,0)");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'MAT-115',4,'Matetmaticas 1')");
+                db.execSQL("INSERT INTO materia VALUES (NUll,'MAT-215',4,'Matematicas 2')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'MAT-315',4,'Matematicas 3')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'MAT-415',4,'Matematicas 4')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'PRN-115',4,'Programacion 1')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'PRN-215',4,'Programacion 2')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'PRN-315',4,'Programacion 3')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'FIR-115',4,'Fisica 1')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'FIR-215',4,'Fisica 2')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'FIR-315',4,'Fisica 3')");
+                db.execSQL("INSERT INTO materia VALUES (NULL,'SYP-115',4,'Sistemas Y Procedimientos')");
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
