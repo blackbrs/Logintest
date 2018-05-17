@@ -14,8 +14,8 @@ import android.widget.ListView;
 
 public class MenuAdminActivity extends ListActivity {
 
-    String[] menu={"Gestionar Docente","Gestionar Alumno","Oferta Academica","Gestionar Ciclo","Gestionar Materia"};
-    String[] activities={"DocenteMenuActivity", "EstudianteMenuActivity","OfertaAcademicaInsertarActivity","CicloMenuActivity","MateriaMenuActivity"};
+    String[] menu={"Gestionar Docente","Gestionar Alumno","Gestionar Ciclo","Gestionar Materia","Oferta Academica"};
+    String[] activities={"DocenteMenuActivity", "EstudianteMenuActivity","CicloMenuActivity","MateriaMenuActivity","OfertaAcademicaInsertarActivity"};
     ControlBDHelper BDHelper;
 
     @Override
