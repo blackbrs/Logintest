@@ -57,6 +57,7 @@ public class ControlBDHelper {
 
 
 
+
     private static class DatabaseHelper extends SQLiteOpenHelper {
         private static final String BASE_DATOS = "appTest.s3db";
         private static final int VERSION = 1;
@@ -184,10 +185,9 @@ public class ControlBDHelper {
                         "idrespuesta INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
                         "idcuestionario INTEGER,\n" +
                         "carnet VARCHAR(7),\n" +
+                        "nota FLOAT,"+
                         "CONSTRAINT fk_carnet FOREIGN KEY (carnet) REFERENCES estudiante(carnet) ON DELETE RESTRICT,\n" +
                         "CONSTRAINT fk_idcuestionario FOREIGN KEY (idcuestionario) REFERENCES cuestionario(idcuestionario) ON DELETE RESTRICT)");
-
-
                 db.execSQL("INSERT INTO usuario VALUES('admin','administrador',1,0,0)");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -289,19 +289,15 @@ public class ControlBDHelper {
         return cursor1;
     }
 
+    public Cursor consultarListaRespuesta(int idcuestionario) {
+        DBHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT carnet,nota FROM respuesta WHERE idcuestionario="+idcuestionario+" AND nota IS NOT NULL",null);
+        return cursor;
+    }
+
     public Cursor consultarListaOfertaMateria(int idmateria) {
         DBHelper.getReadableDatabase();
-        //int auxid=0;
-        //Docente docente = new Docente();
-        //docente.setNomusuario(user);
 
-        /*if (verificarIntegridad(docente, 5)) {
-            Cursor cursorId = db.rawQuery("SELECT iddocente FROM docente WHERE nomusuario='" + docente.getNomusuario() + "'", null);
-            if (cursorId.moveToFirst()) {
-                auxid = cursorId.getInt(0);
-
-            }
-        }*/
         Cursor cursor1 = null;
         cursor1 = db.rawQuery("SELECT idoferta, descripcion FROM ofertaAcademica WHERE idmateria="+idmateria, null);
         return cursor1;

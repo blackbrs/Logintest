@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />        <activity android:name=".SplashActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,7 +63,9 @@
         <activity android:name=".MenuEstudianteActivity" />
         <activity android:name=".EstudianteInscribirActivity" />
         <activity android:name=".RealizarExamenActivity" />
-        <activity android:name=".EvaluacionActivity"></activity>
+        <activity android:name=".EvaluacionActivity" />
+        <activity android:name=".ConsultaNotasActivity" />
+        <activity android:name=".NotasActivity"></activity>
     </application>
 
 </manifest>
