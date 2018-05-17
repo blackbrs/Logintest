@@ -182,10 +182,10 @@ public class ControlBDHelper {
 
                 db.execSQL("CREATE TABLE respuesta(\n" +
                         "idrespuesta INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
-                        "iddetallepreg INTEGER,\n" +
+                        "idcuestionario INTEGER,\n" +
                         "carnet VARCHAR(7),\n" +
                         "CONSTRAINT fk_carnet FOREIGN KEY (carnet) REFERENCES estudiante(carnet) ON DELETE RESTRICT,\n" +
-                        "CONSTRAINT fk_iddetallepreg FOREIGN KEY (iddetallepreg) REFERENCES detallePregunta(iddetallepreg) ON DELETE RESTRICT)");
+                        "CONSTRAINT fk_idcuestionario FOREIGN KEY (idcuestionario) REFERENCES cuestionario(idcuestionario) ON DELETE RESTRICT)");
 
 
                 db.execSQL("INSERT INTO usuario VALUES('admin','administrador',1,0,0)");
