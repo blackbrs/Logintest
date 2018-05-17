@@ -272,7 +272,6 @@ public class EvaluacionActivity extends AppCompatActivity {
         }
     }
 
-
     public void onClick(View view){
         Button answer1 = (Button)  view;
         if (answer1.getText().equals(answer)){
