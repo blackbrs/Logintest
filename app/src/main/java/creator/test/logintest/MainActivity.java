@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
     public EditText et1, et2;
     private Cursor fila;
     public ControlBDHelper BDHelper;
-    TextView tvRegistro;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,75 +27,47 @@ public class MainActivity extends AppCompatActivity implements   View.OnClickLis
         et2 = findViewById(R.id.contra);
     }
 
-    public void ingresar(View v){
+    public void ingresar(View v) {
+
         BDHelper = new ControlBDHelper(this);
         BDHelper.abrir();
-        int isadmin=0;
-        String  usuario = et1.getText().toString();
-        String  password= et2.getText().toString();
-        fila = BDHelper.ConsultarUsuPasAdmin(usuario,password);
-        Cursor admin = BDHelper.db.rawQuery("SELECT isadmin FROM usuario WHERE nomusuario='"+usuario+"'"+"AND clave='"+password+"'",null);
+        String usuario = et1.getText().toString();
+        String password = et2.getText().toString();
+        fila = BDHelper.ConsultarUsuPas(usuario, password);
+        
 
-        if (admin.moveToFirst()){
-            isadmin=admin.getInt(0);
+        System.out.println(fila.moveToFirst() + "    " + fila.getCount());
+        if (!(fila.moveToFirst() )) { //Si la combinacion Usuario - Contraseña no existe, mostrar el toast
 
+            Toast.makeText(getApplicationContext(), "Credenciales incorrectas", Toast.LENGTH_LONG).show();
+            return;
         }
 
-        if(isadmin==1) {
-
-            if (fila.getCount() > 0) {
-                Intent i = new Intent(this,MenuAdminActivity.class);
-                i.putExtra("Usuario",usuario);
-                startActivity(i);
-                et1.setText("");
-                et2.setText("");
-
-            } else {
-                Toast.makeText(getApplicationContext(), "Usuario Incorrecto", Toast.LENGTH_LONG).show();
-            }
-        }
-
-        int isdocente=0;
-        fila = BDHelper.ConsultarUsuPasDocente(usuario,password);
-        Cursor docente = BDHelper.db.rawQuery("SELECT isdocente FROM usuario WHERE nomusuario='"+usuario+"'"+"AND clave='"+password+"'",null);
-
-        if (docente.moveToFirst()){
-            isdocente=docente.getInt(0);
-        }
-
-        if (isdocente==1){
-            if (fila.getCount() > 0){
-            Intent i = new Intent(this, MenuDocenteActivity.class);
-            i.putExtra("Usuario",usuario);
+        if (fila.getInt(2) == 1) { //Si es admin
+            Intent i = new Intent(this, MenuAdminActivity.class);
+            i.putExtra("Usuario", usuario);
             startActivity(i);
             et1.setText("");
             et2.setText("");
-            }else{
-                Toast.makeText(getApplicationContext(), "Usuario Incorrecto", Toast.LENGTH_LONG).show();
-            }
         }
 
-
-        int isestudiante=0;
-        fila = BDHelper.ConsultarUsuPasEstudiante(usuario,password);
-        Cursor estudiante = BDHelper.db.rawQuery("SELECT isestudiante FROM usuario WHERE nomusuario='"+usuario+"'"+"AND clave='"+password+"'",null);
-
-        if (estudiante.moveToFirst()){
-            isestudiante=estudiante.getInt(0);
-        }
-
-        if (isestudiante==1){
-            if (fila.getCount() > 0){
-                Intent i = new Intent(this,MenuEstudianteActivity.class);
-                i.putExtra("Usuario",usuario);
+        if (fila.getInt(3) == 1) { //Si es docente
+                Intent i = new Intent(this, MenuDocenteActivity.class);
+                i.putExtra("Usuario", usuario);
                 startActivity(i);
                 et1.setText("");
                 et2.setText("");
-            }else{
-                Toast.makeText(getApplicationContext(), "Usuario Incorrecto", Toast.LENGTH_LONG).show();
-            }
+        }
+
+        if (fila.getInt(4) == 1) { //Si es estudiante
+            Intent i = new Intent(this, MenuEstudianteActivity.class);
+            i.putExtra("Usuario", usuario);
+            startActivity(i);
+            et1.setText("");
+            et2.setText("");
         }
     }
+
 
 
 
