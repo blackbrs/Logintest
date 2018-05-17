@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 public class OpcionInsertarActivity extends AppCompatActivity {
     int id;
+    int x=0;
     int idpregunta;
     int tipodepregunta;
     String ver;
@@ -164,6 +165,7 @@ public class OpcionInsertarActivity extends AppCompatActivity {
                     idpregunta=PreguntasList.get(postition-1).getIdpregunta();
                     tipodepregunta=PreguntasList.get(postition-1).getTipo();
                     validador.setVisibility(View.VISIBLE);
+                    x=0;
                     if(PreguntasList.get(postition-1).getTipo()==1) {
                         descripcion.setVisibility(View.VISIBLE);
                         btn2.setVisibility(View.VISIBLE);
@@ -206,18 +208,33 @@ public class OpcionInsertarActivity extends AppCompatActivity {
     }
 
     public void AsignarRespuesta(View v){
-        int x=0;
         helper.abrir();
         System.out.println(ver);
-        Cursor cursorauxiliar = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+idpregunta,null);
+     /*   Cursor cursorauxiliar = helper.db.rawQuery("SELECT esCorrecta FROM opcion WHERE idpregunta="+idpregunta,null);
+
         if(cursorauxiliar.moveToNext()){
+            System.out.println(cursorauxiliar.getInt(0));
             if(cursorauxiliar.getInt(0)==1){
                 x++;
             }
-        }
+        }*/
+        System.out.println("INCREMENTA LA X="+ x);
         if (tipodepregunta == 1) {
 
             if (x == 0 && valida == true) {
+                String regInsertados;
+                Opcion opcion = new Opcion();
+                opcion.setIdpregunta(idpregunta);
+                opcion.setDescripcion(descripcion.getText().toString());
+                System.out.println(descripcion.getText().toString());
+                opcion.setIsCorrect(valida);
+                System.out.println("ESTA ES LA CORRECTA");
+                helper.abrir();
+                regInsertados = helper.insertar(opcion);
+                helper.cerrar();
+                Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+                x++;
+            } else if (x!= 0 && valida == false) {
                 String regInsertados;
                 Opcion opcion = new Opcion();
                 opcion.setIdpregunta(idpregunta);
@@ -228,7 +245,7 @@ public class OpcionInsertarActivity extends AppCompatActivity {
                 regInsertados = helper.insertar(opcion);
                 helper.cerrar();
                 Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
-            } else if (x != 0 && valida == false) {
+            }else if(x==0 && valida==false){
                 String regInsertados;
                 Opcion opcion = new Opcion();
                 opcion.setIdpregunta(idpregunta);
@@ -252,6 +269,16 @@ public class OpcionInsertarActivity extends AppCompatActivity {
                 helper.cerrar();
                 Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
             } else if (x != 0 && valida == false) {
+                String regInsertados;
+                Opcion opcion = new Opcion();
+                opcion.setIdpregunta(idpregunta);
+                opcion.setDescripcion(ver);
+                opcion.setIsCorrect(valida);
+                helper.abrir();
+                regInsertados = helper.insertar(opcion);
+                helper.cerrar();
+                Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
+            }else if(x==0 && valida==false){
                 String regInsertados;
                 Opcion opcion = new Opcion();
                 opcion.setIdpregunta(idpregunta);

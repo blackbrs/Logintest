@@ -10,14 +10,14 @@
     <Spinner
         android:id="@+id/materia"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/textView38"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btnVerOferta"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_below="@+id/materia"
         android:layout_centerHorizontal="true"
         android:background="@drawable/borde_redondo"
@@ -27,17 +27,17 @@
     <Spinner
         android:id="@+id/oferta"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_alignStart="@+id/materia"
         android:layout_below="@+id/textView39" />
 
     <Button
         android:id="@+id/btnAsignarPreguntas"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView39"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/textView41"
         android:layout_below="@+id/oferta"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/borde_redondo"
         android:onClick="asignarPreguntas"
         android:text="Agregar preguntas" />
@@ -46,7 +46,7 @@
     <Spinner
         android:id="@+id/cuestionario"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_alignStart="@+id/oferta"
         android:layout_below="@+id/textView40"
         android:layout_marginTop="18dp" />
@@ -54,14 +54,14 @@
     <Spinner
         android:id="@+id/area"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_alignStart="@+id/cuestionario"
         android:layout_below="@+id/textView41" />
 
     <Button
         android:id="@+id/btnFiltrarPreguntas"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_below="@+id/area"
         android:layout_centerHorizontal="true"
         android:background="@drawable/borde_redondo"
@@ -71,9 +71,9 @@
     <Spinner
         android:id="@+id/preguntas"
         android:layout_width="250dp"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_alignStart="@+id/area"
-        android:layout_alignTop="@+id/btnCrearCuestionario" />
+        android:layout_below="@+id/textView42" />
 
     <Button
         android:id="@+id/btnCrearCuestionario"
@@ -127,9 +127,9 @@
         android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnCrearCuestionario"
         android:layout_alignStart="@+id/textView38"
-        android:layout_marginBottom="13dp"
+        android:layout_below="@+id/btnFiltrarPreguntas"
+        android:layout_marginTop="11dp"
         android:text="Preguntas:"
         android:textColor="@android:color/background_dark" />
 
