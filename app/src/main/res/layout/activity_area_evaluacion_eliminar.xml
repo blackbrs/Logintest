@@ -16,16 +16,15 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="111dp"
-        android:text="Area de Evaluacion"
+        android:text="Area de Evaluacion a eliminar:"
         android:textColor="@android:color/background_dark" />
 
     <EditText
         android:id="@+id/editAreaEliminar"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/textView27"
-        android:layout_marginEnd="32dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"

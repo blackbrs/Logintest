@@ -36,6 +36,7 @@ public class EvaluacionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evaluacion);
+        getSupportActionBar().hide();
         helper= new ControlBDHelper(this);
         listaPreguntas = new ArrayList<String>();
         listaRespuestas = new ArrayList<String>();
