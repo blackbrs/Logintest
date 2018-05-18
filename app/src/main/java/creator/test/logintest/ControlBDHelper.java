@@ -831,9 +831,31 @@ public class ControlBDHelper {
     }
 
 
+    public String insertarNull(Respuesta respuesta) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+        // verificar que no exista docente
+            ContentValues docen = new ContentValues();
+            docen.put("carnet", respuesta.getCarnet());
+            docen.put("idcuestionario", respuesta.getIdcuestionario());
+            contador = db.insert("respuesta", null, docen);
+            regInsertados = regInsertados + contador;
+        return regInsertados;
+    }
 
 
-
+    public String insertar(Respuesta respuesta) {
+        String regInsertados = "Registro Insertado Nº= ";
+        long contador = 0;
+        // verificar que no exista docente
+        ContentValues docen = new ContentValues();
+        docen.put("carnet", respuesta.getCarnet());
+        docen.put("idcuestionario", respuesta.getIdcuestionario());
+        docen.put("nota",respuesta.getNota());
+        contador = db.insert("respuesta", null, docen);
+        regInsertados = regInsertados + contador;
+        return regInsertados;
+    }
 
 
 
