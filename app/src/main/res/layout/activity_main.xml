@@ -8,6 +8,7 @@
     android:background="@color/Login"
     tools:context="creator.test.logintest.MainActivity">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="120dp"
