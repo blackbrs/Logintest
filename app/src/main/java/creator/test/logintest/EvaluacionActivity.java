@@ -271,7 +271,6 @@ public class EvaluacionActivity extends AppCompatActivity {
                 respuestaParcial.setIdcuestionario(id);
                 respuestaParcial.setNota(((ponderacionParcial/ponderacionTotal)*10.00));
                 regInsertados = helper.insertar(respuestaParcial);
-                helper.cerrar();
             Toast.makeText(this,"Nota del Examen:"+String.valueOf((ponderacionParcial/ponderacionTotal)*10.00),Toast.LENGTH_LONG).show();
             Intent i = new Intent(this,RealizarExamenActivity.class);
             startActivity(i);
@@ -291,8 +290,6 @@ public class EvaluacionActivity extends AppCompatActivity {
             respuestaParcial.setCarnet(user);
             respuestaParcial.setIdcuestionario(id);
             regInsertados = helper.insertarNull(respuestaParcial);
-            helper.cerrar();
-            Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
         }
         mQuestionNumber++;
         mQuestionWeight++;
