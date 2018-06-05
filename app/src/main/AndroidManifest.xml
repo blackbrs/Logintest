@@ -65,7 +65,12 @@
         <activity android:name=".RealizarExamenActivity" />
         <activity android:name=".EvaluacionActivity" />
         <activity android:name=".ConsultaNotasActivity" />
-        <activity android:name=".NotasActivity"></activity>
+        <activity android:name=".NotasActivity" />
+        <activity android:name=".estudianteWS" />
+        <activity android:name=".EstudianteInsertarWSActivity" />
+        <activity android:name=".EstudianteEliminarWSActivity" />
+        <activity android:name=".EstudianteConsultarWSActivity" />
+        <activity android:name=".EstudianteActualizarWSActivity"></activity>
     </application>
 
 </manifest>
