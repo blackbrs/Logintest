@@ -25,7 +25,8 @@
             android:id="@+id/botonConsultar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Consultar" />
+            android:text="Consultar"
+            android:onClick="consultarWebServices"/>
 
 
     </LinearLayout>

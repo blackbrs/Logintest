@@ -61,7 +61,8 @@
     <TableRow>
 
         <Button
-            android:text="Actualizar" />
+            android:text="Actualizar"
+            android:onClick="actualizarEstu"/>
     </TableRow>
     <TableRow>
 

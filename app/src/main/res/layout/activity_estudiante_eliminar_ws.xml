@@ -26,6 +26,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="80dp"
+        android:onClick="eliminarEstu"
         android:text="Eliminar Estudiante"
         tools:layout_editor_absoluteX="104dp"
         tools:layout_editor_absoluteY="196dp" />
