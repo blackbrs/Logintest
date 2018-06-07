@@ -32,9 +32,14 @@ public class EstudianteEliminarWSActivity extends AppCompatActivity implements R
     }
 
     public void eliminarEstu(View v){
-        String url="https://pa15045pdm.000webhostapp.com/ws_estudiante_eliminar.php?carnet="+editCarnet.getText().toString();
-        jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this,this);
-        request.add(jsonObjectRequest);
+        if(editCarnet.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Debes llenar todos los campos ",Toast.LENGTH_LONG).show();
+        }
+        else {
+            String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_eliminar.php?carnet=" + editCarnet.getText().toString();
+            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+            request.add(jsonObjectRequest);
+        }
 
     }
 
@@ -47,7 +52,7 @@ public class EstudianteEliminarWSActivity extends AppCompatActivity implements R
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(),"No se puedo eliminar: "+error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"No se puedo registrar, asegurate de llenar todos los campos y/o no introducir un usuario ya eliminado", Toast.LENGTH_LONG).show();
 
     }
 

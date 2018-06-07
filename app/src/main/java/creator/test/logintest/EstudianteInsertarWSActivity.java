@@ -46,10 +46,16 @@ public class EstudianteInsertarWSActivity extends AppCompatActivity implements R
     }
 
     public void cargarWebServices(View v){
+
+        if (editNombreestu.getText().toString().isEmpty() || editUser.getText().toString().isEmpty() || editDireccion.getText().toString().isEmpty() ||editCorreo.getText().toString().isEmpty() || editApellido.getText().toString().isEmpty()||editClave.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Debes llenar todos los campos ",Toast.LENGTH_LONG).show();
+        }
+        else{
         String url="http://pa15045pdm.000webhostapp.com/ws_estudiante_insertar.php?carnet="+editUser.getText().toString()+"&nombre="+editNombreestu.getText().toString()+"&apellido="+editApellido.getText().toString()+"&correo="+editCorreo.getText().toString()+"&direccion="+editDireccion.getText().toString()+"&user="+editUser.getText().toString()+"&psw="+editClave.getText().toString();
         url=url.replace(" ","%20");
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this,this);
         request.add(jsonObjectRequest);
+        }
     }
 
     @Override
@@ -67,7 +73,7 @@ public class EstudianteInsertarWSActivity extends AppCompatActivity implements R
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(),"No se puedo registrar: "+error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"No se puedo registrar, asegurate de llenar todos los campos y/o no introducir un usuario ya registrado", Toast.LENGTH_LONG).show();
 
     }
 

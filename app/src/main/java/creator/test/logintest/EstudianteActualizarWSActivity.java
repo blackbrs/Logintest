@@ -51,11 +51,15 @@ public class EstudianteActualizarWSActivity extends AppCompatActivity implements
     }
 
     public void actualizarEstu(View v){
-
-        String url="https://pa15045pdm.000webhostapp.com/ws_estudiante_actualizar.php?carnet="+editCarnetestu.getText().toString()+"&nombre="+editNombreEstu.getText().toString()+"&apellido="+editApellidoEstu.getText().toString()+"&correo="+editCorreoEstu.getText().toString()+"&direccion="+editDireccionEstu.getText().toString();
-        url=url.replace(" ","%20");
-        jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this,this);
-        request.add(jsonObjectRequest);
+        if (editNombreEstu.getText().toString().isEmpty() || editCarnetestu.getText().toString().isEmpty() || editApellidoEstu.getText().toString().isEmpty() || editCorreoEstu.getText().toString().isEmpty()||editDireccionEstu.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Debes llenar todos los campos ",Toast.LENGTH_LONG).show();
+        }
+        else {
+            String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_actualizar.php?carnet=" + editCarnetestu.getText().toString() + "&nombre=" + editNombreEstu.getText().toString() + "&apellido=" + editApellidoEstu.getText().toString() + "&correo=" + editCorreoEstu.getText().toString() + "&direccion=" + editDireccionEstu.getText().toString();
+            url = url.replace(" ", "%20");
+            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+            request.add(jsonObjectRequest);
+        }
 
     }
 
@@ -72,7 +76,7 @@ public class EstudianteActualizarWSActivity extends AppCompatActivity implements
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(),"No se puedo actualizar: "+error.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"No se puedo actualizar, asegurate de llenar todos los campos y/o no introducir un usuario ya eliminado", Toast.LENGTH_LONG).show();
 
     }
 

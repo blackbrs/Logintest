@@ -71,9 +71,14 @@ public class EstudianteConsultarWSActivity extends AppCompatActivity implements 
     }
 
     public void consultarWebServices(View v){
-        String url= "https://pa15045pdm.000webhostapp.com/ws_estudiante_consultar.php?carnet="+editCarnetestu.getText().toString();
-        jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
-        request.add(jsonObjectRequest);
+        if(editCarnetestu.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Debes llenar todos los campos ",Toast.LENGTH_LONG).show();
+        }
+        else {
+            String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_consultar.php?carnet=" + editCarnetestu.getText().toString();
+            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+            request.add(jsonObjectRequest);
+        }
 
     }
 
