@@ -14,7 +14,19 @@
             android:id="@+id/editarUsuario"
             android:inputType="text"
             android:maxLength="7" />
+
+
     </TableRow>
+
+    <TableRow>
+
+        <Button
+            android:id="@+id/bt0"
+            android:onClick="consultarWs"
+            android:paddingTop="10dp"
+            android:text="Consultar" />
+    </TableRow>
+
     <TableRow>
 
         <TextView
@@ -61,6 +73,7 @@
     <TableRow>
 
         <Button
+            android:id="@+id/bt01"
             android:text="Actualizar"
             android:onClick="actualizarEstu"/>
     </TableRow>

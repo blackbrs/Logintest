@@ -47,7 +47,8 @@ public class EstudianteConsultarWSActivity extends AppCompatActivity implements 
         Toast.makeText(getApplicationContext(),"Conexion y Consulta Exitosa",Toast.LENGTH_LONG).show();
         Estudiante e = new Estudiante();
 
-        //JSONArray json=response.optJSONArray("carnet");
+       // JSONArray json=response.optJSONArray("carnet");
+
         JSONObject jsonObject= new JSONObject();
 
             jsonObject=response;
@@ -77,6 +78,7 @@ public class EstudianteConsultarWSActivity extends AppCompatActivity implements 
         else {
             String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_consultar.php?carnet=" + editCarnetestu.getText().toString();
             jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+            System.out.println("RESPONEJSON"+jsonObjectRequest);
             request.add(jsonObjectRequest);
         }
 

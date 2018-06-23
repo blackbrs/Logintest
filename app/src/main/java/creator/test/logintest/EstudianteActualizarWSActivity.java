@@ -3,6 +3,7 @@ package creator.test.logintest;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class EstudianteActualizarWSActivity extends AppCompatActivity implements
     EditText editApellidoEstu;
     EditText editCorreoEstu;
     EditText editDireccionEstu;
+    Button consu;
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -45,9 +47,27 @@ public class EstudianteActualizarWSActivity extends AppCompatActivity implements
         editCorreoEstu = (EditText) findViewById(R.id.editarCorreo);
         editDireccionEstu= (EditText) findViewById(R.id.editarDireccion);
 
+        consu= (Button) findViewById(R.id.bt01);
+
+        consu.setVisibility(View.INVISIBLE);
+
+
         request= Volley.newRequestQueue(getApplicationContext());
 
+    }
 
+    public void consultarWs(View v){
+        consu.setVisibility(View.VISIBLE);
+        if(editCarnetestu.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Debes llenar el campo de busqueda ",Toast.LENGTH_LONG).show();
+        }
+        else{
+            String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_consultar.php?carnet=" + editCarnetestu.getText().toString();
+            jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+            System.out.println("RESPONEJSON"+jsonObjectRequest);
+            request.add(jsonObjectRequest);
+
+        }
     }
 
     public void actualizarEstu(View v){
@@ -65,18 +85,43 @@ public class EstudianteActualizarWSActivity extends AppCompatActivity implements
 
     @Override
     public void onResponse(JSONObject response) {
-        Toast.makeText(getApplicationContext(),"Se ha registrado exitosamente",Toast.LENGTH_LONG).show();
-        editCarnetestu.setText(" ");
-        editDireccionEstu.setText(" ");
-        editCorreoEstu.setText(" ");
-        editApellidoEstu.setText(" ");
-        editNombreEstu.setText(" ");
+
+        JSONObject reu=response;
+        Estudiante e = new Estudiante();
+
+        if(response.optString("resultado")=="1"){
+
+            editCarnetestu.setText("");
+            editDireccionEstu.setText("");
+            editCorreoEstu.setText("");
+            editApellidoEstu.setText("");
+            editNombreEstu.setText("");
+            Toast.makeText(getApplicationContext(),"Se ha actualizado exitosamente",Toast.LENGTH_LONG).show();
+        }
+        else{
+
+            if(response.optString("resultado")=="0"){
+                Toast.makeText(getApplicationContext(),"No se actualizo, posiblemente no exista el estudiante o ha sido eliminado ",Toast.LENGTH_LONG).show();
+            }
+            else{
+                e.setNombreestu(reu.optString("nombreestu"));
+                e.setApellidoestu(reu.optString("apellidoestu"));
+                e.setCorreoestu(reu.optString("correoestu"));
+                e.setDireccionestu(reu.optString("direccionestu"));
+
+                editNombreEstu.setText(e.getNombreestu());
+                editApellidoEstu.setText(e.getApellidoestu());
+                editCorreoEstu.setText(e.getCorreoestu());
+                editDireccionEstu.setText(e.getDireccionestu());
+            }
+        }
+
 
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(),"No se puedo actualizar, asegurate de llenar todos los campos y/o no introducir un usuario ya eliminado", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"No se puedo realizar, asegurate de llenar todos los campos y/o no introducir un usuario ya eliminado", Toast.LENGTH_LONG).show();
 
     }
 

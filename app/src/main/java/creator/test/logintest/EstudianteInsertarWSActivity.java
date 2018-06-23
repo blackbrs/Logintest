@@ -1,6 +1,7 @@
 package creator.test.logintest;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,10 +14,14 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpResponse;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.json.JSONObject;
+
 
 public class EstudianteInsertarWSActivity extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
     EditText editNombreestu;
@@ -76,6 +81,7 @@ public class EstudianteInsertarWSActivity extends AppCompatActivity implements R
         Toast.makeText(getApplicationContext(),"No se puedo registrar, asegurate de llenar todos los campos y/o no introducir un usuario ya registrado", Toast.LENGTH_LONG).show();
 
     }
+
 
 
 
