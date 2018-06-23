@@ -62,7 +62,11 @@ public class EstudianteActualizarWSActivity extends AppCompatActivity implements
             Toast.makeText(getApplicationContext(),"Debes llenar el campo de busqueda ",Toast.LENGTH_LONG).show();
         }
         else{
+            //Por si se quiere realizar local
+            //String url = "http://192.168.43.18/ws_estudiante_consultar.php?carnet=" + editCarnetestu.getText().toString();
+
             String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_consultar.php?carnet=" + editCarnetestu.getText().toString();
+
             jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
             System.out.println("RESPONEJSON"+jsonObjectRequest);
             request.add(jsonObjectRequest);
@@ -75,7 +79,11 @@ public class EstudianteActualizarWSActivity extends AppCompatActivity implements
             Toast.makeText(getApplicationContext(),"Debes llenar todos los campos ",Toast.LENGTH_LONG).show();
         }
         else {
+            //Por si se quiere realizar local
+            // url = "http://192.168.43.18/ws_estudiante_actualizar.php?carnet=" + editCarnetestu.getText().toString() + "&nombre=" + editNombreEstu.getText().toString() + "&apellido=" + editApellidoEstu.getText().toString() + "&correo=" + editCorreoEstu.getText().toString() + "&direccion=" + editDireccionEstu.getText().toString();
+
             String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_actualizar.php?carnet=" + editCarnetestu.getText().toString() + "&nombre=" + editNombreEstu.getText().toString() + "&apellido=" + editApellidoEstu.getText().toString() + "&correo=" + editCorreoEstu.getText().toString() + "&direccion=" + editDireccionEstu.getText().toString();
+
             url = url.replace(" ", "%20");
             jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
             request.add(jsonObjectRequest);

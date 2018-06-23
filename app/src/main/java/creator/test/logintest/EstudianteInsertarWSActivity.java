@@ -56,10 +56,15 @@ public class EstudianteInsertarWSActivity extends AppCompatActivity implements R
             Toast.makeText(getApplicationContext(),"Debes llenar todos los campos ",Toast.LENGTH_LONG).show();
         }
         else{
-        String url="http://pa15045pdm.000webhostapp.com/ws_estudiante_insertar.php?carnet="+editUser.getText().toString()+"&nombre="+editNombreestu.getText().toString()+"&apellido="+editApellido.getText().toString()+"&correo="+editCorreo.getText().toString()+"&direccion="+editDireccion.getText().toString()+"&user="+editUser.getText().toString()+"&psw="+editClave.getText().toString();
-        url=url.replace(" ","%20");
-        jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this,this);
-        request.add(jsonObjectRequest);
+            //Por si se quiere realizar local
+            //String url="http://192.168.43.18/ws_estudiante_insertar.php?carnet="+editUser.getText().toString()+"&nombre="+editNombreestu.getText().toString()+"&apellido="+editApellido.getText().toString()+"&correo="+editCorreo.getText().toString()+"&direccion="+editDireccion.getText().toString()+"&user="+editUser.getText().toString()+"&psw="+editClave.getText().toString();
+
+
+            String url="http://pa15045pdm.000webhostapp.com/ws_estudiante_insertar.php?carnet="+editUser.getText().toString()+"&nombre="+editNombreestu.getText().toString()+"&apellido="+editApellido.getText().toString()+"&correo="+editCorreo.getText().toString()+"&direccion="+editDireccion.getText().toString()+"&user="+editUser.getText().toString()+"&psw="+editClave.getText().toString();
+
+            url=url.replace(" ","%20");
+            jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url,null,this,this);
+            request.add(jsonObjectRequest);
         }
     }
 

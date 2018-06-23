@@ -76,7 +76,11 @@ public class EstudianteConsultarWSActivity extends AppCompatActivity implements 
             Toast.makeText(getApplicationContext(),"Debes llenar todos los campos ",Toast.LENGTH_LONG).show();
         }
         else {
+            //Por si se quiere realizar local
+            //String url = "http://192.168.43.18/ws_estudiante_consultar.php?carnet=" + editCarnetestu.getText().toString();
+
             String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_consultar.php?carnet=" + editCarnetestu.getText().toString();
+
             jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
             System.out.println("RESPONEJSON"+jsonObjectRequest);
             request.add(jsonObjectRequest);

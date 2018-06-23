@@ -36,7 +36,11 @@ public class EstudianteEliminarWSActivity extends AppCompatActivity implements R
             Toast.makeText(getApplicationContext(),"Debes llenar todos los campos ",Toast.LENGTH_LONG).show();
         }
         else {
+            //Por si se quiere realizar local
+            //String url = "http://192.168.43.18/ws_estudiante_eliminar.php?carnet=" + editCarnet.getText().toString();
+
             String url = "https://pa15045pdm.000webhostapp.com/ws_estudiante_eliminar.php?carnet=" + editCarnet.getText().toString();
+
             jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
             request.add(jsonObjectRequest);
         }
