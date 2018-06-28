@@ -197,6 +197,5 @@ public class OpcionConsultarActivity extends AppCompatActivity {
         regInsertados = helper.eliminar(detalle);
         helper.cerrar();
         Toast.makeText(this, regInsertados, Toast.LENGTH_SHORT).show();
-
     }
 }

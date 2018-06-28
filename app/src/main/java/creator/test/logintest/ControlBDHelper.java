@@ -28,7 +28,7 @@ public class ControlBDHelper {
     private static final String[] camposDetallePregunta = new String[]{"idcuestionario", "idpregunta"};
     private static final String[] camposEstudiante = new String[]{"carnet", "nombreestu", "apellidoestu", "correoestu", "direccionestu"};
     private static final String[] camposOfertaAcademica = new String[]{"idmateria", "iddocente", "idciclo", "descripcion"};
-    private static final String[] camposOpcion = new String[]{"idpregunta", "descripopc", "esCorrecta"};
+    private static final String[] camposOpcion = new String[]{"idopcion","idpregunta", "descripopc", "esCorrecta"};
     private static final String[] camposPregunta = new String[]{"idarea", "poderapregunt", "descrippreg", "tipopreg"};
     private static final String[] camposRespuesta = new String[]{"iddetallepreg", "carnet"};
     private final Context context;
@@ -54,7 +54,6 @@ public class ControlBDHelper {
         this.context = ctx;
         DBHelper = new DatabaseHelper(context);
     }
-
 
 
 
@@ -455,6 +454,14 @@ public class ControlBDHelper {
 
 
 
+    public String actualizar(String mensaje, int x, String idPregunta) {
+        String[] id = {String.valueOf(x)};
+        ContentValues cv = new ContentValues();
+        cv.put("idpregunta", Integer.parseInt(idPregunta));
+        cv.put("descripopc", mensaje);
+        DBHelper.getWritableDatabase().update("opcion", cv, "idopcion = ?", id);
+        return "Registro Actualizado Correctamente";
+    }
 
 
 
@@ -1045,10 +1052,21 @@ public class ControlBDHelper {
         return regInsertados;
     }
 
+
+    public int consultarOpcion(String idPregunta, String descripcionOpcion) {
+        Cursor cursor1 = null;
+        System.out.println("SELECT idopcion FROM opcion WHERE idpregunta="+ Integer.parseInt(idPregunta)+" AND descripopc='"+descripcionOpcion+"'");
+        cursor1 = DBHelper.getReadableDatabase().rawQuery("SELECT idopcion FROM opcion WHERE idpregunta="+Integer.parseInt(idPregunta)+" AND descripopc='"+descripcionOpcion+"'", null);
+        int x=0;
+        while(cursor1.moveToNext()){
+            x = cursor1.getInt(0);
+        }
+        return x;
+    }
+
     public String eliminar(Opcion opcion) {
         String regAfectados = "filas afectadas= ";
         int contador = 0;
-
         contador=db.delete("opcion", "idpregunta=" +opcion.getIdpregunta()+" AND descripopc='"+opcion.getDescripcion()+"'" , null);
         regAfectados += contador;
         return regAfectados;

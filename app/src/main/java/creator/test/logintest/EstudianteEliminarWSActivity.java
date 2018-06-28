@@ -27,7 +27,6 @@ public class EstudianteEliminarWSActivity extends AppCompatActivity implements R
         getSupportActionBar().hide();
         setContentView(R.layout.activity_estudiante_eliminar_ws);
         editCarnet = (EditText) findViewById(R.id.editCarne);
-
         request= Volley.newRequestQueue(getApplicationContext());
     }
 
